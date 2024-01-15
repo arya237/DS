@@ -120,6 +120,25 @@ matrixes::matrixes()
     distance[5][4].setinfo(1, "metro_taxi");    distance[4][5].setinfo(1, "metro_taxi");
     distance[4][2].setinfo(7, "metro_taxi");    distance[2][4].setinfo(7, "metro_taxi");
     distance[25][26].setinfo(2, "metro_taxi");  distance[26][25].setinfo(2, "metro_taxi");
+    
+    distance[1][9].setinfo(10, "Bus");  distance[9][1].setinfo(10, "Bus");
+    distance[9][12].setinfo(4, "Bus");  distance[12][9].setinfo(4, "Bus");
+    distance[12][23].setinfo(2, "Bus");  distance[23][12].setinfo(2, "Bus");
+    distance[23][33].setinfo(1, "Bus");  distance[33][23].setinfo(1, "Bus");
+    distance[33][46].setinfo(3, "Bus");  distance[46][33].setinfo(3, "Bus");
+    distance[46][51].setinfo(4, "Bus");  distance[51][46].setinfo(4, "Bus");
+    distance[52][51].setinfo(4, "Bus");  distance[51][52].setinfo(4, "Bus");
+    distance[52][56].setinfo(3, "Bus");  distance[56][52].setinfo(3, "Bus");
+    distance[45][39].setinfo(5, "Bus");  distance[39][45].setinfo(5, "Bus");
+    distance[39][43].setinfo(8, "Bus");  distance[43][39].setinfo(8, "Bus");
+    distance[43][29].setinfo(11, "Bus");  distance[29][43].setinfo(11, "Bus");
+    distance[32][29].setinfo(8, "Bus");  distance[29][32].setinfo(8, "Bus");
+    distance[32][35].setinfo(4, "Bus");  distance[35][32].setinfo(4, "Bus");
+    distance[15][10].setinfo(8, "Bus");  distance[10][15].setinfo(8, "Bus");
+    distance[10][7].setinfo(8, "Bus");  distance[7][10].setinfo(8, "Bus");
+    distance[7][3].setinfo(19, "Bus");  distance[3][7].setinfo(19, "Bus");
+    distance[14][3].setinfo(12, "Bus");  distance[3][14].setinfo(12, "Bus");
+
 }
 
 void matrixes::search_in_map(int i, int j)
