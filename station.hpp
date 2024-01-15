@@ -12,8 +12,11 @@ class station
     string vehicle;
 
     public:
-    station(string, unsigned int);
-    station(){}
+    void setinfo(unsigned int, string);
+    unsigned int getdis();
+    string getvic();
+    station();
+
 };
 
 #endif
