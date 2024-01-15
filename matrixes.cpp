@@ -1,4 +1,7 @@
 #include "matrixes.hpp"
+#include <limits.h>
+#include <string>
+
 using namespace  std;
 
 
@@ -151,19 +154,6 @@ void matrixes::search_in_map(int i, int j)
             break;
         }
     }
-
-    cout << "---->";
-
-    for(auto item:names)
-    {
-        if(item.second == j)
-        {
-            cout << item.first;
-            break;
-        }
-    } 
-
-    cout << '\n';
 }
 
 void matrixes:: print()
@@ -182,4 +172,52 @@ void matrixes:: print()
 
         cout << endl;
     }
+}
+
+int matrixes::minDistance(int dist[], bool sptSet[])
+{
+ 
+    int min = INT_MAX, min_index;
+ 
+    for (int i = 0; i < 59; i++)
+        if (sptSet[i] == false && dist[i] <= min)
+            min = dist[i], min_index = i;
+ 
+    return min_index;
+}
+void matrixes::run()
+{
+    string start, end;
+    getline(cin, start);
+    getline(cin, end);
+
+    find_short_path(names[start], names[end]);
+}
+
+void matrixes::find_short_path(int start, int end)
+{
+    int dist[59]; 
+    bool sptSet[59]; 
+  
+    for (int i = 0; i < 59; i++)
+        dist[i] = INT_MAX, sptSet[i] = false;
+ 
+    
+    dist[start] = 0;
+ 
+    for (int count = 0; count < 58; count++) {
+      
+        int u = minDistance(dist, sptSet);
+ 
+        sptSet[u] = true;
+ 
+        for (int v = 0; v < 59; v++)
+ 
+            if (!sptSet[v] && distance[u][v].getdis()
+                && dist[u] != INT_MAX
+                && dist[u] + distance[u][v].getdis() < dist[v])
+                dist[v] = dist[u] + distance[u][v].getdis();
+    }
+ 
+    cout << dist[end];
 }

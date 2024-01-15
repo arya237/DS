@@ -18,7 +18,10 @@ class matrixes
     public:
     matrixes();
     void print();
-    void search_in_map(int, int); 
+    void search_in_map(int, int);
+    void find_short_path(int start, int end);
+    int minDistance(int dist[], bool sptSet[]); 
+    void run();
 };
 
 #endif
