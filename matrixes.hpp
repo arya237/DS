@@ -25,11 +25,11 @@ class matrixes
 
     public:
     matrixes();
-    void print();
+    void run();
     string search_in_map(int);
     void find_short_path(int start, int end);
-    int minDistance(node dist[], bool sptSet[]); 
-    void run();
+    int minDistance(node dist[], bool sptSet[]);
+    bool is_valid(string start, string end); 
 };
 
 #endif

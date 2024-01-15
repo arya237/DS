@@ -1,7 +1,9 @@
-#include "matrixes.hpp"
 #include <string>
+#include <stdexcept>
 
-using namespace  std;
+#include "matrixes.hpp"
+
+using namespace std;
 
 
 matrixes::matrixes()
@@ -145,7 +147,7 @@ matrixes::matrixes()
 
 string matrixes::search_in_map(int i)
 {
-    for(auto item:names)
+    for(auto item : names)
     {
         if(item.second == i)
         {
@@ -156,21 +158,31 @@ string matrixes::search_in_map(int i)
 
 int matrixes::minDistance(node dist[], bool sptSet[])
 {
- 
     int min = INT_MAX, min_index;
  
     for (int i = 0; i < 59; i++)
+    {
         if (sptSet[i] == false && dist[i].dist <= min)
             min = dist[i].dist, min_index = i;
- 
+    }
+
     return min_index;
 }
+
+
 void matrixes::run()
 {
     string start, end;
     getline(cin, start);
     getline(cin, end);
 
+    while ( !is_valid(start, end) )
+    {
+        getline(cin, start);
+        getline(cin, end);
+    }
+    
+    
     find_short_path(names[start], names[end]);
 }
 
@@ -186,16 +198,15 @@ void matrixes::find_short_path(int start, int end)
     shortest[start].dist = 0;
     shortest[start].direction = search_in_map(start);
  
-    for (int count = 0; count < 58; count++) {
-      
+    for (int count = 0; count < 58; count++) 
+    {  
         int u = minDistance(shortest, sptSet);
  
         sptSet[u] = true;
  
         for (int v = 0; v < 59; v++)
  
-            if (!sptSet[v] && distance[u][v].getdis()
-                && shortest[u].dist != INT_MAX
+            if (!sptSet[v] && distance[u][v].getdis()&& shortest[u].dist != INT_MAX
                 && shortest[u].dist + distance[u][v].getdis() < shortest[v].dist)
                 {
                     shortest[v].dist = shortest[u].dist + distance[u][v].getdis();
@@ -205,4 +216,24 @@ void matrixes::find_short_path(int start, int end)
  
     cout << shortest[end].dist << '\n';
     cout << shortest[end].direction;
+}
+
+bool matrixes::is_valid(string start, string end)
+{   
+    try
+    {
+        if( !(names.count(start) && names.count(end)) )
+        {
+            throw invalid_argument("start or end is invalid!");
+        }
+
+        else return 1;
+    }
+
+    catch(const std::exception& e)
+    {
+        std::cerr << e.what() << '\n';
+        return 0;
+    }
+    
 }
