@@ -154,6 +154,8 @@ string matrixes::search_in_map(int i)
             return item.first;
         }
     }
+
+    return NULL;
 }
 
 int matrixes::minDistance(node dist[], bool sptSet[])
@@ -196,7 +198,7 @@ void matrixes::find_short_path(int start, int end)
  
     
     shortest[start].dist = 0;
-    shortest[start].direction = search_in_map(start);
+    shortest[start].direction.push_back(search_in_map(start));
  
     for (int count = 0; count < 58; count++) 
     {  
@@ -210,12 +212,19 @@ void matrixes::find_short_path(int start, int end)
                 && shortest[u].dist + distance[u][v].getdis() < shortest[v].dist)
                 {
                     shortest[v].dist = shortest[u].dist + distance[u][v].getdis();
-                    shortest[v].direction = shortest[u].direction + " -> " + search_in_map(v);
+                    shortest[v].direction =  shortest[u].direction;  shortest[v].direction.push_back(search_in_map(v));
                 }
     }
  
     cout << shortest[end].dist << '\n';
-    cout << shortest[end].direction;
+    int size = shortest[end].direction.size();
+
+    for(int i = 0; i < size - 1; i++)
+    {
+        cout << shortest[end].direction[i] << " -> ";
+    }
+
+    cout << shortest[end].direction[size - 1];
 }
 
 bool matrixes::is_valid(string start, string end)

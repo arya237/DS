@@ -4,6 +4,7 @@
 #include <iostream>
 #include <map>
 #include <limits.h>
+#include <vector>
 
 
 #include "station.hpp"
@@ -14,7 +15,7 @@ using namespace std;
 struct node
 {
     int dist = INT_MAX;
-    string direction = "";
+    vector <string> direction;
 };
 
 class matrixes
