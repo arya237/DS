@@ -2,6 +2,7 @@
 #include <stdexcept>
 
 #include "matrixes.hpp"
+#include <fstream>
 
 using namespace std;
 
@@ -66,7 +67,35 @@ matrixes::matrixes()
     names_of_station.insert({"Kashani", 55});  
     names_of_station.insert({"Bimeh", 56});
     names_of_station.insert({"Kouhsar", 57});
-    names_of_station.insert({"Chaharbagh", 58}); 
+    names_of_station.insert({"Chaharbagh", 58});
+
+
+    // fstream myfile;
+    // myfile.open("l1.txt");
+    // string s;
+
+    // while(getline(myfile, s))
+    // {   
+    //     metro_L1.insert(s);
+    // }
+
+    // myfile.open("l3.txt");
+    // string s;
+
+    // while(getline(myfile, s))
+    // {   
+    //     metro_L3.insert(s);
+    // }
+
+    // myfile.open("l1.txt");
+    // string s;
+
+    // while(getline(myfile, s))
+    // {   
+    //     metro_L1.insert(s);
+    // }
+
+
 
     pathes[0][10].setinfo(10, "Metro_Taxi_L6");  pathes[10][0].setinfo(10, "Metro_Taxi_L6");
     pathes[10][11].setinfo(6, "Metro_Taxi_L6");  pathes[11][10].setinfo(6, "Metro_Taxi_L6");  
@@ -174,18 +203,20 @@ int matrixes::minDistance(node dist[], bool sptSet[])
 
 void matrixes::run()
 {
-    string start, end;
-    getline(cin, start);
-    getline(cin, end);
+    // string start, end;
+    // getline(cin, start);
+    // getline(cin, end);
 
-    while ( !is_valid(start, end) )
-    {
-        getline(cin, start);
-        getline(cin, end);
-    }
+    // while ( !is_valid(start, end) )
+    // {
+    //     getline(cin, start);
+    //     getline(cin, end);
+    // }
     
     
-    find_short_path(names_of_station[start], names_of_station[end]);
+    //find_short_path(names_of_station[start], names_of_station[end]);
+
+    cout << metro_L1.size();
 }
 
 void matrixes::find_short_path(int start, int end)
@@ -257,4 +288,10 @@ bool matrixes::is_valid(string start, string end)
         return 0;
     }
     
+}
+
+void matrixes::print()
+{
+    for(auto i : metro_L1)
+    cout << i << endl;
 }

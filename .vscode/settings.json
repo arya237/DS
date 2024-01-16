@@ -1,6 +1,7 @@
 {
   "files.associations": {
     "xlocale": "cpp",
-    "iostream": "cpp"
+    "iostream": "cpp",
+    "iosfwd": "cpp"
   }
 }
