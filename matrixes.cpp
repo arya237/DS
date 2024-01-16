@@ -111,7 +111,7 @@ matrixes::matrixes()
     distance[24][25].setinfo(2, "Metro_Taxi_L1");  distance[25][24].setinfo(2, "Metro_Taxi_L1");
     distance[24][23].setinfo(1, "Metro_Taxi_L1");  distance[23][24].setinfo(1, "Metro_Taxi_L1");
     distance[22][23].setinfo(4, "Metro_Taxi_L1");  distance[23][22].setinfo(4, "Metro_Taxi_L1");
-    distance[21][22].setinfo(6, "Metro_Taxi");  distance[22][21].setinfo(6, "Metro_Taxi_L1");
+    distance[21][22].setinfo(6, "Metro_Taxi_L1");  distance[22][21].setinfo(6, "Metro_Taxi_L1");
     distance[20][21].setinfo(3, "Metro_Taxi_L1");  distance[21][20].setinfo(3, "Metro_Taxi_L1");
     distance[20][19].setinfo(9, "Metro_Taxi_L1");  distance[19][20].setinfo(9, "Metro_Taxi_L1");
     distance[19][18].setinfo(13, "Metro_Taxi_L1"); distance[18][19].setinfo(13, "Metro_Taxi_L1");
@@ -198,7 +198,7 @@ void matrixes::find_short_path(int start, int end)
  
     
     shortest[start].dist = 0;
-    shortest[start].direction.push_back(search_in_map(start));
+    shortest[start].directions.push_back(search_in_map(start));
  
     for (int count = 0; count < 58; count++) 
     {  
@@ -212,19 +212,38 @@ void matrixes::find_short_path(int start, int end)
                 && shortest[u].dist + distance[u][v].getdis() < shortest[v].dist)
                 {
                     shortest[v].dist = shortest[u].dist + distance[u][v].getdis();
-                    shortest[v].direction =  shortest[u].direction;  shortest[v].direction.push_back(search_in_map(v));
+                    shortest[v].directions =  shortest[u].directions;  shortest[v].directions.push_back(search_in_map(v));
+                    shortest[v].type = shortest[u].type; shortest[v].type.push_back(distance[v][u].getvic());
                 }
     }
  
     cout << shortest[end].dist << '\n';
-    int size = shortest[end].direction.size();
+    int size = shortest[end].directions.size();
+    
+    int j = 0;
+    // cout << shortest[end].type[0] << ": ";
 
-    for(int i = 0; i < size - 1; i++)
+    cout << shortest[end].directions[0];
+
+    for(int i = 1; i < size; i++)
     {
-        cout << shortest[end].direction[i] << " -> ";
+        
+        cout << " -> " << shortest[end].directions[i];
+
+        if(shortest[end].type[j + 1] != shortest[end].type[j])
+        {
+            cout << ": " << shortest[end].type[j] << endl;
+        }
+
+        j++;
     }
 
-    cout << shortest[end].direction[size - 1];
+    //cout << shortest[end].directions[size - 1] << endl;
+
+    // for(int i = 0; i < size - 1; i++)
+    // {   
+    //     cout << shortest[end].type[i] << " -> ";
+    // }
 }
 
 bool matrixes::is_valid(string start, string end)

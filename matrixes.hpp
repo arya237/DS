@@ -12,10 +12,13 @@
 
 using namespace std;
 
+
 struct node
 {
     int dist = INT_MAX;
-    vector <string> direction;
+    vector <string> directions;
+    vector <string> type;
+
 };
 
 class matrixes
