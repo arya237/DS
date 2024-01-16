@@ -70,30 +70,57 @@ matrixes::matrixes()
     names_of_station.insert({"Chaharbagh", 58});
 
 
-    // fstream myfile;
-    // myfile.open("l1.txt");
-    // string s;
+    fstream myfile;
+    myfile.open("l1.txt");
+    string s;
 
-    // while(getline(myfile, s))
-    // {   
-    //     metro_L1.insert(s);
-    // }
+    while(getline(myfile, s))
+    {   
+        metro_L1.insert(s);
+    }
 
-    // myfile.open("l3.txt");
-    // string s;
+    myfile.open("l3.txt");
 
-    // while(getline(myfile, s))
-    // {   
-    //     metro_L3.insert(s);
-    // }
+    while(getline(myfile, s))
+    {   
+        metro_L3.insert(s);
+    }
 
-    // myfile.open("l1.txt");
-    // string s;
+    myfile.open("l4.txt");
 
-    // while(getline(myfile, s))
-    // {   
-    //     metro_L1.insert(s);
-    // }
+    while(getline(myfile, s))
+    {   
+        metro_L4.insert(s);
+    }
+   
+    myfile.open("l6.txt");
+     while(getline(myfile, s))
+    {   
+        metro_L6.insert(s);
+    }
+
+     myfile.open("B1.txt");
+
+    while(getline(myfile, s))
+    {   
+        Bus_1.insert(s);
+    }
+
+       myfile.open("B2.txt");
+
+    while(getline(myfile, s))
+    {   
+        Bus_2.insert(s);
+    }
+
+       myfile.open("B3.txt");
+
+    while(getline(myfile, s))
+    {   
+        Bus_3.insert(s);
+    }
+   
+
 
 
 
