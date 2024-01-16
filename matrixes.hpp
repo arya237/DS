@@ -15,17 +15,17 @@ using namespace std;
 
 struct node
 {
-    int dist = INT_MAX;
+    int distance = INT_MAX;
     vector <string> directions;
-    vector <string> type;
+    vector <string> type_of_vehicle;
 
 };
 
 class matrixes
 {
     private:
-    station distance [59][59];
-    map < const string, int > names;
+    station pathes [59][59];
+    map < const string, int > names_of_station;
 
     public:
     matrixes();

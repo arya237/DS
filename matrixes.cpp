@@ -8,146 +8,146 @@ using namespace std;
 
 matrixes::matrixes()
 {
-    names.insert({"Haram-e Hazrat-e Abdolazim", 0});  
-    names.insert({"Tehran Pars", 1});
-    names.insert({"Shahid Kolahdouz", 2});
-    names.insert({"Gha'em", 3});
-    names.insert({"Nirou Havaei", 4});
-    names.insert({"Nabard", 5});
-    names.insert({"Aghdasiyeh", 6});
-    names.insert({"Pirouzi", 7});
-    names.insert({"Shahid Zeynoddin", 8});
-    names.insert({"Ebn-e Sina", 9});
-    names.insert({"Shahid Rezaei", 10});
-    names.insert({"Meydan-e Shohada", 11});
-    names.insert({"Emam Hossein", 12});
-    names.insert({"Shahid Ghodousi", 13});
-    names.insert({"Khajeh Abdollah-e Ansari", 14});
-    names.insert({"Payaneh Javanmard", 15});
-    names.insert({"Darvazeh Shemiran", 16});
-    names.insert({"Sohrevardi", 17});
-    names.insert({"Kahrizak", 18});
-    names.insert({"Shahr-e Rey", 19});
-    names.insert({"Jonoub Terminal", 20});
-    names.insert({"Shoush", 21});
-    names.insert({"Panzdah-e Khordad", 22});
-    names.insert({"Darvazeh Dowlat", 23});
-    names.insert({"Taleghani", 24});
-    names.insert({"Haftom-e Tir", 25});
-    names.insert({"Shahid Mofatteh", 26});
-    names.insert({"Shahid Beheshti", 27});
-    names.insert({"Shahid Haghani", 28});
-    names.insert({"Mirdamad", 29});
-    names.insert({"Gholhak", 30});
-    names.insert({"Gheytariyeh", 31});
-    names.insert({"Tajrish", 32});
-    names.insert({"Ferdowsi", 33});
-    names.insert({"Merza-ye Shirazi", 34});
-    names.insert({"Shahid Sadr", 35});
-    names.insert({"Azadegan", 36});
-    names.insert({"Zamzam", 37});
-    names.insert({"Javadiyeh", 38});
-    names.insert({"Rahahan", 39});
-    names.insert({"Mahdiyeh", 40});
-    names.insert({"Moniriyeh", 41});
-    names.insert({"Teatr-e Shahr", 42});   
-    names.insert({"Meydan-e Hazrat-e ValiAsr", 43});
-    names.insert({"Meydan-e Jahad", 44});  
-    names.insert({"Shahrak-e Shari'ati", 45}); 
-    names.insert({"Meydan-e Enghelab-e Eslami", 46});  
-    names.insert({"Touhid", 47});
-    names.insert({"Boostan-e laleh", 48});     
-    names.insert({"Shademan", 49});  
-    names.insert({"Yadegar-e Emam", 50});  
-    names.insert({"Ostad Mo'in", 51});  
-    names.insert({"Meydan-e Azadi", 52});  
-    names.insert({"Eram-e Sabz", 53});  
-    names.insert({"Allameh Jafari", 54});  
-    names.insert({"Kashani", 55});  
-    names.insert({"Bimeh", 56});
-    names.insert({"Kouhsar", 57});
-    names.insert({"Chaharbagh", 58}); 
+    names_of_station.insert({"Haram-e Hazrat-e Abdolazim", 0});  
+    names_of_station.insert({"Tehran Pars", 1});
+    names_of_station.insert({"Shahid Kolahdouz", 2});
+    names_of_station.insert({"Gha'em", 3});
+    names_of_station.insert({"Nirou Havaei", 4});
+    names_of_station.insert({"Nabard", 5});
+    names_of_station.insert({"Aghdasiyeh", 6});
+    names_of_station.insert({"Pirouzi", 7});
+    names_of_station.insert({"Shahid Zeynoddin", 8});
+    names_of_station.insert({"Ebn-e Sina", 9});
+    names_of_station.insert({"Shahid Rezaei", 10});
+    names_of_station.insert({"Meydan-e Shohada", 11});
+    names_of_station.insert({"Emam Hossein", 12});
+    names_of_station.insert({"Shahid Ghodousi", 13});
+    names_of_station.insert({"Khajeh Abdollah-e Ansari", 14});
+    names_of_station.insert({"Payaneh Javanmard", 15});
+    names_of_station.insert({"Darvazeh Shemiran", 16});
+    names_of_station.insert({"Sohrevardi", 17});
+    names_of_station.insert({"Kahrizak", 18});
+    names_of_station.insert({"Shahr-e Rey", 19});
+    names_of_station.insert({"Jonoub Terminal", 20});
+    names_of_station.insert({"Shoush", 21});
+    names_of_station.insert({"Panzdah-e Khordad", 22});
+    names_of_station.insert({"Darvazeh Dowlat", 23});
+    names_of_station.insert({"Taleghani", 24});
+    names_of_station.insert({"Haftom-e Tir", 25});
+    names_of_station.insert({"Shahid Mofatteh", 26});
+    names_of_station.insert({"Shahid Beheshti", 27});
+    names_of_station.insert({"Shahid Haghani", 28});
+    names_of_station.insert({"Mirdamad", 29});
+    names_of_station.insert({"Gholhak", 30});
+    names_of_station.insert({"Gheytariyeh", 31});
+    names_of_station.insert({"Tajrish", 32});
+    names_of_station.insert({"Ferdowsi", 33});
+    names_of_station.insert({"Merza-ye Shirazi", 34});
+    names_of_station.insert({"Shahid Sadr", 35});
+    names_of_station.insert({"Azadegan", 36});
+    names_of_station.insert({"Zamzam", 37});
+    names_of_station.insert({"Javadiyeh", 38});
+    names_of_station.insert({"Rahahan", 39});
+    names_of_station.insert({"Mahdiyeh", 40});
+    names_of_station.insert({"Moniriyeh", 41});
+    names_of_station.insert({"Teatr-e Shahr", 42});   
+    names_of_station.insert({"Meydan-e Hazrat-e ValiAsr", 43});
+    names_of_station.insert({"Meydan-e Jahad", 44});  
+    names_of_station.insert({"Shahrak-e Shari'ati", 45}); 
+    names_of_station.insert({"Meydan-e Enghelab-e Eslami", 46});  
+    names_of_station.insert({"Touhid", 47});
+    names_of_station.insert({"Boostan-e laleh", 48});     
+    names_of_station.insert({"Shademan", 49});  
+    names_of_station.insert({"Yadegar-e Emam", 50});  
+    names_of_station.insert({"Ostad Mo'in", 51});  
+    names_of_station.insert({"Meydan-e Azadi", 52});  
+    names_of_station.insert({"Eram-e Sabz", 53});  
+    names_of_station.insert({"Allameh Jafari", 54});  
+    names_of_station.insert({"Kashani", 55});  
+    names_of_station.insert({"Bimeh", 56});
+    names_of_station.insert({"Kouhsar", 57});
+    names_of_station.insert({"Chaharbagh", 58}); 
 
-    distance[0][10].setinfo(10, "Metro_Taxi_L6");  distance[10][0].setinfo(10, "Metro_Taxi_L6");
-    distance[10][11].setinfo(6, "Metro_Taxi_L6");  distance[11][10].setinfo(6, "Metro_Taxi_L6");  
-    distance[11][12].setinfo(2, "Metro_Taxi_L6");  distance[12][11].setinfo(2, "Metro_Taxi_L6");
-    distance[11][16].setinfo(2, "Metro_Taxi_L4");  distance[16][11].setinfo(2, "Metro_Taxi_L4");
-    distance[12][25].setinfo(5, "Metro_Taxi_L6");  distance[25][12].setinfo(5, "Metro_Taxi_L6");
-    distance[25][43].setinfo(2, "Metro_Taxi_L6");  distance[43][25].setinfo(2, "Metro_Taxi_L6");
-    distance[43][48].setinfo(2, "Metro_Taxi_L6");  distance[48][43].setinfo(2, "Metro_Taxi_L6");
-    distance[48][50].setinfo(8, "Metro_Taxi_L6");  distance[50][48].setinfo(8, "Metro_Taxi_L6");
-    distance[50][55].setinfo(6, "Metro_Taxi_L6");  distance[55][50].setinfo(6, "Metro_Taxi_L6");
-    distance[55][57].setinfo(10, "Metro_Taxi_L6"); distance[57][55].setinfo(10, "Metro_Taxi_L6");
-    distance[55][58].setinfo(5, "Metro_Taxi_L4");  distance[58][55].setinfo(5, "Metro_Taxi_L4");
-    distance[55][54].setinfo(4, "Metro_Taxi_L4");  distance[54][55].setinfo(4, "Metro_Taxi_L4");
-    distance[54][53].setinfo(5, "Metro_Taxi_L4");  distance[53][54].setinfo(5, "Metro_Taxi_L4");
-    distance[53][52].setinfo(6, "Metro_Taxi_L4");  distance[52][53].setinfo(6, "Metro_Taxi_L4");
-    distance[52][51].setinfo(2, "Metro_Taxi_L4");  distance[51][52].setinfo(2, "Metro_Taxi_L4");
-    distance[51][49].setinfo(4, "Metro_Taxi_L4");  distance[49][51].setinfo(4, "Metro_Taxi_L4");
-    distance[49][47].setinfo(2, "Metro_Taxi_L4");  distance[47][49].setinfo(2, "Metro_Taxi_L4");
-    distance[47][46].setinfo(1, "Metro_Taxi_L4");  distance[46][47].setinfo(1, "Metro_Taxi_L4");
-    distance[46][42].setinfo(3, "Metro_Taxi_L4");  distance[42][46].setinfo(3, "Metro_Taxi_L4");
-    distance[42][41].setinfo(4, "Metro_Taxi_L3");  distance[41][42].setinfo(4, "Metro_Taxi_L3");
-    distance[41][40].setinfo(3, "Metro_Taxi_L3");  distance[40][41].setinfo(3, "Metro_Taxi_L3");
-    distance[40][39].setinfo(1, "Metro_Taxi_L3");  distance[39][40].setinfo(1, "Metro_Taxi_L3");
-    distance[39][38].setinfo(2, "Metro_Taxi_L3");  distance[38][39].setinfo(2, "Metro_Taxi_L3");
-    distance[38][37].setinfo(2, "Metro_Taxi_L3");  distance[37][38].setinfo(2, "Metro_Taxi_L3");
-    distance[37][36].setinfo(8, "Metro_Taxi_L3");  distance[36][37].setinfo(8, "Metro_Taxi_L3");
-    distance[42][43].setinfo(2, "Metro_Taxi_L3");  distance[43][42].setinfo(2, "Metro_Taxi_L3");
-    distance[43][44].setinfo(1, "Metro_Taxi_L3");  distance[44][43].setinfo(1, "Metro_Taxi_L3");
-    distance[44][34].setinfo(2, "Metro_Taxi_L3");  distance[34][44].setinfo(2, "Metro_Taxi_L3");
-    distance[34][27].setinfo(3, "Metro_Taxi_L3");  distance[27][34].setinfo(3, "Metro_Taxi_L3");
-    distance[27][28].setinfo(7, "Metro_Taxi_L1");  distance[28][27].setinfo(7, "Metro_Taxi_L1");
-    distance[28][29].setinfo(5, "Metro_Taxi_L1");  distance[29][28].setinfo(5, "Metro_Taxi_L1");
-    distance[29][30].setinfo(4, "Metro_Taxi_L1");  distance[30][29].setinfo(4, "Metro_Taxi_L1");
-    distance[30][31].setinfo(3, "Metro_Taxi_L1");  distance[31][30].setinfo(3, "Metro_Taxi_L1");
-    distance[31][32].setinfo(2, "Metro_Taxi_L1");  distance[32][31].setinfo(2, "Metro_Taxi_L1");
-    distance[27][17].setinfo(1, "Metro_Taxi_L3");  distance[17][27].setinfo(1, "Metro_Taxi_L3");
-    distance[17][13].setinfo(2, "Metro_Taxi_L3");  distance[13][17].setinfo(2, "Metro_Taxi_L3");
-    distance[13][8].setinfo(5, "Metro_Taxi_L3");   distance[8][13].setinfo(5, "Metro_Taxi_L3");
-    distance[8][6].setinfo(10, "Metro_Taxi_L3");   distance[6][8].setinfo(10, "Metro_Taxi_L3");
-    distance[3][6].setinfo(4, "Metro_Taxi_L3");    distance[6][3].setinfo(4, "Metro_Taxi_L3");
-    distance[26][27].setinfo(2, "Metro_Taxi_L1");  distance[27][26].setinfo(2, "Metro_Taxi_L1");
-    distance[24][25].setinfo(2, "Metro_Taxi_L1");  distance[25][24].setinfo(2, "Metro_Taxi_L1");
-    distance[24][23].setinfo(1, "Metro_Taxi_L1");  distance[23][24].setinfo(1, "Metro_Taxi_L1");
-    distance[22][23].setinfo(4, "Metro_Taxi_L1");  distance[23][22].setinfo(4, "Metro_Taxi_L1");
-    distance[21][22].setinfo(6, "Metro_Taxi_L1");  distance[22][21].setinfo(6, "Metro_Taxi_L1");
-    distance[20][21].setinfo(3, "Metro_Taxi_L1");  distance[21][20].setinfo(3, "Metro_Taxi_L1");
-    distance[20][19].setinfo(9, "Metro_Taxi_L1");  distance[19][20].setinfo(9, "Metro_Taxi_L1");
-    distance[19][18].setinfo(13, "Metro_Taxi_L1"); distance[18][19].setinfo(13, "Metro_Taxi_L1");
-    distance[33][42].setinfo(1, "Metro_Taxi_L4");  distance[42][33].setinfo(1, "Metro_Taxi_L4");
-    distance[33][23].setinfo(1, "Metro_Taxi_L4");  distance[23][33].setinfo(1, "Metro_Taxi_L4");
-    distance[16][23].setinfo(2, "Metro_Taxi_L4");  distance[23][16].setinfo(2, "Metro_Taxi_L4");
-    distance[9][11].setinfo(1, "Metro_Taxi_L4");   distance[11][9].setinfo(1, "Metro_Taxi_L4");
-    distance[7][9].setinfo(3, "Metro_Taxi_L4");    distance[9][7].setinfo(3, "Metro_Taxi_L4");
-    distance[7][5].setinfo(1, "Metro_Taxi_L4");    distance[5][7].setinfo(1, "Metro_Taxi_L4");
-    distance[5][4].setinfo(1, "Metro_Taxi_L4");    distance[4][5].setinfo(1, "Metro_Taxi_L4");
-    distance[4][2].setinfo(7, "Metro_Taxi_L4");    distance[2][4].setinfo(7, "Metro_Taxi_L4");
-    distance[25][26].setinfo(2, "Metro_Taxi_L1");  distance[26][25].setinfo(2, "Metro_Taxi_L1");
+    pathes[0][10].setinfo(10, "Metro_Taxi_L6");  pathes[10][0].setinfo(10, "Metro_Taxi_L6");
+    pathes[10][11].setinfo(6, "Metro_Taxi_L6");  pathes[11][10].setinfo(6, "Metro_Taxi_L6");  
+    pathes[11][12].setinfo(2, "Metro_Taxi_L6");  pathes[12][11].setinfo(2, "Metro_Taxi_L6");
+    pathes[11][16].setinfo(2, "Metro_Taxi_L4");  pathes[16][11].setinfo(2, "Metro_Taxi_L4");
+    pathes[12][25].setinfo(5, "Metro_Taxi_L6");  pathes[25][12].setinfo(5, "Metro_Taxi_L6");
+    pathes[25][43].setinfo(2, "Metro_Taxi_L6");  pathes[43][25].setinfo(2, "Metro_Taxi_L6");
+    pathes[43][48].setinfo(2, "Metro_Taxi_L6");  pathes[48][43].setinfo(2, "Metro_Taxi_L6");
+    pathes[48][50].setinfo(8, "Metro_Taxi_L6");  pathes[50][48].setinfo(8, "Metro_Taxi_L6");
+    pathes[50][55].setinfo(6, "Metro_Taxi_L6");  pathes[55][50].setinfo(6, "Metro_Taxi_L6");
+    pathes[55][57].setinfo(10, "Metro_Taxi_L6"); pathes[57][55].setinfo(10, "Metro_Taxi_L6");
+    pathes[55][58].setinfo(5, "Metro_Taxi_L4");  pathes[58][55].setinfo(5, "Metro_Taxi_L4");
+    pathes[55][54].setinfo(4, "Metro_Taxi_L4");  pathes[54][55].setinfo(4, "Metro_Taxi_L4");
+    pathes[54][53].setinfo(5, "Metro_Taxi_L4");  pathes[53][54].setinfo(5, "Metro_Taxi_L4");
+    pathes[53][52].setinfo(6, "Metro_Taxi_L4");  pathes[52][53].setinfo(6, "Metro_Taxi_L4");
+    pathes[52][51].setinfo(2, "Metro_Taxi_L4");  pathes[51][52].setinfo(2, "Metro_Taxi_L4");
+    pathes[51][49].setinfo(4, "Metro_Taxi_L4");  pathes[49][51].setinfo(4, "Metro_Taxi_L4");
+    pathes[49][47].setinfo(2, "Metro_Taxi_L4");  pathes[47][49].setinfo(2, "Metro_Taxi_L4");
+    pathes[47][46].setinfo(1, "Metro_Taxi_L4");  pathes[46][47].setinfo(1, "Metro_Taxi_L4");
+    pathes[46][42].setinfo(3, "Metro_Taxi_L4");  pathes[42][46].setinfo(3, "Metro_Taxi_L4");
+    pathes[42][41].setinfo(4, "Metro_Taxi_L3");  pathes[41][42].setinfo(4, "Metro_Taxi_L3");
+    pathes[41][40].setinfo(3, "Metro_Taxi_L3");  pathes[40][41].setinfo(3, "Metro_Taxi_L3");
+    pathes[40][39].setinfo(1, "Metro_Taxi_L3");  pathes[39][40].setinfo(1, "Metro_Taxi_L3");
+    pathes[39][38].setinfo(2, "Metro_Taxi_L3");  pathes[38][39].setinfo(2, "Metro_Taxi_L3");
+    pathes[38][37].setinfo(2, "Metro_Taxi_L3");  pathes[37][38].setinfo(2, "Metro_Taxi_L3");
+    pathes[37][36].setinfo(8, "Metro_Taxi_L3");  pathes[36][37].setinfo(8, "Metro_Taxi_L3");
+    pathes[42][43].setinfo(2, "Metro_Taxi_L3");  pathes[43][42].setinfo(2, "Metro_Taxi_L3");
+    pathes[43][44].setinfo(1, "Metro_Taxi_L3");  pathes[44][43].setinfo(1, "Metro_Taxi_L3");
+    pathes[44][34].setinfo(2, "Metro_Taxi_L3");  pathes[34][44].setinfo(2, "Metro_Taxi_L3");
+    pathes[34][27].setinfo(3, "Metro_Taxi_L3");  pathes[27][34].setinfo(3, "Metro_Taxi_L3");
+    pathes[27][28].setinfo(7, "Metro_Taxi_L1");  pathes[28][27].setinfo(7, "Metro_Taxi_L1");
+    pathes[28][29].setinfo(5, "Metro_Taxi_L1");  pathes[29][28].setinfo(5, "Metro_Taxi_L1");
+    pathes[29][30].setinfo(4, "Metro_Taxi_L1");  pathes[30][29].setinfo(4, "Metro_Taxi_L1");
+    pathes[30][31].setinfo(3, "Metro_Taxi_L1");  pathes[31][30].setinfo(3, "Metro_Taxi_L1");
+    pathes[31][32].setinfo(2, "Metro_Taxi_L1");  pathes[32][31].setinfo(2, "Metro_Taxi_L1");
+    pathes[27][17].setinfo(1, "Metro_Taxi_L3");  pathes[17][27].setinfo(1, "Metro_Taxi_L3");
+    pathes[17][13].setinfo(2, "Metro_Taxi_L3");  pathes[13][17].setinfo(2, "Metro_Taxi_L3");
+    pathes[13][8].setinfo(5, "Metro_Taxi_L3");   pathes[8][13].setinfo(5, "Metro_Taxi_L3");
+    pathes[8][6].setinfo(10, "Metro_Taxi_L3");   pathes[6][8].setinfo(10, "Metro_Taxi_L3");
+    pathes[3][6].setinfo(4, "Metro_Taxi_L3");    pathes[6][3].setinfo(4, "Metro_Taxi_L3");
+    pathes[26][27].setinfo(2, "Metro_Taxi_L1");  pathes[27][26].setinfo(2, "Metro_Taxi_L1");
+    pathes[24][25].setinfo(2, "Metro_Taxi_L1");  pathes[25][24].setinfo(2, "Metro_Taxi_L1");
+    pathes[24][23].setinfo(1, "Metro_Taxi_L1");  pathes[23][24].setinfo(1, "Metro_Taxi_L1");
+    pathes[22][23].setinfo(4, "Metro_Taxi_L1");  pathes[23][22].setinfo(4, "Metro_Taxi_L1");
+    pathes[21][22].setinfo(6, "Metro_Taxi_L1");  pathes[22][21].setinfo(6, "Metro_Taxi_L1");
+    pathes[20][21].setinfo(3, "Metro_Taxi_L1");  pathes[21][20].setinfo(3, "Metro_Taxi_L1");
+    pathes[20][19].setinfo(9, "Metro_Taxi_L1");  pathes[19][20].setinfo(9, "Metro_Taxi_L1");
+    pathes[19][18].setinfo(13, "Metro_Taxi_L1"); pathes[18][19].setinfo(13, "Metro_Taxi_L1");
+    pathes[33][42].setinfo(1, "Metro_Taxi_L4");  pathes[42][33].setinfo(1, "Metro_Taxi_L4");
+    pathes[33][23].setinfo(1, "Metro_Taxi_L4");  pathes[23][33].setinfo(1, "Metro_Taxi_L4");
+    pathes[16][23].setinfo(2, "Metro_Taxi_L4");  pathes[23][16].setinfo(2, "Metro_Taxi_L4");
+    pathes[9][11].setinfo(1, "Metro_Taxi_L4");   pathes[11][9].setinfo(1, "Metro_Taxi_L4");
+    pathes[7][9].setinfo(3, "Metro_Taxi_L4");    pathes[9][7].setinfo(3, "Metro_Taxi_L4");
+    pathes[7][5].setinfo(1, "Metro_Taxi_L4");    pathes[5][7].setinfo(1, "Metro_Taxi_L4");
+    pathes[5][4].setinfo(1, "Metro_Taxi_L4");    pathes[4][5].setinfo(1, "Metro_Taxi_L4");
+    pathes[4][2].setinfo(7, "Metro_Taxi_L4");    pathes[2][4].setinfo(7, "Metro_Taxi_L4");
+    pathes[25][26].setinfo(2, "Metro_Taxi_L1");  pathes[26][25].setinfo(2, "Metro_Taxi_L1");
     
-    distance[1][9].setinfo(10, "Bus_1");  distance[9][1].setinfo(10, "Bus_1");
-    distance[9][12].setinfo(4, "Bus_1");  distance[12][9].setinfo(4, "Bus_1");
-    distance[12][23].setinfo(2, "Bus_1");  distance[23][12].setinfo(2, "Bus_1");
-    distance[23][33].setinfo(1, "Bus_1");  distance[33][23].setinfo(1, "Bus_1");
-    distance[33][46].setinfo(3, "Bus_1");  distance[46][33].setinfo(3, "Bus_1");
-    distance[46][51].setinfo(4, "Bus_1");  distance[51][46].setinfo(4, "Bus_1");
-    distance[52][51].setinfo(4, "Bus_1");  distance[51][52].setinfo(4, "Bus_1");
-    distance[52][56].setinfo(3, "Bus_1");  distance[56][52].setinfo(3, "Bus_1");
-    distance[45][39].setinfo(5, "Bus_3");  distance[39][45].setinfo(5, "Bus_3");
-    distance[39][43].setinfo(8, "Bus_3");  distance[43][39].setinfo(8, "Bus_3");
-    distance[43][29].setinfo(11, "Bus_3");  distance[29][43].setinfo(11, "Bus_3");
-    distance[32][29].setinfo(8, "Bus_3");  distance[29][32].setinfo(8, "Bus_3");
-    distance[32][35].setinfo(4, "Bus_3");  distance[35][32].setinfo(4, "Bus_3");
-    distance[15][10].setinfo(8, "Bus_2");  distance[10][15].setinfo(8, "Bus_2");
-    distance[10][7].setinfo(8, "Bus_2");  distance[7][10].setinfo(8, "Bus_2");
-    distance[7][3].setinfo(19, "Bus_2");  distance[3][7].setinfo(19, "Bus_2");
-    distance[14][3].setinfo(12, "Bus_2");  distance[3][14].setinfo(12, "Bus_2");
+    pathes[1][9].setinfo(10, "Bus_1");  pathes[9][1].setinfo(10, "Bus_1");
+    pathes[9][12].setinfo(4, "Bus_1");  pathes[12][9].setinfo(4, "Bus_1");
+    pathes[12][23].setinfo(2, "Bus_1");  pathes[23][12].setinfo(2, "Bus_1");
+    pathes[23][33].setinfo(1, "Bus_1");  pathes[33][23].setinfo(1, "Bus_1");
+    pathes[33][46].setinfo(3, "Bus_1");  pathes[46][33].setinfo(3, "Bus_1");
+    pathes[46][51].setinfo(4, "Bus_1");  pathes[51][46].setinfo(4, "Bus_1");
+    pathes[52][51].setinfo(4, "Bus_1");  pathes[51][52].setinfo(4, "Bus_1");
+    pathes[52][56].setinfo(3, "Bus_1");  pathes[56][52].setinfo(3, "Bus_1");
+    pathes[45][39].setinfo(5, "Bus_3");  pathes[39][45].setinfo(5, "Bus_3");
+    pathes[39][43].setinfo(8, "Bus_3");  pathes[43][39].setinfo(8, "Bus_3");
+    pathes[43][29].setinfo(11, "Bus_3");  pathes[29][43].setinfo(11, "Bus_3");
+    pathes[32][29].setinfo(8, "Bus_3");  pathes[29][32].setinfo(8, "Bus_3");
+    pathes[32][35].setinfo(4, "Bus_3");  pathes[35][32].setinfo(4, "Bus_3");
+    pathes[15][10].setinfo(8, "Bus_2");  pathes[10][15].setinfo(8, "Bus_2");
+    pathes[10][7].setinfo(8, "Bus_2");  pathes[7][10].setinfo(8, "Bus_2");
+    pathes[7][3].setinfo(19, "Bus_2");  pathes[3][7].setinfo(19, "Bus_2");
+    pathes[14][3].setinfo(12, "Bus_2");  pathes[3][14].setinfo(12, "Bus_2");
 
 }
 
 string matrixes::search_in_map(int i)
 {
-    for(auto item : names)
+    for(auto item : names_of_station)
     {
         if(item.second == i)
         {
@@ -164,8 +164,8 @@ int matrixes::minDistance(node dist[], bool sptSet[])
  
     for (int i = 0; i < 59; i++)
     {
-        if (sptSet[i] == false && dist[i].dist <= min)
-            min = dist[i].dist, min_index = i;
+        if (sptSet[i] == false && dist[i].distance <= min)
+            min = dist[i].distance, min_index = i;
     }
 
     return min_index;
@@ -185,7 +185,7 @@ void matrixes::run()
     }
     
     
-    find_short_path(names[start], names[end]);
+    find_short_path(names_of_station[start], names_of_station[end]);
 }
 
 void matrixes::find_short_path(int start, int end)
@@ -194,10 +194,10 @@ void matrixes::find_short_path(int start, int end)
     bool sptSet[59]; 
   
     for (int i = 0; i < 59; i++)
-        shortest[i].dist = INT_MAX, sptSet[i] = false;
+        shortest[i].distance = INT_MAX, sptSet[i] = false;
  
     
-    shortest[start].dist = 0;
+    shortest[start].distance = 0;
     shortest[start].directions.push_back(search_in_map(start));
  
     for (int count = 0; count < 58; count++) 
@@ -208,49 +208,42 @@ void matrixes::find_short_path(int start, int end)
  
         for (int v = 0; v < 59; v++)
  
-            if (!sptSet[v] && distance[u][v].getdis()&& shortest[u].dist != INT_MAX
-                && shortest[u].dist + distance[u][v].getdis() < shortest[v].dist)
+            if (!sptSet[v] && pathes[u][v].getdis()&& shortest[u].distance != INT_MAX
+                && shortest[u].distance + pathes[u][v].getdis() < shortest[v].distance)
                 {
-                    shortest[v].dist = shortest[u].dist + distance[u][v].getdis();
+                    shortest[v].distance = shortest[u].distance + pathes[u][v].getdis();
                     shortest[v].directions =  shortest[u].directions;  shortest[v].directions.push_back(search_in_map(v));
-                    shortest[v].type = shortest[u].type; shortest[v].type.push_back(distance[v][u].getvic());
+                    shortest[v].type_of_vehicle = shortest[u].type_of_vehicle; shortest[v].type_of_vehicle.push_back(pathes[v][u].getvic());
                 }
     }
  
-    cout << shortest[end].dist << '\n';
+    cout << shortest[end].distance << '\n';
     int size = shortest[end].directions.size();
     
     int j = 0;
-    // cout << shortest[end].type[0] << ": ";
 
-    cout << shortest[end].directions[0];
+    cout << " ** " << shortest[end].directions[0];
 
     for(int i = 1; i < size; i++)
     {
         
         cout << " -> " << shortest[end].directions[i];
 
-        if(shortest[end].type[j + 1] != shortest[end].type[j])
+        if(shortest[end].type_of_vehicle[j + 1] != shortest[end].type_of_vehicle[j])
         {
-            cout << ": " << shortest[end].type[j] << endl;
+            cout << ": " << shortest[end].type_of_vehicle[j] << endl;
         }
 
         j++;
     }
 
-    //cout << shortest[end].directions[size - 1] << endl;
-
-    // for(int i = 0; i < size - 1; i++)
-    // {   
-    //     cout << shortest[end].type[i] << " -> ";
-    // }
 }
 
 bool matrixes::is_valid(string start, string end)
 {   
     try
     {
-        if( !(names.count(start) && names.count(end)) )
+        if( !(names_of_station.count(start) && names_of_station.count(end)) )
         {
             throw invalid_argument("start or end is invalid!");
         }
