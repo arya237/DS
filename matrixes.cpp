@@ -240,82 +240,106 @@ void matrixes::run()
         getline(cin, end);
     }
     
-    bool sm1 = 0,  sm4 = 0,  sm3 = 0, sm6 = 0, sb1 = 0, sb2 = 0, sb3 = 0;
-    bool em1 = 0,  em4 = 0,  em3 = 0, em6 = 0, eb1 = 0, eb2 = 0, eb3 = 0;
-
+    string st, en;
     //find_short_path(names_of_station[start], names_of_station[end]);
 
     if(metro_L1.find(start) != metro_L1.end())
     {
-        sm1 = 1;
+        st = "l1";
     }
     
     if(metro_L4.find(start) != metro_L4.end())
     {
-        sm4 = 1;
+        st = "l4";
     }
 
     if(metro_L6.find(start) != metro_L6.end())
     {
-        sm6 = 1;
+        st = "l6";
     }
 
     if(metro_L3.find(start) != metro_L3.end())
     {
-        sm3 = 1;
+        st = "l3";
     }
 
     if(Bus_1.find(start) != Bus_1.end())
     {
-        sb1 = 1;
+        st = "b1";
     }
 
     if(Bus_2.find(start) != Bus_2.end())
     {
-        sb2 = 1;
+        st = "b2";
     }
 
     if(Bus_3.find(start) != Bus_3.end())
     {
-        sb3 = 1;
+        st = "b3";
     }
 
 
 
-     if(metro_L1.find(end) != metro_L1.end())
+    if(metro_L1.find(end) != metro_L1.end())
     {
-        em1 = 1;
+        en = "l1";
     }
     
     if(metro_L4.find(end) != metro_L4.end())
     {
-        em4 = 1;
+        en = "l4";
     }
 
     if(metro_L6.find(end) != metro_L6.end())
     {
-        em6 = 1;
+        en = "l6";
     }
 
     if(metro_L3.find(end) != metro_L3.end())
     {
-        em3 = 1;
+        en = "l3";
     }
 
     if(Bus_1.find(end) != Bus_1.end())
     {
-        eb1 = 1;
+        en = "b1";
     }
 
     if(Bus_2.find(end) != Bus_2.end())
     {
-        eb2 = 1;
+        en = "b2";
     }
 
     if(Bus_3.find(end) != Bus_3.end())
     {
-        eb3 = 1;
+        en = "b3";
     }
+
+    if(en == st && st[0] == 'l')
+    cout << 3267;
+
+    else if(st == en && st[0] == 'b')
+    cout << 2250;
+
+    else 
+    {
+        if(st[0] == 'l' && en[0] == 'l')
+        {
+            cout << 6534;
+        }
+        
+        else if(st[0] == 'b' && en[0] == 'b')
+        {
+            cout << 4500;
+        }
+
+        else if(st[0] == 'l' && en[0] == 'b' || st[0] == 'b' && en[0] == 'l' )
+        {
+            cout << 5517;
+        }
+    }
+
+    
     
 }
 
