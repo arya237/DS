@@ -230,20 +230,93 @@ int matrixes::minDistance(node dist[], bool sptSet[])
 
 void matrixes::run()
 {
-    // string start, end;
-    // getline(cin, start);
-    // getline(cin, end);
+    string start, end;
+    getline(cin, start);
+    getline(cin, end);
 
-    // while ( !is_valid(start, end) )
-    // {
-    //     getline(cin, start);
-    //     getline(cin, end);
-    // }
+    while ( !is_valid(start, end) )
+    {
+        getline(cin, start);
+        getline(cin, end);
+    }
     
-    
+    bool sm1 = 0,  sm4 = 0,  sm3 = 0, sm6 = 0, sb1 = 0, sb2 = 0, sb3 = 0;
+    bool em1 = 0,  em4 = 0,  em3 = 0, em6 = 0, eb1 = 0, eb2 = 0, eb3 = 0;
+
     //find_short_path(names_of_station[start], names_of_station[end]);
 
-    cout << metro_L1.size();
+    if(metro_L1.find(start) != metro_L1.end())
+    {
+        sm1 = 1;
+    }
+    
+    if(metro_L4.find(start) != metro_L4.end())
+    {
+        sm4 = 1;
+    }
+
+    if(metro_L6.find(start) != metro_L6.end())
+    {
+        sm6 = 1;
+    }
+
+    if(metro_L3.find(start) != metro_L3.end())
+    {
+        sm3 = 1;
+    }
+
+    if(Bus_1.find(start) != Bus_1.end())
+    {
+        sb1 = 1;
+    }
+
+    if(Bus_2.find(start) != Bus_2.end())
+    {
+        sb2 = 1;
+    }
+
+    if(Bus_3.find(start) != Bus_3.end())
+    {
+        sb3 = 1;
+    }
+
+
+
+     if(metro_L1.find(end) != metro_L1.end())
+    {
+        em1 = 1;
+    }
+    
+    if(metro_L4.find(end) != metro_L4.end())
+    {
+        em4 = 1;
+    }
+
+    if(metro_L6.find(end) != metro_L6.end())
+    {
+        em6 = 1;
+    }
+
+    if(metro_L3.find(end) != metro_L3.end())
+    {
+        em3 = 1;
+    }
+
+    if(Bus_1.find(end) != Bus_1.end())
+    {
+        eb1 = 1;
+    }
+
+    if(Bus_2.find(end) != Bus_2.end())
+    {
+        eb2 = 1;
+    }
+
+    if(Bus_3.find(end) != Bus_3.end())
+    {
+        eb3 = 1;
+    }
+    
 }
 
 void matrixes::find_short_path(int start, int end)
