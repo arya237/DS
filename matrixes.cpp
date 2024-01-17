@@ -1,8 +1,10 @@
 #include <string>
 #include <stdexcept>
+#include <algorithm>
 
 #include "matrixes.hpp"
 #include <fstream>
+
 
 using namespace std;
 
@@ -56,7 +58,7 @@ matrixes::matrixes()
     names_of_station.insert({"Meydan-e Jahad", 44});  
     names_of_station.insert({"Shahrak-e Shari'ati", 45}); 
     names_of_station.insert({"Meydan-e Enghelab-e Eslami", 46});  
-    names_of_station.insert({"Touhid", 47});
+    names_of_station.insert({"Towhid", 47});
     names_of_station.insert({"Boostan-e laleh", 48});     
     names_of_station.insert({"Shademan", 49});  
     names_of_station.insert({"Yadegar-e Emam", 50});  
@@ -76,53 +78,65 @@ matrixes::matrixes()
 
     while(getline(myfile, s))
     {   
-        metro_L1.insert(s);
+        metro_L1.push_back(s);
     }
+
+    myfile.close();
 
     myfile.open("l3.txt");
 
     while(getline(myfile, s))
     {   
-        metro_L3.insert(s);
+        metro_L3.push_back(s);
     }
+
+    myfile.close();
 
     myfile.open("l4.txt");
 
     while(getline(myfile, s))
     {   
-        metro_L4.insert(s);
+        metro_L4.push_back(s);
     }
+
+    myfile.close();
    
     myfile.open("l6.txt");
-     while(getline(myfile, s))
-    {   
-        metro_L6.insert(s);
-    }
-
-     myfile.open("B1.txt");
 
     while(getline(myfile, s))
     {   
-        Bus_1.insert(s);
+        metro_L6.push_back(s);
     }
 
-       myfile.open("B2.txt");
+    myfile.close();
+
+    myfile.open("B1.txt");
 
     while(getline(myfile, s))
     {   
-        Bus_2.insert(s);
+        Bus_1.push_back(s);
     }
 
-       myfile.open("B3.txt");
+    myfile.close();
+    
+    myfile.open("B2.txt");
 
     while(getline(myfile, s))
     {   
-        Bus_3.insert(s);
+        Bus_2.push_back(s);
     }
+
+    myfile.close();
+
+    myfile.open("B3.txt");
+
+    while(getline(myfile, s))
+    {   
+        Bus_3.push_back(s);
+    }
+
+    myfile.close();
    
-
-
-
 
     pathes[0][10].setinfo(10, "Metro_Taxi_L6");  pathes[10][0].setinfo(10, "Metro_Taxi_L6");
     pathes[10][11].setinfo(6, "Metro_Taxi_L6");  pathes[11][10].setinfo(6, "Metro_Taxi_L6");  
@@ -240,107 +254,12 @@ void matrixes::run()
         getline(cin, end);
     }
     
-    string st, en;
-    //find_short_path(names_of_station[start], names_of_station[end]);
+    // find_short_path(names_of_station[start], names_of_station[end]);
+    // cout << "\n---------------------------\n";
+    // show_lowest_cost_path(start, end);
 
-    if(metro_L1.find(start) != metro_L1.end())
-    {
-        st = "l1";
-    }
-    
-    if(metro_L4.find(start) != metro_L4.end())
-    {
-        st = "l4";
-    }
-
-    if(metro_L6.find(start) != metro_L6.end())
-    {
-        st = "l6";
-    }
-
-    if(metro_L3.find(start) != metro_L3.end())
-    {
-        st = "l3";
-    }
-
-    if(Bus_1.find(start) != Bus_1.end())
-    {
-        st = "b1";
-    }
-
-    if(Bus_2.find(start) != Bus_2.end())
-    {
-        st = "b2";
-    }
-
-    if(Bus_3.find(start) != Bus_3.end())
-    {
-        st = "b3";
-    }
-
-
-
-    if(metro_L1.find(end) != metro_L1.end())
-    {
-        en = "l1";
-    }
-    
-    if(metro_L4.find(end) != metro_L4.end())
-    {
-        en = "l4";
-    }
-
-    if(metro_L6.find(end) != metro_L6.end())
-    {
-        en = "l6";
-    }
-
-    if(metro_L3.find(end) != metro_L3.end())
-    {
-        en = "l3";
-    }
-
-    if(Bus_1.find(end) != Bus_1.end())
-    {
-        en = "b1";
-    }
-
-    if(Bus_2.find(end) != Bus_2.end())
-    {
-        en = "b2";
-    }
-
-    if(Bus_3.find(end) != Bus_3.end())
-    {
-        en = "b3";
-    }
-
-    if(en == st && st[0] == 'l')
-    cout << 3267;
-
-    else if(st == en && st[0] == 'b')
-    cout << 2250;
-
-    else 
-    {
-        if(st[0] == 'l' && en[0] == 'l')
-        {
-            cout << 6534;
-        }
+    show_lowest_cost_path(start, end);
         
-        else if(st[0] == 'b' && en[0] == 'b')
-        {
-            cout << 4500;
-        }
-
-        else if(st[0] == 'l' && en[0] == 'b' || st[0] == 'b' && en[0] == 'l' )
-        {
-            cout << 5517;
-        }
-    }
-
-    
-    
 }
 
 void matrixes::find_short_path(int start, int end)
@@ -362,7 +281,7 @@ void matrixes::find_short_path(int start, int end)
         sptSet[u] = true;
  
         for (int v = 0; v < 59; v++)
- 
+        {
             if (!sptSet[v] && pathes[u][v].getdis()&& shortest[u].distance != INT_MAX
                 && shortest[u].distance + pathes[u][v].getdis() < shortest[v].distance)
                 {
@@ -370,28 +289,10 @@ void matrixes::find_short_path(int start, int end)
                     shortest[v].directions =  shortest[u].directions;  shortest[v].directions.push_back(search_in_map(v));
                     shortest[v].type_of_vehicle = shortest[u].type_of_vehicle; shortest[v].type_of_vehicle.push_back(pathes[v][u].getvic());
                 }
-    }
- 
-    cout << shortest[end].distance << '\n';
-    int size = shortest[end].directions.size();
-    
-    int j = 0;
-
-    cout << " ** " << shortest[end].directions[0];
-
-    for(int i = 1; i < size; i++)
-    {
-        
-        cout << " -> " << shortest[end].directions[i];
-
-        if(shortest[end].type_of_vehicle[j + 1] != shortest[end].type_of_vehicle[j])
-        {
-            cout << ": " << shortest[end].type_of_vehicle[j] << endl;
         }
-
-        j++;
     }
 
+    show_shortest_path(shortest[end]);
 }
 
 bool matrixes::is_valid(string start, string end)
@@ -414,8 +315,128 @@ bool matrixes::is_valid(string start, string end)
     
 }
 
-void matrixes::print()
+void matrixes::show_shortest_path(node path)
 {
-    for(auto i : metro_L1)
-    cout << i << endl;
+    cout << path.distance << '\n';
+    int size = path.directions.size();
+    
+    int j = 0;
+
+    cout << " ** " << path.directions[0];
+
+    for(int i = 1; i < size; i++)
+    {
+        
+        cout << " -> " << path.directions[i];
+
+        if(path.type_of_vehicle[j + 1] != path.type_of_vehicle[j])
+        {
+            cout << ": " << path.type_of_vehicle[j] << endl;
+        }
+
+        j++;
+    }
+}
+
+vector <string> matrixes::find_line(string& station)
+{
+    vector <string> lines;
+
+    if(find(metro_L1.begin(), metro_L1.end(), station) != metro_L1.end() )
+    {
+        lines.push_back("l1");
+    }
+
+    if(find(metro_L3.begin(), metro_L3.end(), station) != metro_L3.end() )
+    {
+        lines.push_back("l3");
+    }
+
+    if(find(metro_L4.begin(), metro_L4.end(), station) != metro_L4.end() )
+    {
+        lines.push_back("l4");
+    }
+
+    if(find(metro_L6.begin(), metro_L6.end(), station) != metro_L6.end() )
+    {
+        lines.push_back("l6");
+    }
+
+    if(find(Bus_1.begin(), Bus_1.end(), station) != Bus_1.end() )
+    {
+        lines.push_back("b1");
+    }
+
+    if(find(Bus_2.begin(), Bus_2.end(), station) != Bus_2.end() )
+    {
+        lines.push_back("b2");
+    }
+
+    if(find(Bus_3.begin(), Bus_3.end(), station) != Bus_3.end() )
+    {
+        lines.push_back("b3");
+    }
+
+    // for(auto i: metro_L6)
+    //     cout << i  << " ";
+    //     cout << endl;
+
+    return lines;
+}
+
+string matrixes::find_intersection(vector <string> & start, vector <string> & end)
+{
+    for(int i = 0; i < start.size(); i++)
+    {
+        for(int j = 0; j < end.size(); j++)
+        {
+            if(start[i] == end[j])
+            {
+                return start[i];
+            }
+        }
+    }
+}
+
+void matrixes::show_lowest_cost_path(string start, string end)
+{       
+        vector <string> start_station;
+        vector <string> end_station;
+
+        start_station = find_line(start);
+        end_station = find_line(end);
+
+        // for(auto i: start_station)
+        // cout << i  << " ";
+        // cout << endl;
+        // for(auto i: end_station)
+        // cout << i  << " ";
+        // cout << endl;
+
+        int lowes_cost = INT_MAX;
+
+        for(int i = 0; i < start_station.size(); i++)
+        {
+            for(int j = 0; j < end_station.size(); j++)
+            {
+                if(start_station[i] == end_station[j])
+                {
+                    lowes_cost = start_station[i][0] == 'b' ? (2250 < lowes_cost ? 2250 : lowes_cost)  : (3267 < lowes_cost ? 3267 : lowes_cost);
+                }
+
+                else if(start_station[i][0] == end_station[j][0] && start_station[i][1] != end_station[j][1])
+                {
+                    lowes_cost = start_station[i][0] == 'l' ? 6534 < lowes_cost ? 6534 : lowes_cost : 4500 < lowes_cost ? 4500 : lowes_cost;
+                }
+
+                else lowes_cost = (5517 < lowes_cost) ? 5517 : lowes_cost;
+                if( (start_station[i][0] == 'l' && end_station[j][0] == 'b') ||
+                    (end_station[j][0] == 'b' && start_station[i][0] == 'l') )
+                {
+                    lowes_cost = (5517 < lowes_cost) ? 5517 : lowes_cost;
+                }
+            }
+        }
+
+        cout << lowes_cost;
 }
