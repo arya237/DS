@@ -6,213 +6,82 @@
 #include <fstream>
 
 
-using namespace std;
+// using namespace std;
 
 
 matrixes::matrixes()
 {
-    names_of_station.insert({"Haram-e Hazrat-e Abdolazim", 0});  
-    names_of_station.insert({"Tehran Pars", 1});
-    names_of_station.insert({"Shahid Kolahdouz", 2});
-    names_of_station.insert({"Gha'em", 3});
-    names_of_station.insert({"Nirou Havaei", 4});
-    names_of_station.insert({"Nabard", 5});
-    names_of_station.insert({"Aghdasiyeh", 6});
-    names_of_station.insert({"Pirouzi", 7});
-    names_of_station.insert({"Shahid Zeynoddin", 8});
-    names_of_station.insert({"Ebn-e Sina", 9});
-    names_of_station.insert({"Shahid Rezaei", 10});
-    names_of_station.insert({"Meydan-e Shohada", 11});
-    names_of_station.insert({"Emam Hossein", 12});
-    names_of_station.insert({"Shahid Ghodousi", 13});
-    names_of_station.insert({"Khajeh Abdollah-e Ansari", 14});
-    names_of_station.insert({"Payaneh Javanmard", 15});
-    names_of_station.insert({"Darvazeh Shemiran", 16});
-    names_of_station.insert({"Sohrevardi", 17});
-    names_of_station.insert({"Kahrizak", 18});
-    names_of_station.insert({"Shahr-e Rey", 19});
-    names_of_station.insert({"Jonoub Terminal", 20});
-    names_of_station.insert({"Shoush", 21});
-    names_of_station.insert({"Panzdah-e Khordad", 22});
-    names_of_station.insert({"Darvazeh Dowlat", 23});
-    names_of_station.insert({"Taleghani", 24});
-    names_of_station.insert({"Haftom-e Tir", 25});
-    names_of_station.insert({"Shahid Mofatteh", 26});
-    names_of_station.insert({"Shahid Beheshti", 27});
-    names_of_station.insert({"Shahid Haghani", 28});
-    names_of_station.insert({"Mirdamad", 29});
-    names_of_station.insert({"Gholhak", 30});
-    names_of_station.insert({"Gheytariyeh", 31});
-    names_of_station.insert({"Tajrish", 32});
-    names_of_station.insert({"Ferdowsi", 33});
-    names_of_station.insert({"Merza-ye Shirazi", 34});
-    names_of_station.insert({"Shahid Sadr", 35});
-    names_of_station.insert({"Azadegan", 36});
-    names_of_station.insert({"Zamzam", 37});
-    names_of_station.insert({"Javadiyeh", 38});
-    names_of_station.insert({"Rahahan", 39});
-    names_of_station.insert({"Mahdiyeh", 40});
-    names_of_station.insert({"Moniriyeh", 41});
-    names_of_station.insert({"Teatr-e Shahr", 42});   
-    names_of_station.insert({"Meydan-e Hazrat-e ValiAsr", 43});
-    names_of_station.insert({"Meydan-e Jahad", 44});  
-    names_of_station.insert({"Shahrak-e Shari'ati", 45}); 
-    names_of_station.insert({"Meydan-e Enghelab-e Eslami", 46});  
-    names_of_station.insert({"Towhid", 47});
-    names_of_station.insert({"Boostan-e laleh", 48});     
-    names_of_station.insert({"Shademan", 49});  
-    names_of_station.insert({"Yadegar-e Emam", 50});  
-    names_of_station.insert({"Ostad Mo'in", 51});  
-    names_of_station.insert({"Meydan-e Azadi", 52});  
-    names_of_station.insert({"Eram-e Sabz", 53});  
-    names_of_station.insert({"Allameh Jafari", 54});  
-    names_of_station.insert({"Kashani", 55});  
-    names_of_station.insert({"Bimeh", 56});
-    names_of_station.insert({"Kouhsar", 57});
-    names_of_station.insert({"Chaharbagh", 58});
+    fstream file;
+ 
+    file.open("taxi_bus_distance.txt");
 
+    string start, destiny, distance, type;
 
-    fstream myfile;
-    myfile.open("l1.txt");
-    string s;
-
-    while(getline(myfile, s))
-    {   
-        metro_L1.push_back(s);
-    }
-
-    myfile.close();
-
-    myfile.open("l3.txt");
-
-    while(getline(myfile, s))
-    {   
-        metro_L3.push_back(s);
-    }
-
-    myfile.close();
-
-    myfile.open("l4.txt");
-
-    while(getline(myfile, s))
-    {   
-        metro_L4.push_back(s);
-    }
-
-    myfile.close();
-   
-    myfile.open("l6.txt");
-
-    while(getline(myfile, s))
-    {   
-        metro_L6.push_back(s);
-    }
-
-    myfile.close();
-
-    myfile.open("B1.txt");
-
-    while(getline(myfile, s))
-    {   
-        Bus_1.push_back(s);
-    }
-
-    myfile.close();
+    getline(file, type);
+    int counter = 0;
+    bool flag = 0;
     
-    myfile.open("B2.txt");
-
-    while(getline(myfile, s))
-    {   
-        Bus_2.push_back(s);
+    if(!file.is_open())
+    {
+        cout << "error!";
     }
 
-    myfile.close();
+    else
+    {
+        while (!file.eof())
+        {
+            getline(file, start);
 
-    myfile.open("B3.txt");
+            if(start == "end*")
+            {    
+                break;
+            }
 
-    while(getline(myfile, s))
-    {   
-        Bus_3.push_back(s);
-    }
+            if(start == "end")
+            {   
+                getline(file, type);
+                getline(file, start);
+                flag = 0;  
+            }
+            
+            getline(file, destiny);
+            getline(file, distance);
 
-    myfile.close();
-   
+            if(!flag)
+            {   
+                if(!names_of_station.count(start))
+                {
+                    names_of_station.insert({start, counter});
+                    counter++;
+                }
+                lines[type].push_back(start);
+                if(!names_of_station.count(destiny))
+                {
+                    names_of_station.insert({destiny, counter});
+                    counter++;
+                }
+                lines[type].push_back(destiny);
+                flag = 1;
+            }
 
-    pathes[0][10].setinfo(10, "Metro_Taxi_L6");  pathes[10][0].setinfo(10, "Metro_Taxi_L6");
-    pathes[10][11].setinfo(6, "Metro_Taxi_L6");  pathes[11][10].setinfo(6, "Metro_Taxi_L6");  
-    pathes[11][12].setinfo(2, "Metro_Taxi_L6");  pathes[12][11].setinfo(2, "Metro_Taxi_L6");
-    pathes[11][16].setinfo(2, "Metro_Taxi_L4");  pathes[16][11].setinfo(2, "Metro_Taxi_L4");
-    pathes[12][25].setinfo(5, "Metro_Taxi_L6");  pathes[25][12].setinfo(5, "Metro_Taxi_L6");
-    pathes[25][43].setinfo(2, "Metro_Taxi_L6");  pathes[43][25].setinfo(2, "Metro_Taxi_L6");
-    pathes[43][48].setinfo(2, "Metro_Taxi_L6");  pathes[48][43].setinfo(2, "Metro_Taxi_L6");
-    pathes[48][50].setinfo(8, "Metro_Taxi_L6");  pathes[50][48].setinfo(8, "Metro_Taxi_L6");
-    pathes[50][55].setinfo(6, "Metro_Taxi_L6");  pathes[55][50].setinfo(6, "Metro_Taxi_L6");
-    pathes[55][57].setinfo(10, "Metro_Taxi_L6"); pathes[57][55].setinfo(10, "Metro_Taxi_L6");
-    pathes[55][58].setinfo(5, "Metro_Taxi_L4");  pathes[58][55].setinfo(5, "Metro_Taxi_L4");
-    pathes[55][54].setinfo(4, "Metro_Taxi_L4");  pathes[54][55].setinfo(4, "Metro_Taxi_L4");
-    pathes[54][53].setinfo(5, "Metro_Taxi_L4");  pathes[53][54].setinfo(5, "Metro_Taxi_L4");
-    pathes[53][52].setinfo(6, "Metro_Taxi_L4");  pathes[52][53].setinfo(6, "Metro_Taxi_L4");
-    pathes[52][51].setinfo(2, "Metro_Taxi_L4");  pathes[51][52].setinfo(2, "Metro_Taxi_L4");
-    pathes[51][49].setinfo(4, "Metro_Taxi_L4");  pathes[49][51].setinfo(4, "Metro_Taxi_L4");
-    pathes[49][47].setinfo(2, "Metro_Taxi_L4");  pathes[47][49].setinfo(2, "Metro_Taxi_L4");
-    pathes[47][46].setinfo(1, "Metro_Taxi_L4");  pathes[46][47].setinfo(1, "Metro_Taxi_L4");
-    pathes[46][42].setinfo(3, "Metro_Taxi_L4");  pathes[42][46].setinfo(3, "Metro_Taxi_L4");
-    pathes[42][41].setinfo(4, "Metro_Taxi_L3");  pathes[41][42].setinfo(4, "Metro_Taxi_L3");
-    pathes[41][40].setinfo(3, "Metro_Taxi_L3");  pathes[40][41].setinfo(3, "Metro_Taxi_L3");
-    pathes[40][39].setinfo(1, "Metro_Taxi_L3");  pathes[39][40].setinfo(1, "Metro_Taxi_L3");
-    pathes[39][38].setinfo(2, "Metro_Taxi_L3");  pathes[38][39].setinfo(2, "Metro_Taxi_L3");
-    pathes[38][37].setinfo(2, "Metro_Taxi_L3");  pathes[37][38].setinfo(2, "Metro_Taxi_L3");
-    pathes[37][36].setinfo(8, "Metro_Taxi_L3");  pathes[36][37].setinfo(8, "Metro_Taxi_L3");
-    pathes[42][43].setinfo(2, "Metro_Taxi_L3");  pathes[43][42].setinfo(2, "Metro_Taxi_L3");
-    pathes[43][44].setinfo(1, "Metro_Taxi_L3");  pathes[44][43].setinfo(1, "Metro_Taxi_L3");
-    pathes[44][34].setinfo(2, "Metro_Taxi_L3");  pathes[34][44].setinfo(2, "Metro_Taxi_L3");
-    pathes[34][27].setinfo(3, "Metro_Taxi_L3");  pathes[27][34].setinfo(3, "Metro_Taxi_L3");
-    pathes[27][28].setinfo(7, "Metro_Taxi_L1");  pathes[28][27].setinfo(7, "Metro_Taxi_L1");
-    pathes[28][29].setinfo(5, "Metro_Taxi_L1");  pathes[29][28].setinfo(5, "Metro_Taxi_L1");
-    pathes[29][30].setinfo(4, "Metro_Taxi_L1");  pathes[30][29].setinfo(4, "Metro_Taxi_L1");
-    pathes[30][31].setinfo(3, "Metro_Taxi_L1");  pathes[31][30].setinfo(3, "Metro_Taxi_L1");
-    pathes[31][32].setinfo(2, "Metro_Taxi_L1");  pathes[32][31].setinfo(2, "Metro_Taxi_L1");
-    pathes[27][17].setinfo(1, "Metro_Taxi_L3");  pathes[17][27].setinfo(1, "Metro_Taxi_L3");
-    pathes[17][13].setinfo(2, "Metro_Taxi_L3");  pathes[13][17].setinfo(2, "Metro_Taxi_L3");
-    pathes[13][8].setinfo(5, "Metro_Taxi_L3");   pathes[8][13].setinfo(5, "Metro_Taxi_L3");
-    pathes[8][6].setinfo(10, "Metro_Taxi_L3");   pathes[6][8].setinfo(10, "Metro_Taxi_L3");
-    pathes[3][6].setinfo(4, "Metro_Taxi_L3");    pathes[6][3].setinfo(4, "Metro_Taxi_L3");
-    pathes[26][27].setinfo(2, "Metro_Taxi_L1");  pathes[27][26].setinfo(2, "Metro_Taxi_L1");
-    pathes[24][25].setinfo(2, "Metro_Taxi_L1");  pathes[25][24].setinfo(2, "Metro_Taxi_L1");
-    pathes[24][23].setinfo(1, "Metro_Taxi_L1");  pathes[23][24].setinfo(1, "Metro_Taxi_L1");
-    pathes[22][23].setinfo(4, "Metro_Taxi_L1");  pathes[23][22].setinfo(4, "Metro_Taxi_L1");
-    pathes[21][22].setinfo(6, "Metro_Taxi_L1");  pathes[22][21].setinfo(6, "Metro_Taxi_L1");
-    pathes[20][21].setinfo(3, "Metro_Taxi_L1");  pathes[21][20].setinfo(3, "Metro_Taxi_L1");
-    pathes[20][19].setinfo(9, "Metro_Taxi_L1");  pathes[19][20].setinfo(9, "Metro_Taxi_L1");
-    pathes[19][18].setinfo(13, "Metro_Taxi_L1"); pathes[18][19].setinfo(13, "Metro_Taxi_L1");
-    pathes[33][42].setinfo(1, "Metro_Taxi_L4");  pathes[42][33].setinfo(1, "Metro_Taxi_L4");
-    pathes[33][23].setinfo(1, "Metro_Taxi_L4");  pathes[23][33].setinfo(1, "Metro_Taxi_L4");
-    pathes[16][23].setinfo(2, "Metro_Taxi_L4");  pathes[23][16].setinfo(2, "Metro_Taxi_L4");
-    pathes[9][11].setinfo(1, "Metro_Taxi_L4");   pathes[11][9].setinfo(1, "Metro_Taxi_L4");
-    pathes[7][9].setinfo(3, "Metro_Taxi_L4");    pathes[9][7].setinfo(3, "Metro_Taxi_L4");
-    pathes[7][5].setinfo(1, "Metro_Taxi_L4");    pathes[5][7].setinfo(1, "Metro_Taxi_L4");
-    pathes[5][4].setinfo(1, "Metro_Taxi_L4");    pathes[4][5].setinfo(1, "Metro_Taxi_L4");
-    pathes[4][2].setinfo(7, "Metro_Taxi_L4");    pathes[2][4].setinfo(7, "Metro_Taxi_L4");
-    pathes[25][26].setinfo(2, "Metro_Taxi_L1");  pathes[26][25].setinfo(2, "Metro_Taxi_L1");
+            else
+            {   
+                if(!names_of_station.count(destiny))
+                {
+                    names_of_station.insert({destiny, counter});
+                    counter++;
+                }
+                lines[type].push_back(destiny);  
+            }
+
+           // cout << start << ": " <<  names_of_station[start] << endl << destiny << ": " << names_of_station[destiny] << endl;
     
-    pathes[1][9].setinfo(10, "Bus_1");  pathes[9][1].setinfo(10, "Bus_1");
-    pathes[9][12].setinfo(4, "Bus_1");  pathes[12][9].setinfo(4, "Bus_1");
-    pathes[12][23].setinfo(2, "Bus_1");  pathes[23][12].setinfo(2, "Bus_1");
-    pathes[23][33].setinfo(1, "Bus_1");  pathes[33][23].setinfo(1, "Bus_1");
-    pathes[33][46].setinfo(3, "Bus_1");  pathes[46][33].setinfo(3, "Bus_1");
-    pathes[46][51].setinfo(4, "Bus_1");  pathes[51][46].setinfo(4, "Bus_1");
-    pathes[52][51].setinfo(4, "Bus_1");  pathes[51][52].setinfo(4, "Bus_1");
-    pathes[52][56].setinfo(3, "Bus_1");  pathes[56][52].setinfo(3, "Bus_1");
-    pathes[45][39].setinfo(5, "Bus_3");  pathes[39][45].setinfo(5, "Bus_3");
-    pathes[39][43].setinfo(8, "Bus_3");  pathes[43][39].setinfo(8, "Bus_3");
-    pathes[43][29].setinfo(11, "Bus_3");  pathes[29][43].setinfo(11, "Bus_3");
-    pathes[32][29].setinfo(8, "Bus_3");  pathes[29][32].setinfo(8, "Bus_3");
-    pathes[32][35].setinfo(4, "Bus_3");  pathes[35][32].setinfo(4, "Bus_3");
-    pathes[15][10].setinfo(8, "Bus_2");  pathes[10][15].setinfo(8, "Bus_2");
-    pathes[10][7].setinfo(8, "Bus_2");  pathes[7][10].setinfo(8, "Bus_2");
-    pathes[7][3].setinfo(19, "Bus_2");  pathes[3][7].setinfo(19, "Bus_2");
-    pathes[14][3].setinfo(12, "Bus_2");  pathes[3][14].setinfo(12, "Bus_2");
+            pathes[names_of_station[start]][names_of_station[destiny]].setinfo(stoi(distance), type);
+            pathes[names_of_station[destiny]][names_of_station[start]].setinfo(stoi(distance), type);
+        }
 
+        file.close();
+    }
 }
 
 string matrixes::search_in_map(int i)
@@ -254,11 +123,7 @@ void matrixes::run()
         getline(cin, end);
     }
     
-    // find_short_path(names_of_station[start], names_of_station[end]);
-    // cout << "\n---------------------------\n";
-    // show_lowest_cost_path(start, end);
-
-    show_lowest_cost_path(start, end);
+    find_short_path(names_of_station[start], names_of_station[end]);
         
 }
 
@@ -282,7 +147,7 @@ void matrixes::find_short_path(int start, int end)
  
         for (int v = 0; v < 59; v++)
         {
-            if (!sptSet[v] && pathes[u][v].getdis()&& shortest[u].distance != INT_MAX
+            if (!sptSet[v] && pathes[u][v].getdis() && shortest[u].distance != INT_MAX
                 && shortest[u].distance + pathes[u][v].getdis() < shortest[v].distance)
                 {
                     shortest[v].distance = shortest[u].distance + pathes[u][v].getdis();
@@ -336,107 +201,4 @@ void matrixes::show_shortest_path(node path)
 
         j++;
     }
-}
-
-vector <string> matrixes::find_line(string& station)
-{
-    vector <string> lines;
-
-    if(find(metro_L1.begin(), metro_L1.end(), station) != metro_L1.end() )
-    {
-        lines.push_back("l1");
-    }
-
-    if(find(metro_L3.begin(), metro_L3.end(), station) != metro_L3.end() )
-    {
-        lines.push_back("l3");
-    }
-
-    if(find(metro_L4.begin(), metro_L4.end(), station) != metro_L4.end() )
-    {
-        lines.push_back("l4");
-    }
-
-    if(find(metro_L6.begin(), metro_L6.end(), station) != metro_L6.end() )
-    {
-        lines.push_back("l6");
-    }
-
-    if(find(Bus_1.begin(), Bus_1.end(), station) != Bus_1.end() )
-    {
-        lines.push_back("b1");
-    }
-
-    if(find(Bus_2.begin(), Bus_2.end(), station) != Bus_2.end() )
-    {
-        lines.push_back("b2");
-    }
-
-    if(find(Bus_3.begin(), Bus_3.end(), station) != Bus_3.end() )
-    {
-        lines.push_back("b3");
-    }
-
-    // for(auto i: metro_L6)
-    //     cout << i  << " ";
-    //     cout << endl;
-
-    return lines;
-}
-
-string matrixes::find_intersection(vector <string> & start, vector <string> & end)
-{
-    for(int i = 0; i < start.size(); i++)
-    {
-        for(int j = 0; j < end.size(); j++)
-        {
-            if(start[i] == end[j])
-            {
-                return start[i];
-            }
-        }
-    }
-}
-
-void matrixes::show_lowest_cost_path(string start, string end)
-{       
-        vector <string> start_station;
-        vector <string> end_station;
-
-        start_station = find_line(start);
-        end_station = find_line(end);
-
-        // for(auto i: start_station)
-        // cout << i  << " ";
-        // cout << endl;
-        // for(auto i: end_station)
-        // cout << i  << " ";
-        // cout << endl;
-
-        int lowes_cost = INT_MAX;
-
-        for(int i = 0; i < start_station.size(); i++)
-        {
-            for(int j = 0; j < end_station.size(); j++)
-            {
-                if(start_station[i] == end_station[j])
-                {
-                    lowes_cost = start_station[i][0] == 'b' ? (2250 < lowes_cost ? 2250 : lowes_cost)  : (3267 < lowes_cost ? 3267 : lowes_cost);
-                }
-
-                else if(start_station[i][0] == end_station[j][0] && start_station[i][1] != end_station[j][1])
-                {
-                    lowes_cost = start_station[i][0] == 'l' ? 6534 < lowes_cost ? 6534 : lowes_cost : 4500 < lowes_cost ? 4500 : lowes_cost;
-                }
-
-                else lowes_cost = (5517 < lowes_cost) ? 5517 : lowes_cost;
-                if( (start_station[i][0] == 'l' && end_station[j][0] == 'b') ||
-                    (end_station[j][0] == 'b' && start_station[i][0] == 'l') )
-                {
-                    lowes_cost = (5517 < lowes_cost) ? 5517 : lowes_cost;
-                }
-            }
-        }
-
-        cout << lowes_cost;
 }

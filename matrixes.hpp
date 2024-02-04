@@ -3,6 +3,7 @@
 
 #include <iostream>
 #include <unordered_map>
+#include <map>
 #include <limits.h>
 #include <vector>
 #include <vector>
@@ -25,15 +26,9 @@ struct node
 class matrixes
 {
     private:
-    station pathes [59][59];
-    unordered_map <string, int > names_of_station;
-    vector <string> metro_L1;
-    vector <string> metro_L3;
-    vector <string> metro_L4;
-    vector <string> metro_L6;
-    vector <string> Bus_1;
-    vector <string> Bus_2;
-    vector <string> Bus_3;
+    station pathes [59][59] = {};
+    map <string, int > names_of_station;
+    unordered_map <string, vector<string> > lines;
 
 
     public:
