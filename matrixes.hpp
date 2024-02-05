@@ -43,6 +43,7 @@ class matrixes
     void show_shortest_path(node pathe);
     void find_short_path(int start, int end);
     void find_lowest_cost(int start, int end);
+    void get_input();
 };
 
 #endif

@@ -41,18 +41,7 @@ int matrixes::minDistance(node dist[], bool sptSet[])
 
 void matrixes::run()
 {
-    string start, end;
-    getline(cin, start);
-    getline(cin, end);
-
-    while ( !is_valid(start, end) )
-    {
-        getline(cin, start);
-        getline(cin, end);
-    }
-    
-    // find_short_path(names_of_station[start], names_of_station[end]);
-    find_lowest_cost(names_of_station[start], names_of_station[end]);
+    get_input();
         
 }
 
@@ -219,14 +208,25 @@ void matrixes::complete_graph_for_cost()
             {   
                 if(Bus_flag)
                 {
-                    costs[names_of_station[j]][names_of_station[k]].setinfo(2250, i.first);
-                    costs[names_of_station[k]][names_of_station[j]].setinfo(2250, i.first);
+                    
+                        costs[names_of_station[j]][names_of_station[k]].setinfo(2250, i.first);
+                        costs[names_of_station[k]][names_of_station[j]].setinfo(2250, i.first);
+                   
                 }
 
                 else
                 {
-                    costs[names_of_station[j]][names_of_station[k]].setinfo(3267, i.first);
-                    costs[names_of_station[k]][names_of_station[j]].setinfo(3267, i.first);
+                    if (costs[names_of_station[j]][names_of_station[k]].getdis() != 2250)
+                    {
+                        
+                        costs[names_of_station[j]][names_of_station[k]].setinfo(3267, i.first);
+                        costs[names_of_station[k]][names_of_station[j]].setinfo(3267, i.first);
+                        
+                    }
+                    
+                    
+                                        
+                  
                 }
             }
         }
@@ -273,4 +273,20 @@ void matrixes::find_lowest_cost(int start, int end)
     }
 
     cout << shortest[end].distance;
+}
+
+void matrixes:: get_input()
+{
+    string start, end;
+    getline(cin, start);
+    getline(cin, end);
+
+    while ( !is_valid(start, end) )
+    {
+        getline(cin, start);
+        getline(cin, end);
+    }
+    find_short_path(names_of_station[start], names_of_station[end]);
+    find_lowest_cost(names_of_station[start], names_of_station[end]);
+
 }
