@@ -6,82 +6,10 @@
 #include <fstream>
 
 
-// using namespace std;
-
-
 matrixes::matrixes()
 {
-    fstream file;
- 
-    file.open("taxi_bus_distance.txt");
-
-    string start, destiny, distance, type;
-
-    getline(file, type);
-    int counter = 0;
-    bool flag = 0;
-    
-    if(!file.is_open())
-    {
-        cout << "error!";
-    }
-
-    else
-    {
-        while (!file.eof())
-        {
-            getline(file, start);
-
-            if(start == "end*")
-            {    
-                break;
-            }
-
-            if(start == "end")
-            {   
-                getline(file, type);
-                getline(file, start);
-                flag = 0;  
-            }
-            
-            getline(file, destiny);
-            getline(file, distance);
-
-            if(!flag)
-            {   
-                if(!names_of_station.count(start))
-                {
-                    names_of_station.insert({start, counter});
-                    counter++;
-                }
-                lines[type].push_back(start);
-                if(!names_of_station.count(destiny))
-                {
-                    names_of_station.insert({destiny, counter});
-                    counter++;
-                }
-                lines[type].push_back(destiny);
-                flag = 1;
-            }
-
-            else
-            {   
-                if(!names_of_station.count(destiny))
-                {
-                    names_of_station.insert({destiny, counter});
-                    counter++;
-                }
-                lines[type].push_back(destiny);  
-            }
-
-           // cout << start << ": " <<  names_of_station[start] << endl << destiny << ": " << names_of_station[destiny] << endl;
-    
-            pathes[names_of_station[start]][names_of_station[destiny]].setinfo(stoi(distance), type);
-            pathes[names_of_station[destiny]][names_of_station[start]].setinfo(stoi(distance), type);
-        }
-
-        file.close();
-    }
+    read_distance_from_file();
+    complete_graph_for_cost();
 }
 
 string matrixes::search_in_map(int i)
@@ -123,7 +51,8 @@ void matrixes::run()
         getline(cin, end);
     }
     
-    find_short_path(names_of_station[start], names_of_station[end]);
+    // find_short_path(names_of_station[start], names_of_station[end]);
+    find_lowest_cost(names_of_station[start], names_of_station[end]);
         
 }
 
@@ -201,4 +130,147 @@ void matrixes::show_shortest_path(node path)
 
         j++;
     }
+}
+
+void matrixes::read_distance_from_file ()
+{
+    fstream file;
+ 
+    file.open("taxi_bus_distance.txt");
+
+    string start, destiny, distance, type;
+
+    getline(file, type);
+    int counter = 0;
+    bool flag = 0;
+    
+    if(!file.is_open())
+    {
+        cout << "error!";
+    }
+
+    else
+    {
+        while (!file.eof())
+        {
+            getline(file, start);
+
+            if(start == "end*")
+            {    
+                break;
+            }
+
+            if(start == "end")
+            {   
+                getline(file, type);
+                getline(file, start);
+                flag = 0;  
+            }
+            
+            getline(file, destiny);
+            getline(file, distance);
+
+            if(!flag)
+            {   
+                if(!names_of_station.count(start))
+                {
+                    names_of_station.insert({start, counter});
+                    counter++;
+                }
+                lines[type].push_back(start);
+                if(!names_of_station.count(destiny))
+                {
+                    names_of_station.insert({destiny, counter});
+                    counter++;
+                }
+                lines[type].push_back(destiny);
+                flag = 1;
+            }
+
+            else
+            {   
+                if(!names_of_station.count(destiny))
+                {
+                    names_of_station.insert({destiny, counter});
+                    counter++;
+                }
+                lines[type].push_back(destiny);  
+            }
+    
+            pathes[names_of_station[start]][names_of_station[destiny]].setinfo(stoi(distance), type);
+            pathes[names_of_station[destiny]][names_of_station[start]].setinfo(stoi(distance), type);
+        }
+
+        file.close();
+    }
+}
+
+void matrixes::complete_graph_for_cost()
+{   
+    bool Bus_flag = 0;
+
+    for(auto i : lines)
+    {   
+        Bus_flag = i.first[0] == 'B' ? 1 : 0;
+
+        for(auto j : i.second)
+        {
+            for(auto k : i.second)
+            {   
+                if(Bus_flag)
+                {
+                    costs[names_of_station[j]][names_of_station[k]].setinfo(2250, i.first);
+                    costs[names_of_station[k]][names_of_station[j]].setinfo(2250, i.first);
+                }
+
+                else
+                {
+                    costs[names_of_station[j]][names_of_station[k]].setinfo(3267, i.first);
+                    costs[names_of_station[k]][names_of_station[j]].setinfo(3267, i.first);
+                }
+            }
+        }
+    }
+
+    // for(int i = 0; i < 59; i++)
+    // {
+    //     for(int j = 0; j < 59; j++)
+    //     {
+    //         cout << search_in_map(i) << "->" << search_in_map(j) << ": "  << costs[i][j].getdis() << endl;
+    //     }
+    // }
+
+}
+
+void matrixes::find_lowest_cost(int start, int end)
+{
+    node shortest[59]; 
+    bool sptSet[59]; 
+  
+    for (int i = 0; i < 59; i++)
+        shortest[i].distance = INT_MAX, sptSet[i] = false;
+ 
+    
+    shortest[start].distance = 0;
+    shortest[start].directions.push_back(search_in_map(start));
+ 
+    for (int count = 0; count < 58; count++) 
+    {  
+        int u = minDistance(shortest, sptSet);
+ 
+        sptSet[u] = true;
+ 
+        for (int v = 0; v < 59; v++)
+        {
+            if (!sptSet[v] && costs[u][v].getdis() && shortest[u].distance != INT_MAX
+                && shortest[u].distance + costs[u][v].getdis() < shortest[v].distance)
+                {
+                    shortest[v].distance = shortest[u].distance + costs[u][v].getdis();
+                    shortest[v].directions =  shortest[u].directions;  shortest[v].directions.push_back(search_in_map(v));
+                    shortest[v].type_of_vehicle = shortest[u].type_of_vehicle; shortest[v].type_of_vehicle.push_back(costs[v][u].getvic());
+                }
+        }
+    }
+
+    cout << shortest[end].distance;
 }

@@ -12,7 +12,8 @@ class station
     string vehicle;
 
     public:
-    void setinfo(unsigned int, string);
+    void setinfo(unsigned int, string); // change to set distance
+    void set_cost(unsigned int, string);
     unsigned int getdis();
     string getvic();
     station();

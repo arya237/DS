@@ -27,21 +27,22 @@ class matrixes
 {
     private:
     station pathes [59][59] = {};
+    station costs [59][59] = {};
     map <string, int > names_of_station;
     unordered_map <string, vector<string> > lines;
 
 
     public:
     matrixes();
+    void read_distance_from_file ();
+    void complete_graph_for_cost();
     string search_in_map(int);
     int minDistance(node dist[], bool sptSet[]);
     bool is_valid(string start, string end); 
     void run();
     void show_shortest_path(node pathe);
-    void show_lowest_cost_path(string start, string end);
     void find_short_path(int start, int end);
-    vector <string> find_line(string & station);
-    string find_intersection(vector <string> & start, vector <string> & end);
+    void find_lowest_cost(int start, int end);
 };
 
 #endif
