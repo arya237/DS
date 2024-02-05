@@ -44,6 +44,7 @@ class matrixes
     void find_short_path(int start, int end);
     void find_lowest_cost(int start, int end);
     void get_input();
+    void show_cost(vector<string> line , vector <string> station);
 };
 
 #endif

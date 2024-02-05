@@ -266,13 +266,16 @@ void matrixes::find_lowest_cost(int start, int end)
                 && shortest[u].distance + costs[u][v].getdis() < shortest[v].distance)
                 {
                     shortest[v].distance = shortest[u].distance + costs[u][v].getdis();
-                    shortest[v].directions =  shortest[u].directions;  shortest[v].directions.push_back(search_in_map(v));
-                    shortest[v].type_of_vehicle = shortest[u].type_of_vehicle; shortest[v].type_of_vehicle.push_back(costs[v][u].getvic());
+                    shortest[v].directions =  shortest[u].directions;  
+                    shortest[v].directions.push_back(search_in_map(v));
+                    shortest[v].type_of_vehicle = shortest[u].type_of_vehicle; 
+                    shortest[v].type_of_vehicle.push_back(costs[v][u].getvic());
                 }
         }
     }
 
-    cout << shortest[end].distance;
+    cout << shortest[end].distance << endl;
+    show_cost(shortest[end].type_of_vehicle ,shortest[end].directions);
 }
 
 void matrixes:: get_input()
@@ -286,7 +289,41 @@ void matrixes:: get_input()
         getline(cin, start);
         getline(cin, end);
     }
+    cout << "# Shortest Path #" << endl; 
     find_short_path(names_of_station[start], names_of_station[end]);
+    cout << "# Lowest Cost #" << endl; 
     find_lowest_cost(names_of_station[start], names_of_station[end]);
+
+}
+void matrixes::show_cost(vector<string> line , vector <string> station)
+{
+    int j =0;
+
+    // for(auto i : station)
+    // {
+    //     cout << i << " " ;
+    // }
+    for(int i = 0 ; i < station.size()-1 ; i++)
+    {
+        auto start = find(lines[line[j]].begin() ,lines[line[j]].end() , station[i] );
+        auto end = find(lines[line[j]].begin() ,lines[line[j]].end() , station[i+1] );
+        int dir =0;
+
+        dir = start < end ? 1 : -1;
+
+        for(auto k = start ; k <= end ; k+=dir)
+        {
+            cout << *k ;
+            if(k!= end)
+            {
+                cout << " -> ";
+            }
+        }
+
+       cout << ": " <<line[j] << endl ;
+
+
+       j++;
+    }
 
 }
