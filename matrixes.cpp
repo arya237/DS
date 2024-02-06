@@ -231,15 +231,6 @@ void matrixes::complete_graph_for_cost()
             }
         }
     }
-
-    // for(int i = 0; i < 59; i++)
-    // {
-    //     for(int j = 0; j < 59; j++)
-    //     {
-    //         cout << search_in_map(i) << "->" << search_in_map(j) << ": "  << costs[i][j].getdis() << endl;
-    //     }
-    // }
-
 }
 
 void matrixes::find_lowest_cost(int start, int end)
@@ -263,7 +254,7 @@ void matrixes::find_lowest_cost(int start, int end)
         for (int v = 0; v < 59; v++)
         {
             if (!sptSet[v] && costs[u][v].getdis() && shortest[u].distance != INT_MAX
-                && shortest[u].distance + costs[u][v].getdis() < shortest[v].distance)
+                && shortest[u].distance + costs[u][v].getdis() <= shortest[v].distance)
                 {
                     shortest[v].distance = shortest[u].distance + costs[u][v].getdis();
                     shortest[v].directions =  shortest[u].directions;  
@@ -299,19 +290,15 @@ void matrixes::show_cost(vector<string> line , vector <string> station)
 {
     int j =0;
 
-    // for(auto i : station)
-    // {
-    //     cout << i << " " ;
-    // }
-    for(int i = 0 ; i < station.size()-1 ; i++)
+    for(int i = 0 ; i < station.size() - 1 ; i++)
     {
         auto start = find(lines[line[j]].begin() ,lines[line[j]].end() , station[i] );
-        auto end = find(lines[line[j]].begin() ,lines[line[j]].end() , station[i+1] );
+        auto end = find(lines[line[j]].begin() ,lines[line[j]].end() , station[i + 1] );
         int dir =0;
 
         dir = start < end ? 1 : -1;
 
-        for(auto k = start ; k <= end ; k+=dir)
+        for(auto k = start ; k != end + dir ; k += dir)
         {
             cout << *k ;
             if(k!= end)
