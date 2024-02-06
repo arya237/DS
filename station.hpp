@@ -13,9 +13,8 @@ class station
 
     public:
     void setinfo(unsigned int, string); // change to set distance
-    void set_cost(unsigned int, string);
     unsigned int getdis();
-    string getvic();
+    string getvic(); //get type of vehicle
     station();
 
 };
