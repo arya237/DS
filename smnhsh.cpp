@@ -48,7 +48,7 @@ void smnhsh:: get_input()
 {
     
     int num_order;
-    cout<<"num_order"<<num_order<<endl;
+    //cout<< "num_order" <<num_order<<endl;
     cin>>num_order;
     cin.ignore();
 
@@ -57,7 +57,7 @@ void smnhsh:: get_input()
         string start, end;
         string time;
         getline(cin, time);
-        cout<<"time"<<time<<endl;
+        //cout<< "time" << time<<endl;
         getline(cin, start);
         getline(cin, end);
 
@@ -73,11 +73,7 @@ void smnhsh:: get_input()
             
     }
     
-    
-
 }
-
-
 
 //--------------------------------------------------------
 
@@ -353,6 +349,7 @@ void smnhsh::show_shortest_path(node path)
 void smnhsh::show_cost(vector<string> line , vector <string> station)
 {
     int j =0;
+    int time = 0;
 
     for(int i = 0 ; i < station.size() - 1 ; i++)
     {
@@ -361,9 +358,20 @@ void smnhsh::show_cost(vector<string> line , vector <string> station)
         int dir =0;
 
         dir = start < end ? 1 : -1;
-
         for(auto k = start ; k != end + dir ; k += dir)
         {
+            if( k != end)
+            {
+                if (line[j][0] == 'B' )
+                {
+                    time += pathes[names_of_station[*k]][names_of_station[*(k+dir)]].getdis() * 4;
+                }
+                else
+                {
+                    time += pathes[names_of_station[*k]][names_of_station[*(k+dir)]].getdis();
+                }
+            }
+            
             cout << *k ;
             if(k!= end)
             {
@@ -371,8 +379,17 @@ void smnhsh::show_cost(vector<string> line , vector <string> station)
             }
         }
 
-       cout << ": " <<line[j] << endl ;
+            if (line[j][0] == 'B')
+            {
+                time += 15;
+            }
+            else
+            {
+                time += 8;
+            }
+            
+            cout << ": " <<line[j] << endl ;
        j++;
     }
-
+     cout << "time costs: " << time << endl;
 }
