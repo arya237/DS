@@ -46,21 +46,38 @@ void smnhsh::run()
 
 void smnhsh:: get_input()
 {
-    string start, end;
-    getline(cin, start);
-    getline(cin, end);
+    
+    int num_order;
+    cout<<"num_order"<<num_order<<endl;
+    cin>>num_order;
+    cin.ignore();
 
-    while ( !is_valid(start, end) )
+    while (num_order --)
     {
+        string start, end;
+        string time;
+        getline(cin, time);
+        cout<<"time"<<time<<endl;
         getline(cin, start);
         getline(cin, end);
+
+        while ( !is_valid(start, end) )
+        {
+            getline(cin, start);
+            getline(cin, end);
+        }
+        cout << "# Shortest Path #" << endl; 
+        find_short_path(names_of_station[start], names_of_station[end]);
+        cout << "# Lowest Cost #" << endl; 
+        find_lowest_cost(names_of_station[start], names_of_station[end]);   
+            
     }
-    cout << "# Shortest Path #" << endl; 
-    find_short_path(names_of_station[start], names_of_station[end]);
-    cout << "# Lowest Cost #" << endl; 
-    find_lowest_cost(names_of_station[start], names_of_station[end]);
+    
+    
 
 }
+
+
 
 //--------------------------------------------------------
 
@@ -283,6 +300,8 @@ void smnhsh::find_lowest_cost(int start, int end)
 
 void smnhsh::show_shortest_path(node path)
 {
+    int time = 0;
+
     cout << path.value << '\n';
     int size = path.directions.size();
     
@@ -294,14 +313,40 @@ void smnhsh::show_shortest_path(node path)
     {
         
         cout << " -> " << path.directions[i];
+        if (path.type_of_vehicle[j][0] == 'B' )
+        {
+            time += pathes[names_of_station[path.directions[j]]][names_of_station[path.directions[i]]].getdis() * 4;
+            
+            
+        }
+        else
+        {
+            time += pathes[names_of_station[path.directions[j]]][names_of_station[path.directions[i]]].getdis();
+        }
+        
+         
 
         if(path.type_of_vehicle[j + 1] != path.type_of_vehicle[j])
         {
+            if (path.type_of_vehicle[j][0] == 'B')
+            {
+                time += 15;
+            }
+            else
+            {
+                time += 8;
+            }
+            
             cout << ": " << path.type_of_vehicle[j] << endl;
         }
         j++;
+       
+
     }
+  
+    cout<<"Time :"<<time<<endl;
 }
+
 
 //--------------------------------------------------------
 
