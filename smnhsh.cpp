@@ -1,9 +1,10 @@
 #include <string>
 #include <stdexcept>
 #include <algorithm>
+#include <fstream>
 
 #include "smnhsh.hpp"
-#include <fstream>
+
 
 
 smnhsh::smnhsh()
@@ -47,29 +48,30 @@ void smnhsh::run()
 void smnhsh:: get_input()
 {
     
-    int num_order;
-    //cout<< "num_order" <<num_order<<endl;
+    int num_order;;
     cin>>num_order;
     cin.ignore();
 
     while (num_order --)
     {
-        string start, end;
-        string time;
+        string start, end, time;
+
         getline(cin, time);
-        //cout<< "time" << time<<endl;
         getline(cin, start);
         getline(cin, end);
+
+        Time start_time(time);
 
         while ( !is_valid(start, end) )
         {
             getline(cin, start);
             getline(cin, end);
         }
+
         cout << "# Shortest Path #" << endl; 
-        find_short_path(names_of_station[start], names_of_station[end], time);
+        find_short_path(names_of_station[start], names_of_station[end], start_time);
         cout << "# Lowest Cost #" << endl; 
-        find_lowest_cost(names_of_station[start], names_of_station[end], time);   
+        find_lowest_cost(names_of_station[start], names_of_station[end], start_time);   
             
     }
     
@@ -219,7 +221,7 @@ int smnhsh::minDistance(node dist[], bool sptSet[])
 
 //--------------------------------------------------------
 
-void smnhsh::find_short_path(int start, int end, string start_time)
+void smnhsh::find_short_path(int start, int end, Time start_time)
 {
     node shortest[59]; 
     bool   sptSet[59]; 
@@ -256,7 +258,7 @@ void smnhsh::find_short_path(int start, int end, string start_time)
 
 //--------------------------------------------------------
 
-void smnhsh::find_lowest_cost(int start, int end , string start_time)
+void smnhsh::find_lowest_cost(int start, int end , Time start_time)
 {
     node shortest[59]; 
     bool   sptSet[59]; 
@@ -294,9 +296,8 @@ void smnhsh::find_lowest_cost(int start, int end , string start_time)
 
 //--------------------------------------------------------
 
-void smnhsh::show_shortest_path(node path , string start_time)
+void smnhsh::show_shortest_path(node path , Time start_time)
 {
-    int time = 0;
 
     cout << path.value << '\n';
     int size = path.directions.size();
@@ -308,13 +309,15 @@ void smnhsh::show_shortest_path(node path , string start_time)
     for(int i = 1; i < size; i++)
     {
         
+        int time = 0;
+
         cout << " -> " << path.directions[i];
         if (path.type_of_vehicle[j][0] == 'B' )
-        {
-            time += pathes[names_of_station[path.directions[j]]][names_of_station[path.directions[i]]].getdis() * 4;
-            
-            
+        {   
+            int trafic_time = start_time.get_hour() < 8 && start_time.get_hour() >= 6 ? 8 : 4; 
+            time += pathes[names_of_station[path.directions[j]]][names_of_station[path.directions[i]]].getdis() * trafic_time;
         }
+
         else
         {
             time += pathes[names_of_station[path.directions[j]]][names_of_station[path.directions[i]]].getdis();
@@ -328,55 +331,49 @@ void smnhsh::show_shortest_path(node path , string start_time)
             {
                 time += 15;
             }
+
             else
             {
-                time += 8;
+                int trafic_time = start_time.get_hour() < 8 && start_time.get_hour() >= 6 ? 24 : 8; 
+                time += trafic_time;
             }
             
             cout << ": " << path.type_of_vehicle[j] << endl;
         }
-        j++;
-       
 
+        start_time + time;
+        j++;
     }
-  
-    string time_min , time_hr ;
-    time_min = start_time[start_time.size()-2];
-    time_min +=  start_time[start_time.size()-1];
-    time_hr = start_time[0];
-    time_hr += start_time[1];
-    time += stoi(time_min) ;
-    int hour = 0, min = 0;
-    hour = time / 60;
-    min  = time % 60;
-    hour += stoi(time_hr);
-    hour %= 24;
-    cout << hour << ":" << min << endl ;
+
+    start_time.print();
 }
 
 
 //--------------------------------------------------------
 
-void smnhsh::show_cost(vector<string> line , vector <string> station , string start_time)
+void smnhsh::show_cost(vector<string> line , vector <string> station , Time start_time)
 {
-    int j =0;
-    int time = 0;
+    int j = 0;
 
     for(int i = 0 ; i < station.size() - 1 ; i++)
     {
         auto start = find(lines[line[j]].begin() ,lines[line[j]].end() , station[i] );
         auto end   = find(lines[line[j]].begin() ,lines[line[j]].end() , station[i + 1] );
         int dir    = 0;
+        int time = 0;
 
         dir = start < end ? 1 : -1;
         for(auto k = start ; k != end + dir ; k += dir)
         {
+
             if( k != end)
             {
                 if (line[j][0] == 'B' )
-                {
-                    time += pathes[names_of_station[*k]][names_of_station[*(k+dir)]].getdis() * 4;
+                {   
+                    int trafic_time = start_time.get_hour() < 8 && start_time.get_hour() >= 6 ? 8 : 4; 
+                    time += pathes[names_of_station[*k]][names_of_station[*(k+dir)]].getdis() * trafic_time;
                 }
+
                 else
                 {
                     time += pathes[names_of_station[*k]][names_of_station[*(k+dir)]].getdis();
@@ -391,31 +388,23 @@ void smnhsh::show_cost(vector<string> line , vector <string> station , string st
         }
 
             if (line[j][0] == 'B')
-            {
+            {   
+                 
                 time += 15;
             }
             else
-            {
-                time += 8;
+            {   
+                int trafic_time = start_time.get_hour() < 8 && start_time.get_hour() >= 6 ? 24 : 8; 
+                time += trafic_time;
             }
             
-            cout << ": " <<line[j] << endl ;
+        cout << ": " <<line[j] << endl ;
+        start_time + time;
+        
        j++;
     }
 
-    string time_min , time_hr ;
-    time_min = start_time[start_time.size()-2];
-    time_min +=  start_time[start_time.size()-1];
-    time_hr = start_time[0];
-    time_hr += start_time[1];
-    time += stoi(time_min) ;
-    int hour = 0, min = 0;
-    hour = time / 60;
-    min  = time % 60;
-    hour += stoi(time_hr);
-    hour %= 24;
-    cout << hour << ":" << min << endl ;
-    
+    start_time.print();
 }
 
 //conflict

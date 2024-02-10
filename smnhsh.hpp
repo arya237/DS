@@ -10,6 +10,7 @@
 
 #include "station.hpp"
 #include "smnhsh.hpp"
+#include "time.hpp"
 
 using namespace std;
 
@@ -39,10 +40,10 @@ class smnhsh
     void complete_graph_for_cost();  //make a graph filled with costs
     string search_in_map(int);  
     int minDistance(node dist[], bool sptSet[]);
-    void find_short_path(int start, int end , string start_time); 
-    void find_lowest_cost(int start, int end, string start_time);
-    void show_shortest_path(node pathe , string start_time); //printing name of stations for shortest path 
-    void show_cost(vector<string> line , vector <string> station , string start_time);//printing name of stations for lowest cost 
+    void find_short_path(int start, int end , Time start_time); 
+    void find_lowest_cost(int start, int end, Time start_time);
+    void show_shortest_path(node pathe , Time start_time); //printing name of stations for shortest path 
+    void show_cost(vector<string> line , vector <string> station , Time start_time);//printing name of stations for lowest cost 
 };
 
 #endif
