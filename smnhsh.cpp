@@ -414,5 +414,8 @@ void smnhsh::show_cost(vector<string> line , vector <string> station , string st
     min  = time % 60;
     hour += stoi(time_hr);
     hour %= 24;
-    cout << hour << ":" << min << endl;    
+    cout << hour << ":" << min << endl ;
+    
 }
+
+//conflict
