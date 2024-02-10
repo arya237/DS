@@ -1,9 +1,5 @@
 {
-  "files.associations": {
-    "xlocale": "cpp",
-    "iostream": "cpp",
-    "iosfwd": "cpp",
-    "unordered_set": "cpp",
-    "xstring": "cpp"
-  }
+    "files.associations": {
+        "iostream": "cpp"
+    }
 }

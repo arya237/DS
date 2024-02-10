@@ -48,7 +48,7 @@ void smnhsh:: get_input()
 {
     
     int num_order;
-    cout<<"num_order"<<num_order<<endl;
+    //cout<< "num_order" <<num_order<<endl;
     cin>>num_order;
     cin.ignore();
 
@@ -57,7 +57,7 @@ void smnhsh:: get_input()
         string start, end;
         string time;
         getline(cin, time);
-        cout<<"time"<<time<<endl;
+        //cout<< "time" << time<<endl;
         getline(cin, start);
         getline(cin, end);
 
@@ -67,17 +67,13 @@ void smnhsh:: get_input()
             getline(cin, end);
         }
         cout << "# Shortest Path #" << endl; 
-        find_short_path(names_of_station[start], names_of_station[end]);
+        find_short_path(names_of_station[start], names_of_station[end], time);
         cout << "# Lowest Cost #" << endl; 
-        find_lowest_cost(names_of_station[start], names_of_station[end]);   
+        find_lowest_cost(names_of_station[start], names_of_station[end], time);   
             
     }
     
-    
-
 }
-
-
 
 //--------------------------------------------------------
 
@@ -223,7 +219,7 @@ int smnhsh::minDistance(node dist[], bool sptSet[])
 
 //--------------------------------------------------------
 
-void smnhsh::find_short_path(int start, int end)
+void smnhsh::find_short_path(int start, int end, string start_time)
 {
     node shortest[59]; 
     bool   sptSet[59]; 
@@ -255,12 +251,12 @@ void smnhsh::find_short_path(int start, int end)
         }
     }
 
-    show_shortest_path(shortest[end]);
+    show_shortest_path(shortest[end], start_time);
 }
 
 //--------------------------------------------------------
 
-void smnhsh::find_lowest_cost(int start, int end)
+void smnhsh::find_lowest_cost(int start, int end , string start_time)
 {
     node shortest[59]; 
     bool   sptSet[59]; 
@@ -293,12 +289,12 @@ void smnhsh::find_lowest_cost(int start, int end)
     }
 
     cout << shortest[end].value << endl;
-    show_cost(shortest[end].type_of_vehicle ,shortest[end].directions);
+    show_cost(shortest[end].type_of_vehicle ,shortest[end].directions , start_time);
 }
 
 //--------------------------------------------------------
 
-void smnhsh::show_shortest_path(node path)
+void smnhsh::show_shortest_path(node path , string start_time)
 {
     int time = 0;
 
@@ -344,26 +340,49 @@ void smnhsh::show_shortest_path(node path)
 
     }
   
-    cout<<"Time :"<<time<<endl;
+    string time_min , time_hr ;
+    time_min = start_time[start_time.size()-2];
+    time_min +=  start_time[start_time.size()-1];
+    time_hr = start_time[0];
+    time_hr += start_time[1];
+    time += stoi(time_min) ;
+    int hour = 0, min = 0;
+    hour = time / 60;
+    min  = time % 60;
+    hour += stoi(time_hr);
+    hour %= 24;
+    cout << hour << ":" << min << endl ;
 }
 
 
 //--------------------------------------------------------
 
-void smnhsh::show_cost(vector<string> line , vector <string> station)
+void smnhsh::show_cost(vector<string> line , vector <string> station , string start_time)
 {
     int j =0;
+    int time = 0;
 
     for(int i = 0 ; i < station.size() - 1 ; i++)
     {
         auto start = find(lines[line[j]].begin() ,lines[line[j]].end() , station[i] );
         auto end   = find(lines[line[j]].begin() ,lines[line[j]].end() , station[i + 1] );
-        int dir =0;
+        int dir    = 0;
 
         dir = start < end ? 1 : -1;
-
         for(auto k = start ; k != end + dir ; k += dir)
         {
+            if( k != end)
+            {
+                if (line[j][0] == 'B' )
+                {
+                    time += pathes[names_of_station[*k]][names_of_station[*(k+dir)]].getdis() * 4;
+                }
+                else
+                {
+                    time += pathes[names_of_station[*k]][names_of_station[*(k+dir)]].getdis();
+                }
+            }
+            
             cout << *k ;
             if(k!= end)
             {
@@ -371,8 +390,30 @@ void smnhsh::show_cost(vector<string> line , vector <string> station)
             }
         }
 
-       cout << ": " <<line[j] << endl ;
+            if (line[j][0] == 'B')
+            {
+                time += 15;
+            }
+            else
+            {
+                time += 8;
+            }
+            
+            cout << ": " <<line[j] << endl ;
        j++;
     }
 
+    string time_min , time_hr ;
+    time_min = start_time[start_time.size()-2];
+    time_min +=  start_time[start_time.size()-1];
+    time_hr = start_time[0];
+    time_hr += start_time[1];
+    time += stoi(time_min) ;
+    int hour = 0, min = 0;
+    hour = time / 60;
+    min  = time % 60;
+    hour += stoi(time_hr);
+    hour %= 24;
+    cout << hour << ":" << min << endl ;
+    
 }
