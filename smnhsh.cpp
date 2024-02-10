@@ -402,7 +402,6 @@ void smnhsh::show_cost(vector<string> line , vector <string> station , string st
             cout << ": " <<line[j] << endl ;
        j++;
     }
-<<<<<<< HEAD
 
     string time_min , time_hr ;
     time_min = start_time[start_time.size()-2];
@@ -415,9 +414,5 @@ void smnhsh::show_cost(vector<string> line , vector <string> station , string st
     min  = time % 60;
     hour += stoi(time_hr);
     hour %= 24;
-    cout << hour << ":" << min << endl ;
-    
-=======
-     cout << "time costs: " << time << endl;
->>>>>>> 1486791b6aca67c56163e70e8466be8d33071f0c
+    cout << hour << ":" << min << endl;    
 }
