@@ -1,19 +1,19 @@
-#include <iostream>
-#include "smnhsh.hpp"
+#include <QGuiApplication>
+#include <QQmlApplicationEngine>
 
-using namespace std;
-
-int main()
+int main(int argc, char *argv[])
 {
-    smnhsh o1;
-    o1.run();
-    //o1.print();
-    
-}  
+    QGuiApplication app(argc, argv);
 
-/******************************************************
- ~ Data Structure Project(SMNHSH)
- * Aria Naderi
- * Romina Khanmohammadi
- * Taraneh Bahmani
-******************************************************/
+    QQmlApplicationEngine engine;
+    const QUrl url(u"qrc:/untitled/Main.qml"_qs);
+    QObject::connect(
+        &engine,
+        &QQmlApplicationEngine::objectCreationFailed,
+        &app,
+        []() { QCoreApplication::exit(-1); },
+        Qt::QueuedConnection);
+    engine.load(url);
+
+    return app.exec();
+}
