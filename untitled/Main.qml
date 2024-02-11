@@ -1,4 +1,5 @@
 import QtQuick
+import QtQuick.Controls
 
 Window {
     width: 1980
@@ -221,6 +222,63 @@ Window {
             anchors.top: towhid.top
             anchors.topMargin: -20
             text: qsTr("Towhid")
+        }
+    }
+
+    Rectangle {
+        id: line4_8
+        width: 60
+        height: 3
+        color: "yellow"
+        anchors.top: towhid.top
+        anchors.topMargin: towhid.height / 2
+        anchors.left: (towhid.right)
+    }
+
+    Rectangle {
+        id: meydaneenghelab
+        width: 30
+        height: 30
+        border.color: "black"
+        border.width: 1
+        anchors.top: shademan.top
+        anchors.left: (line4_8.right)
+        radius: 180
+
+        Text {
+            anchors.bottom: meydaneenghelab.bottom
+            anchors.bottomMargin: -20
+            anchors.left: meydaneenghelab.left
+            anchors.leftMargin: -50
+            text: qsTr("Meydan-e Enghelab-e Eslami")
+        }
+    }
+
+    Rectangle {
+        id: line4_9
+        width: 60
+        height: 3
+        color: "yellow"
+        anchors.top: meydaneenghelab.top
+        anchors.topMargin: meydaneenghelab.height / 2
+        anchors.left: (meydaneenghelab.right)
+    }
+
+    Rectangle {
+        id: teatreshahr
+        width: 30
+        height: 30
+        border.color: "black"
+        border.width: 1
+        anchors.top: meydaneenghelab.top
+        anchors.left: (line4_9.right)
+        radius: 180
+
+        Text {
+            anchors.top: teatreshahr.top
+            anchors.topMargin: -20
+            x: -20
+            text: qsTr("Teatr-e Shahr")
         }
     }
 }
