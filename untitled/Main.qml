@@ -142,4 +142,31 @@ Window {
             text: qsTr("Meydan-e Azadi")
         }
     }
+
+    Rectangle {
+        id: line6_5
+        width: 70
+        height: 3
+        color: "yellow"
+        anchors.top: meydaneazadi.top
+        anchors.topMargin: meydaneazadi.height / 2
+        anchors.left: (meydaneazadi.right)
+    }
+
+    Rectangle {
+        id: ostadmoin
+        width: 30
+        height: 30
+        border.color: "black"
+        border.width: 1
+        anchors.top: meydaneazadi.top
+        anchors.left: (line6_5.right)
+        radius: 180
+
+        Text {
+            anchors.top: ostadmoin.top
+            anchors.topMargin: -20
+            text: qsTr("Ostad Mo'in")
+        }
+    }
 }
