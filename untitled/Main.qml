@@ -8,8 +8,8 @@ Window {
 
     Rectangle {
         id: chaharbagh
-        width: 40
-        height: 40
+        width: 35
+        height: 35
         border.color: "black"
         border.width: 1
         x: 260
@@ -22,6 +22,7 @@ Window {
             leftPadding: 4
             text: qsTr("Line_4")
             color: "#FDD835"
+            font.pixelSize: 10
         }
 
         Text {
@@ -36,7 +37,7 @@ Window {
     Rectangle {
         id: line6_1
         width: 3
-        height: 180
+        height: 140
         color: "yellow"
         anchors.top: chaharbagh.bottom
         anchors.left: (chaharbagh.left)
@@ -45,8 +46,8 @@ Window {
 
     Rectangle {
         id: kashani
-        width: 35
-        height: 35
+        width: 30
+        height: 30
         border.color: "black"
         border.width: 1
         anchors.left: chaharbagh.left
@@ -64,7 +65,7 @@ Window {
     Rectangle {
         id: line6_2
         width: 3
-        height: 100
+        height: 70
         color: "yellow"
         anchors.top: kashani.bottom
         anchors.left: (kashani.left)
@@ -73,8 +74,8 @@ Window {
 
     Rectangle {
         id: alamehjafari
-        width: 35
-        height: 35
+        width: 30
+        height: 30
         border.color: "black"
         border.width: 1
         anchors.top: line6_2.bottom
@@ -91,7 +92,7 @@ Window {
     Rectangle {
         id: line6_3
         width: 3
-        height: 100
+        height: 70
         color: "yellow"
         anchors.top: alamehjafari.bottom
         anchors.left: (alamehjafari.left)
@@ -100,8 +101,8 @@ Window {
 
     Rectangle {
         id: eramesabz
-        width: 35
-        height: 35
+        width: 30
+        height: 30
         border.color: "black"
         border.width: 1
         anchors.top: line6_3.bottom
@@ -112,6 +113,33 @@ Window {
             anchors.left: eramesabz.left
             anchors.leftMargin: -70
             text: qsTr("Eram-e Sabz")
+        }
+    }
+
+    Rectangle {
+        id: line6_4
+        width: 3
+        height: 70
+        color: "yellow"
+        anchors.top: eramesabz.bottom
+        anchors.left: (eramesabz.left)
+        anchors.leftMargin: eramesabz.width / 2 - 1
+    }
+
+    Rectangle {
+        id: meydaneazadi
+        width: 30
+        height: 30
+        border.color: "black"
+        border.width: 1
+        anchors.top: line6_4.bottom
+        anchors.left: (eramesabz.left)
+        radius: 180
+
+        Text {
+            anchors.left: meydaneazadi.left
+            anchors.leftMargin: -90
+            text: qsTr("Meydan-e Azadi")
         }
     }
 }
