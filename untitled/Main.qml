@@ -35,7 +35,7 @@ Window {
     }
 
     Rectangle {
-        id: line6_1
+        id: line4_1
         width: 3
         height: 140
         color: "yellow"
@@ -52,7 +52,7 @@ Window {
         border.width: 1
         anchors.left: chaharbagh.left
         anchors.leftMargin: (chaharbagh.width - kashani.width) / 2
-        anchors.top: line6_1.bottom
+        anchors.top: line4_1.bottom
         radius: 180
 
         Text {
@@ -63,7 +63,7 @@ Window {
     }
 
     Rectangle {
-        id: line6_2
+        id: line4_2
         width: 3
         height: 70
         color: "yellow"
@@ -78,7 +78,7 @@ Window {
         height: 30
         border.color: "black"
         border.width: 1
-        anchors.top: line6_2.bottom
+        anchors.top: line4_2.bottom
         anchors.left: (kashani.left)
         radius: 180
 
@@ -90,7 +90,7 @@ Window {
     }
 
     Rectangle {
-        id: line6_3
+        id: line4_3
         width: 3
         height: 70
         color: "yellow"
@@ -105,7 +105,7 @@ Window {
         height: 30
         border.color: "black"
         border.width: 1
-        anchors.top: line6_3.bottom
+        anchors.top: line4_3.bottom
         anchors.left: (kashani.left)
         radius: 180
 
@@ -117,7 +117,7 @@ Window {
     }
 
     Rectangle {
-        id: line6_4
+        id: line4_4
         width: 3
         height: 70
         color: "yellow"
@@ -132,7 +132,7 @@ Window {
         height: 30
         border.color: "black"
         border.width: 1
-        anchors.top: line6_4.bottom
+        anchors.top: line4_4.bottom
         anchors.left: (eramesabz.left)
         radius: 180
 
@@ -144,8 +144,8 @@ Window {
     }
 
     Rectangle {
-        id: line6_5
-        width: 70
+        id: line4_5
+        width: 60
         height: 3
         color: "yellow"
         anchors.top: meydaneazadi.top
@@ -160,13 +160,67 @@ Window {
         border.color: "black"
         border.width: 1
         anchors.top: meydaneazadi.top
-        anchors.left: (line6_5.right)
+        anchors.left: (line4_5.right)
         radius: 180
 
         Text {
             anchors.top: ostadmoin.top
             anchors.topMargin: -20
             text: qsTr("Ostad Mo'in")
+        }
+    }
+
+    Rectangle {
+        id: line4_6
+        width: 60
+        height: 3
+        color: "yellow"
+        anchors.top: ostadmoin.top
+        anchors.topMargin: ostadmoin.height / 2
+        anchors.left: (ostadmoin.right)
+    }
+
+    Rectangle {
+        id: shademan
+        width: 30
+        height: 30
+        border.color: "black"
+        border.width: 1
+        anchors.top: ostadmoin.top
+        anchors.left: (line4_6.right)
+        radius: 180
+
+        Text {
+            anchors.top: shademan.top
+            anchors.topMargin: -20
+            text: qsTr("Shademan")
+        }
+    }
+
+    Rectangle {
+        id: line4_7
+        width: 60
+        height: 3
+        color: "yellow"
+        anchors.top: shademan.top
+        anchors.topMargin: shademan.height / 2
+        anchors.left: (shademan.right)
+    }
+
+    Rectangle {
+        id: towhid
+        width: 30
+        height: 30
+        border.color: "black"
+        border.width: 1
+        anchors.top: shademan.top
+        anchors.left: (line4_7.right)
+        radius: 180
+
+        Text {
+            anchors.top: towhid.top
+            anchors.topMargin: -20
+            text: qsTr("Towhid")
         }
     }
 }
