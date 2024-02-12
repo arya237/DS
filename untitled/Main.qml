@@ -11,10 +11,11 @@ Window {
         id: chaharbagh
         width: 35
         height: 35
-        border.color: "black"
-        border.width: 1
-        x: 260
-        y: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        x: 170
+        y: 20
         radius: 180
 
         Text {
@@ -49,8 +50,9 @@ Window {
         id: kashani
         width: 30
         height: 30
-        border.color: "black"
-        border.width: 1
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
         anchors.left: chaharbagh.left
         anchors.leftMargin: (chaharbagh.width - kashani.width) / 2
         anchors.top: line4_1.bottom
@@ -58,15 +60,16 @@ Window {
 
         Text {
             anchors.left: kashani.left
-            anchors.leftMargin: -45
+            anchors.leftMargin: -40
             text: qsTr("Kashani")
+            font.pixelSize: 10
         }
     }
 
     Rectangle {
         id: line4_2
         width: 3
-        height: 70
+        height: 45
         color: "yellow"
         anchors.top: kashani.bottom
         anchors.left: (kashani.left)
@@ -77,23 +80,25 @@ Window {
         id: alamehjafari
         width: 30
         height: 30
-        border.color: "black"
-        border.width: 1
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
         anchors.top: line4_2.bottom
         anchors.left: (kashani.left)
         radius: 180
 
         Text {
             anchors.left: alamehjafari.left
-            anchors.leftMargin: -75
+            anchors.leftMargin: -65
             text: qsTr("Alameh Jafari")
+            font.pixelSize: 10
         }
     }
 
     Rectangle {
         id: line4_3
         width: 3
-        height: 70
+        height: 45
         color: "yellow"
         anchors.top: alamehjafari.bottom
         anchors.left: (alamehjafari.left)
@@ -104,16 +109,18 @@ Window {
         id: eramesabz
         width: 30
         height: 30
-        border.color: "black"
-        border.width: 1
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
         anchors.top: line4_3.bottom
         anchors.left: (kashani.left)
         radius: 180
 
         Text {
             anchors.left: eramesabz.left
-            anchors.leftMargin: -70
+            anchors.leftMargin: -60
             text: qsTr("Eram-e Sabz")
+            font.pixelSize: 10
         }
     }
 
@@ -131,22 +138,24 @@ Window {
         id: meydaneazadi
         width: 30
         height: 30
-        border.color: "black"
-        border.width: 1
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
         anchors.top: line4_4.bottom
         anchors.left: (eramesabz.left)
         radius: 180
 
         Text {
             anchors.left: meydaneazadi.left
-            anchors.leftMargin: -90
+            anchors.leftMargin: -77
             text: qsTr("Meydan-e Azadi")
+            font.pixelSize: 10
         }
     }
 
     Rectangle {
         id: line4_5
-        width: 60
+        width: 25
         height: 3
         color: "yellow"
         anchors.top: meydaneazadi.top
@@ -158,8 +167,9 @@ Window {
         id: ostadmoin
         width: 30
         height: 30
-        border.color: "black"
-        border.width: 1
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
         anchors.top: meydaneazadi.top
         anchors.left: (line4_5.right)
         radius: 180
@@ -167,13 +177,15 @@ Window {
         Text {
             anchors.top: ostadmoin.top
             anchors.topMargin: -20
+            x: -15
             text: qsTr("Ostad Mo'in")
+            font.pixelSize: 10
         }
     }
 
     Rectangle {
         id: line4_6
-        width: 60
+        width: 25
         height: 3
         color: "yellow"
         anchors.top: ostadmoin.top
@@ -185,8 +197,9 @@ Window {
         id: shademan
         width: 30
         height: 30
-        border.color: "black"
-        border.width: 1
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
         anchors.top: ostadmoin.top
         anchors.left: (line4_6.right)
         radius: 180
@@ -195,12 +208,13 @@ Window {
             anchors.top: shademan.top
             anchors.topMargin: -20
             text: qsTr("Shademan")
+            font.pixelSize: 10
         }
     }
 
     Rectangle {
         id: line4_7
-        width: 60
+        width: 25
         height: 3
         color: "yellow"
         anchors.top: shademan.top
@@ -212,8 +226,9 @@ Window {
         id: towhid
         width: 30
         height: 30
-        border.color: "black"
-        border.width: 1
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
         anchors.top: shademan.top
         anchors.left: (line4_7.right)
         radius: 180
@@ -222,12 +237,13 @@ Window {
             anchors.top: towhid.top
             anchors.topMargin: -20
             text: qsTr("Towhid")
+            font.pixelSize: 10
         }
     }
 
     Rectangle {
         id: line4_8
-        width: 60
+        width: 55
         height: 3
         color: "yellow"
         anchors.top: towhid.top
@@ -239,8 +255,9 @@ Window {
         id: meydaneenghelab
         width: 30
         height: 30
-        border.color: "black"
-        border.width: 1
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
         anchors.top: shademan.top
         anchors.left: (line4_8.right)
         radius: 180
@@ -251,12 +268,13 @@ Window {
             anchors.left: meydaneenghelab.left
             anchors.leftMargin: -50
             text: qsTr("Meydan-e Enghelab-e Eslami")
+            font.pixelSize: 10
         }
     }
 
     Rectangle {
         id: line4_9
-        width: 60
+        width: 55
         height: 3
         color: "yellow"
         anchors.top: meydaneenghelab.top
@@ -268,8 +286,9 @@ Window {
         id: teatreshahr
         width: 30
         height: 30
-        border.color: "black"
-        border.width: 1
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
         anchors.top: meydaneenghelab.top
         anchors.left: (line4_9.right)
         radius: 180
@@ -277,8 +296,119 @@ Window {
         Text {
             anchors.top: teatreshahr.top
             anchors.topMargin: -20
-            x: -20
+            x: -15
             text: qsTr("Teatr-e Shahr")
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line4_10
+        width: 60
+        height: 3
+        color: "yellow"
+        anchors.top: teatreshahr.top
+        anchors.topMargin: teatreshahr.height / 2
+        anchors.left: (teatreshahr.right)
+    }
+
+    Rectangle {
+        id: ferdowsi
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: teatreshahr.top
+        anchors.left: (line4_10.right)
+        radius: 180
+
+        Text {
+            anchors.top: ferdowsi.top
+            anchors.topMargin: -20
+            x: -5
+            text: qsTr("Ferdowsi")
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line4_11
+        width: 25
+        height: 3
+        color: "yellow"
+        anchors.top: ferdowsi.top
+        anchors.topMargin: ferdowsi.height / 2
+        anchors.left: (ferdowsi.right)
+    }
+
+    Rectangle {
+        id: line4_12
+        width: 3
+        height: 55
+        color: "yellow"
+        anchors.top: line4_11.top
+        anchors.left: line4_11.right
+    }
+
+    Rectangle {
+        id: line4_13
+        width: 25
+        height: 3
+        color: "yellow"
+        anchors.top: line4_12.bottom
+        anchors.left: (line4_12.left)
+    }
+
+    Rectangle {
+        id: darvazehdowlat
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: line4_13.top
+        anchors.topMargin: -(darvazehdowlat.height / 2)
+        anchors.left: (line4_13.right)
+        radius: 180
+
+        Text {
+            anchors.top: darvazehdowlat.top
+            anchors.topMargin: 30
+            x: 30
+            text: qsTr("Darvazeh Dowlat")
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line4_14
+        width: 70
+        height: 3
+        color: "yellow"
+        anchors.top: darvazehdowlat.top
+        anchors.topMargin: darvazehdowlat.height / 2
+        anchors.left: (darvazehdowlat.right)
+    }
+
+    Rectangle {
+        id: darvazehshemiran
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: line4_14.top
+        anchors.topMargin: -(darvazehdowlat.height / 2)
+        anchors.left: (line4_14.right)
+        radius: 180
+
+        Text {
+            anchors.top: darvazehshemiran.top
+            anchors.topMargin: 30
+            x: 25
+            text: qsTr("Darvazeh Dowlat")
+            font.pixelSize: 10
         }
     }
 }
