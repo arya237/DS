@@ -399,16 +399,156 @@ Window {
         border.width: 2
         color: "#EFEFEF"
         anchors.top: line4_14.top
-        anchors.topMargin: -(darvazehdowlat.height / 2)
+        anchors.topMargin: -(darvazehshemiran.height / 2)
         anchors.left: (line4_14.right)
         radius: 180
 
         Text {
             anchors.top: darvazehshemiran.top
-            anchors.topMargin: 30
+            anchors.topMargin: -10
             x: 25
-            text: qsTr("Darvazeh Dowlat")
+            text: qsTr("Darvazeh Shemiran")
             font.pixelSize: 10
         }
     }
+
+    Rectangle {
+        id: line4_15
+        width: 40
+        height: 3
+        color: "yellow"
+        anchors.top: darvazehshemiran.top
+        anchors.topMargin: darvazehshemiran.height / 2
+        anchors.left: (darvazehshemiran.right)
+    }
+
+    Rectangle {
+        id: line4_16
+        width: 3
+        height: 35
+        color: "yellow"
+        anchors.top: line4_15.top
+        anchors.left: (line4_15.right)
+    }
+
+    Rectangle {
+        id: line4_17
+        width: 40
+        height: 3
+        color: "yellow"
+        anchors.top: line4_16.bottom
+        anchors.left: (line4_16.left)
+    }
+
+    Rectangle {
+        id: meydaneshohada
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: line4_17.top
+        anchors.topMargin: -(meydaneshohada.height / 2)
+        anchors.left: (line4_17.right)
+        radius: 180
+
+        Text {
+            anchors.top: darvazehshemiran.top
+            y : 30
+            x: -80
+            text: qsTr("Meydan-e Shohada")
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line4_18
+        width: 40
+        height: 3
+        color: "yellow"
+        anchors.top: meydaneshohada.top
+        anchors.topMargin: meydaneshohada.height / 2
+        anchors.left: (meydaneshohada.right)
+    }
+
+    Rectangle {
+        id: ebnesina
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: line4_18.top
+        anchors.topMargin: -(ebnesina.height / 2)
+        anchors.left: (line4_18.right)
+        radius: 180
+
+        Text {
+            anchors.top: ebnesina.top
+            anchors.topMargin: 30
+            text: qsTr("Ebn-e Sina")
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line4_19
+        width: 30
+        height: 3
+        color: "yellow"
+        anchors.top: ebnesina.top
+        anchors.topMargin: ebnesina.height / 2
+        anchors.left: (ebnesina.right)
+    }
+
+    Rectangle {
+        id: pirouzi
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: line4_19.top
+        anchors.topMargin: -(pirouzi.height / 2)
+        anchors.left: (line4_19.right)
+        radius: 180
+
+        Text {
+            anchors.top: pirouzi.top
+            anchors.topMargin: 30
+            text: qsTr("Pirouzi")
+            font.pixelSize: 10
+        }
+    }
+    Rectangle {
+        id: line4_20
+        width: 40
+        height: 3
+        color: "yellow"
+        anchors.top: pirouzi.top
+        anchors.topMargin: pirouzi.height / 2
+        anchors.left: (pirouzi.right)
+    }
+
+    Rectangle {
+        id: nabard
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: line4_20.top
+        anchors.topMargin: -(nabard.height / 2)
+        anchors.left: (line4_20.right)
+        radius: 180
+
+        Text {
+            anchors.top: nabard.top
+            anchors.topMargin: 30
+            text: qsTr("Nabard")
+            font.pixelSize: 10
+        }
+    }
+
+
 }
