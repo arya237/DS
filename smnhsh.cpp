@@ -157,36 +157,43 @@ void smnhsh::read_distance_from_file ()
 
 void smnhsh::complete_graph_for_cost()
 {   
-    bool Bus_flag = 0;
+    bool Bus_flag = 0 , Metro_Taxi = 0;
 
     for(auto i : lines)
     {   
         Bus_flag = i.first[0] == 'B' ? 1 : 0;
+        Metro_Taxi = i.first[0] == 'M' ? 1 : 0;
 
         for(auto j : i.second)
         {
             for(auto k : i.second)
             {   
-                if(Bus_flag)
+                
+                if(Bus_flag )
                 {
-                    
-                        costs[names_of_station[j]][names_of_station[k]].setinfo(2250, i.first);
-                        costs[names_of_station[k]][names_of_station[j]].setinfo(2250, i.first);
+                    costs[names_of_station[j]][names_of_station[k]].setinfo(2250, i.first);
+                    costs[names_of_station[k]][names_of_station[j]].setinfo(2250, i.first);
                    
                 }
-                else
+
+                if(Metro_Taxi && costs[names_of_station[j]][names_of_station[k]].getdis() != 2250)
                 {
-                    if (costs[names_of_station[j]][names_of_station[k]].getdis() != 2250)
-                    {
-                        
-                        costs[names_of_station[j]][names_of_station[k]].setinfo(3267, i.first);
-                        costs[names_of_station[k]][names_of_station[j]].setinfo(3267, i.first);
-                        
-                    }
+                    int cost = pathes[names_of_station[j]][names_of_station[k]].getdis()*6000;
+                    costs[names_of_station[j]][names_of_station[k]].setinfo(cost, i.first);
+                    costs[names_of_station[k]][names_of_station[j]].setinfo(cost, i.first);
+                }
+
+                if (Metro_Taxi && (costs[names_of_station[j]][names_of_station[k]].getdis() > 3267 || 
+                costs[names_of_station[j]][names_of_station[k]].getdis() == 0) )
+                {
+                    costs[names_of_station[j]][names_of_station[k]].setinfo(3267, i.first);
+                    costs[names_of_station[k]][names_of_station[j]].setinfo(3267, i.first);
                 }
             }
         }
     }
+
+   
 }
 
 //--------------------------------------------------------
