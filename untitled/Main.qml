@@ -405,8 +405,8 @@ Window {
 
         Text {
             anchors.top: darvazehshemiran.top
-            anchors.topMargin: -10
-            x: 25
+            anchors.topMargin: -15
+            x: 5
             text: qsTr("Darvazeh Shemiran")
             font.pixelSize: 10
         }
@@ -454,8 +454,8 @@ Window {
 
         Text {
             anchors.top: darvazehshemiran.top
-            y : 30
-            x: -80
+            y: 30
+            x: -50
             text: qsTr("Meydan-e Shohada")
             font.pixelSize: 10
         }
@@ -569,16 +569,53 @@ Window {
         color: "#EFEFEF"
         anchors.top: line4_21.top
         anchors.topMargin: -(nirohavaei.height / 2)
-        anchors.left: (line21_20.right)
+        anchors.left: (line4_21.right)
         radius: 180
 
         Text {
             anchors.top: nirohavaei.top
             anchors.topMargin: 30
-            text: qsTr("Nirou ")
+            text: qsTr("Nirou Havai")
             font.pixelSize: 10
         }
     }
 
+    Rectangle {
+        id: line4_22
+        width: 40
+        height: 3
+        color: "yellow"
+        anchors.top: nirohavaei.top
+        anchors.topMargin: nirohavaei.height / 2
+        anchors.left: (nirohavaei.right)
+    }
 
+    Rectangle {
+        id: shahidkulahdoz
+        width: 35
+        height: 35
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: line4_22.top
+        anchors.topMargin: -(shahidkulahdoz.height / 2)
+        anchors.left: (line4_22.right)
+        radius: 180
+
+        Text {
+            anchors.top: shahidkulahdoz.top
+            anchors.topMargin: 30
+            text: qsTr("Nirou Havai")
+            font.pixelSize: 10
+        }
+
+        Text {
+
+            topPadding: 9
+            leftPadding: 4
+            text: qsTr("Line_4")
+            color: "#FDD835"
+            font.pixelSize: 10
+        }
+    }
 }
