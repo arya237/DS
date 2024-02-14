@@ -550,5 +550,35 @@ Window {
         }
     }
 
+    Rectangle {
+        id: line4_21
+        width: 30
+        height: 3
+        color: "yellow"
+        anchors.top: nabard.top
+        anchors.topMargin: nabard.height / 2
+        anchors.left: (nabard.right)
+    }
+
+    Rectangle {
+        id: nirohavaei
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: line4_21.top
+        anchors.topMargin: -(nirohavaei.height / 2)
+        anchors.left: (line21_20.right)
+        radius: 180
+
+        Text {
+            anchors.top: nirohavaei.top
+            anchors.topMargin: 30
+            text: qsTr("Nirou ")
+            font.pixelSize: 10
+        }
+    }
+
 
 }
