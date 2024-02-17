@@ -2,7 +2,7 @@ import QtQuick
 import QtQuick.Controls
 
 Window {
-    width: 1980
+    width: 1920
     height: 1080
     visible: true
     title: qsTr("Hello World")
@@ -604,9 +604,8 @@ Window {
 
         Text {
             anchors.top: shahidkulahdoz.top
-            anchors.topMargin: 30
-            text: qsTr("Nirou Havai")
-            font.pixelSize: 10
+            anchors.topMargin: 35
+            text: qsTr("Shahid Koulahdouz")
         }
 
         Text {
@@ -616,6 +615,178 @@ Window {
             text: qsTr("Line_4")
             color: "#FDD835"
             font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: tajrish
+        width: 35
+        height: 35
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: chaharbagh.top
+        anchors.left: (darvazehdowlat.left)
+        radius: 180
+
+        Text {
+            anchors.top: tajrish.top
+            anchors.topMargin: -18
+            text: qsTr("Tajrish")
+        }
+
+        Text {
+
+            topPadding: 9
+            leftPadding: 4
+            text: qsTr("Line_1")
+            color: "red"
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line1_1
+        width: 3
+        height: 30
+        color: "red"
+        anchors.top: tajrish.bottom
+        anchors.left: tajrish.left
+        anchors.leftMargin: (tajrish.width / 2) - 1
+    }
+
+    Rectangle {
+        id: gheytariyeh
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: line1_1.bottom
+        anchors.left: (tajrish.left)
+        anchors.leftMargin: ((tajrish.width - gheytariyeh.width) / 2)
+        radius: 180
+
+        Text {
+            anchors.right: gheytariyeh.left
+            anchors.rightMargin: 5
+            text: qsTr("Gheytariyeh")
+        }
+    }
+
+    Rectangle {
+        id: line1_2
+        width: 3
+        height: 30
+        color: "red"
+        anchors.top: gheytariyeh.bottom
+        anchors.left: gheytariyeh.left
+        anchors.leftMargin: (gheytariyeh.width / 2) - 1
+    }
+
+    Rectangle {
+        id: golhak
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: line1_2.bottom
+        anchors.left: (gheytariyeh.left)
+        anchors.leftMargin: ((tajrish.width - golhak.width) / 2) - 2
+        radius: 180
+
+        Text {
+            anchors.right: golhak.left
+            anchors.rightMargin: 5
+            text: qsTr("Gholhak")
+        }
+    }
+
+    Rectangle {
+        id: line1_3
+        width: 2
+        height: 30
+        color: "red"
+        anchors.top: golhak.bottom
+        anchors.left: golhak.left
+        anchors.leftMargin: (golhak.width / 2) - 1
+    }
+
+    Rectangle {
+        id: mirdamad
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: line1_3.bottom
+        anchors.left: (golhak.left)
+        anchors.leftMargin: ((tajrish.width - mirdamad.width) / 2) - 2
+        radius: 180
+
+        Text {
+            anchors.right: mirdamad.left
+            anchors.rightMargin: 5
+            text: qsTr("Mirdamad")
+        }
+    }
+
+    Rectangle {
+        id: line1_4
+        width: 3
+        height: 30
+        color: "red"
+        anchors.top: mirdamad.bottom
+        anchors.left: mirdamad.left
+        anchors.leftMargin: (mirdamad.width / 2) - 1
+    }
+
+    Rectangle {
+        id: shahidhaghani
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: line1_4.bottom
+        anchors.left: (mirdamad.left)
+        anchors.leftMargin: ((tajrish.width - shahidhaghani.width) / 2) - 2
+        radius: 180
+
+        Text {
+            anchors.right: shahidhaghani.left
+            anchors.rightMargin: 5
+            text: qsTr("Shahid Haghani")
+        }
+    }
+
+    Rectangle {
+        id: line1_5
+        width: 2
+        height: 20
+        color: "red"
+        anchors.top: shahidhaghani.bottom
+        anchors.left: shahidhaghani.left
+        anchors.leftMargin: (shahidhaghani.width / 2) - 1
+    }
+
+    Rectangle {
+        id: shahidmofatteh
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: line1_5.bottom
+        anchors.left: (shahidhaghani.left)
+        anchors.leftMargin: ((tajrish.width - shahidmofatteh.width) / 2) - 2
+        radius: 180
+
+        Text {
+            anchors.right: shahidmofatteh.left
+            anchors.rightMargin: 5
+            text: qsTr("Shahid Mofatteh")
         }
     }
 }
