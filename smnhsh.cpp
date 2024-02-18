@@ -15,7 +15,7 @@ smnhsh::smnhsh()
 
 //--------------------------------------------------------
 
-bool smnhsh::is_valid(string start, string end)
+bool smnhsh::is_valid(const string & start, const string & end) const 
 {   
     try
     {
@@ -206,7 +206,7 @@ string smnhsh::search_in_map(int i)
 
 //--------------------------------------------------------
 
-int smnhsh::minDistance(node dist[], bool sptSet[])
+int smnhsh::minDistance(const node dist[], const bool sptSet[]) const 
 {
     int min = INT_MAX, min_index;
  
@@ -221,7 +221,7 @@ int smnhsh::minDistance(node dist[], bool sptSet[])
 
 //--------------------------------------------------------
 
-void smnhsh::find_short_path(int start, int end, Time start_time)
+void smnhsh::find_short_path(const int & start, const int & end, Time & start_time)
 {
     node shortest[59]; 
     bool   sptSet[59]; 
@@ -258,7 +258,7 @@ void smnhsh::find_short_path(int start, int end, Time start_time)
 
 //--------------------------------------------------------
 
-void smnhsh::find_lowest_cost(int start, int end , Time start_time)
+void smnhsh::find_lowest_cost(const int & start, const int & end , Time & start_time)
 {
     node shortest[59]; 
     bool   sptSet[59]; 
@@ -279,7 +279,7 @@ void smnhsh::find_lowest_cost(int start, int end , Time start_time)
         for (int v = 0; v < 59; v++)
         {
             if (!sptSet[v] && costs[u][v].getdis() && shortest[u].value != INT_MAX
-                && shortest[u].value + costs[u][v].getdis() <= shortest[v].value)
+                && shortest[u].value + costs[u][v].getdis() < shortest[v].value)
                 {
                     shortest[v].value = shortest[u].value + costs[u][v].getdis();
                     shortest[v].directions =  shortest[u].directions;  
@@ -296,7 +296,7 @@ void smnhsh::find_lowest_cost(int start, int end , Time start_time)
 
 //--------------------------------------------------------
 
-void smnhsh::show_shortest_path(node path , Time start_time)
+void smnhsh::show_shortest_path(const node & path, Time start_time)
 {
 
     cout << path.value << '\n';
@@ -351,7 +351,7 @@ void smnhsh::show_shortest_path(node path , Time start_time)
 
 //--------------------------------------------------------
 
-void smnhsh::show_cost(vector<string> line , vector <string> station , Time start_time)
+void smnhsh::show_cost(const vector <string> & line, const vector <string> & station , Time start_time)
 {
     int j = 0;
 

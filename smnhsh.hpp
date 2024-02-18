@@ -33,17 +33,17 @@ class smnhsh
 
     public:
     smnhsh(); //constructor
-    bool is_valid(string start, string end); //checking name of stations(does exist or not)
+    bool is_valid(const string & start, const string & end) const; //checking name of stations(does exist or not)
     void run(); //run program
     void get_input(); //get inputs from users
     void read_distance_from_file (); //reading information from file
     void complete_graph_for_cost();  //make a graph filled with costs
     string search_in_map(int);  
-    int minDistance(node dist[], bool sptSet[]);
-    void find_short_path(int start, int end , Time start_time); 
-    void find_lowest_cost(int start, int end, Time start_time);
-    void show_shortest_path(node pathe , Time start_time); //printing name of stations for shortest path 
-    void show_cost(vector<string> line , vector <string> station , Time start_time);//printing name of stations for lowest cost 
+    int minDistance(const node dist[], const bool sptSet[]) const;
+    void find_short_path(const int & start, const int & end , Time & start_time); 
+    void find_lowest_cost(const int & start, const int & end, Time & start_time);
+    void show_shortest_path(const node & pathe, Time start_time); //printing name of stations for shortest path 
+    void show_cost(const vector <string> & line , const vector <string> & station , Time start_time);//printing name of stations for lowest cost 
 };
 
 #endif
