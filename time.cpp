@@ -3,7 +3,7 @@
 
 using namespace std;
 
-Time::Time(string start_time)
+Time::Time(const string & start_time)
 {   
     string time_hr, time_min;
 

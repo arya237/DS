@@ -286,7 +286,7 @@ void smnhsh::find_lowest_cost(const int & start, const int & end , Time & start_
         for (int v = 0; v < 59; v++)
         {
             if (!sptSet[v] && costs[u][v].getdis() && shortest[u].value != INT_MAX
-                && shortest[u].value + costs[u][v].getdis() < shortest[v].value)
+                && shortest[u].value + costs[u][v].getdis() <= shortest[v].value)
                 {
                     shortest[v].value = shortest[u].value + costs[u][v].getdis();
                     shortest[v].directions =  shortest[u].directions;  
