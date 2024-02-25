@@ -1539,4 +1539,33 @@ Window {
         anchors.left: aghdasiyeh.right
         anchors.right: ghaem.left
     }
+
+    Rectangle {
+        id: kouhsar
+        width: 35
+        height: 35
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: kashani.top
+        anchors.topMargin: -((ghaem.width - kashani.width) / 2)
+        radius: 180
+
+        Text {
+            anchors.top: kouhsar.top
+            anchors.topMargin: -15
+            text: qsTr("Kouhsar")
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line6_1
+        height: 3
+        color: "blue"
+        anchors.top: kouhsar.top
+        anchors.topMargin: (kouhsar.height / 2) - 1
+        anchors.left: kouhsar.right
+        anchors.right: kashani.left
+    }
 }
