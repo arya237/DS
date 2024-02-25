@@ -15,7 +15,7 @@ Window {
         border.width: 2
         color: "#EFEFEF"
         x: 170
-        y: 20
+        y: 12
         radius: 180
 
         Text {
@@ -29,7 +29,7 @@ Window {
 
         Text {
             anchors.top: chaharbagh.top
-            anchors.topMargin: -20
+            anchors.topMargin: -15
             anchors.left: chaharbagh.left
             anchors.leftMargin: -10
             text: qsTr("chaharbagh")
@@ -98,7 +98,7 @@ Window {
     Rectangle {
         id: line4_3
         width: 3
-        height: 45
+        height: 40
         color: "yellow"
         anchors.top: alamehjafari.bottom
         anchors.left: (alamehjafari.left)
@@ -127,7 +127,7 @@ Window {
     Rectangle {
         id: line4_4
         width: 3
-        height: 60
+        height: 65
         color: "yellow"
         anchors.top: eramesabz.bottom
         anchors.left: (eramesabz.left)
@@ -243,7 +243,7 @@ Window {
 
     Rectangle {
         id: line4_8
-        width: 55
+        width: 70
         height: 3
         color: "yellow"
         anchors.top: towhid.top
@@ -274,7 +274,7 @@ Window {
 
     Rectangle {
         id: line4_9
-        width: 55
+        width: 70
         height: 3
         color: "yellow"
         anchors.top: meydaneenghelab.top
@@ -296,7 +296,7 @@ Window {
         Text {
             anchors.top: teatreshahr.top
             anchors.topMargin: -20
-            x: -15
+            x: -50
             text: qsTr("Teatr-e Shahr")
             font.pixelSize: 10
         }
@@ -304,7 +304,7 @@ Window {
 
     Rectangle {
         id: line4_10
-        width: 60
+        width: 65
         height: 3
         color: "yellow"
         anchors.top: teatreshahr.top
@@ -334,7 +334,7 @@ Window {
 
     Rectangle {
         id: line4_11
-        width: 25
+        width: 40
         height: 3
         color: "yellow"
         anchors.top: ferdowsi.top
@@ -353,7 +353,7 @@ Window {
 
     Rectangle {
         id: line4_13
-        width: 39
+        width: 45
         height: 3
         color: "yellow"
         anchors.top: line4_12.bottom
@@ -632,7 +632,7 @@ Window {
 
         Text {
             anchors.top: tajrish.top
-            anchors.topMargin: -18
+            anchors.topMargin: -14
             text: qsTr("Tajrish")
             font.pixelSize: 10
         }
@@ -650,7 +650,7 @@ Window {
     Rectangle {
         id: line1_1
         width: 3
-        height: 30
+        height: 22
         color: "red"
         anchors.top: tajrish.bottom
         anchors.left: tajrish.right
@@ -680,7 +680,7 @@ Window {
     Rectangle {
         id: line1_2
         width: 3
-        height: 30
+        height: 22
         color: "red"
         anchors.top: gheytariyeh.bottom
         anchors.left: gheytariyeh.left
@@ -710,7 +710,7 @@ Window {
     Rectangle {
         id: line1_3
         width: 3
-        height: 30
+        height: 25
         color: "red"
         anchors.top: golhak.bottom
         anchors.left: golhak.left
@@ -740,7 +740,7 @@ Window {
     Rectangle {
         id: line1_4
         width: 3
-        height: 30
+        height: 25
         color: "red"
         anchors.top: mirdamad.bottom
         anchors.left: mirdamad.left
@@ -770,11 +770,41 @@ Window {
     Rectangle {
         id: line1_5
         width: 3
-        height: 20
+        height: 15
         color: "red"
         anchors.top: shahidhaghani.bottom
         anchors.left: shahidhaghani.left
         anchors.leftMargin: (shahidhaghani.width / 2) - 1
+    }
+
+    Rectangle {
+        id: shahidbeheshti
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: line1_5.bottom
+        anchors.left: (shahidhaghani.left)
+        anchors.leftMargin: ((tajrish.width - shahidbeheshti.width) / 2) - 2
+        radius: 180
+
+        Text {
+            anchors.right: shahidbeheshti.left
+            y: -5
+            text: qsTr("Shahid Beheshti")
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line1_5_5
+        width: 3
+        height: 15
+        color: "red"
+        anchors.top: shahidbeheshti.bottom
+        anchors.left: shahidbeheshti.left
+        anchors.leftMargin: (shahidbeheshti.width / 2) - 1
     }
 
     Rectangle {
@@ -784,7 +814,7 @@ Window {
         border.color: "#AAAAAA"
         border.width: 2
         color: "#EFEFEF"
-        anchors.top: line1_5.bottom
+        anchors.top: line1_5_5.bottom
         anchors.left: (shahidhaghani.left)
         anchors.leftMargin: ((tajrish.width - shahidmofatteh.width) / 2) - 2
         radius: 180
@@ -800,7 +830,7 @@ Window {
     Rectangle {
         id: line1_6
         width: 3
-        height: 30
+        height: 15
         color: "red"
         anchors.top: shahidmofatteh.bottom
         anchors.left: shahidmofatteh.left
@@ -860,7 +890,7 @@ Window {
     Rectangle {
         id: line1_8
         width: 3
-        height: 27
+        height: 25
         color: "red"
         anchors.top: talaghani.bottom
         anchors.left: talaghani.left
@@ -990,7 +1020,7 @@ Window {
     Rectangle {
         id: line1_13
         width: 3
-        height: 20
+        height: 35
         color: "red"
         anchors.top: shahrerey.bottom
         anchors.left: shahrerey.left
@@ -1006,12 +1036,12 @@ Window {
         color: "#EFEFEF"
         anchors.top: line1_13.bottom
         anchors.left: shahrerey.left
-        anchors.leftMargin: -(tajrish.width - shahrerey.width)
+        anchors.leftMargin: -((tajrish.width - shahrerey.width) / 2)
         radius: 180
 
         Text {
             anchors.left: kahrizak.left
-            anchors.leftMargin: 40
+            anchors.leftMargin: -40
             text: qsTr("Kahrizak")
             font.pixelSize: 10
         }
@@ -1035,13 +1065,13 @@ Window {
         color: "#EFEFEF"
         anchors.top: kahrizak.top
         anchors.left: teatreshahr.left
-        anchors.leftMargin: -(azadegan.width - teatreshahr.width)
+        anchors.leftMargin: -((azadegan.width - teatreshahr.width) / 2)
         radius: 180
 
         Text {
-            anchors.left: kahrizak.left
-            anchors.leftMargin: 40
-            text: qsTr("Kahrizak")
+            anchors.left: azadegan.left
+            anchors.leftMargin: -45
+            text: qsTr("Azadegan")
             font.pixelSize: 10
         }
 
@@ -1049,9 +1079,464 @@ Window {
 
             topPadding: 9
             leftPadding: 4
-            text: qsTr("Line_1")
-            color: "red"
+            text: qsTr("Line_3")
+            color: "blue"
             font.pixelSize: 10
         }
+    }
+
+    Rectangle {
+        id: line3_1
+        width: 3
+        height: 20
+        color: "blue"
+        anchors.bottom: azadegan.top
+        anchors.left: azadegan.left
+        anchors.leftMargin: (azadegan.width / 2) - 1
+    }
+
+    Rectangle {
+        id: zamzam
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.bottom: line3_1.top
+        anchors.left: (azadegan.left)
+        anchors.leftMargin: ((azadegan.width - zamzam.width) / 2)
+        radius: 180
+
+        Text {
+            anchors.left: zamzam.left
+            anchors.leftMargin: -40
+            text: qsTr("Zamzam")
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line3_2
+        width: 3
+        height: 25
+        color: "blue"
+        anchors.bottom: zamzam.top
+        anchors.left: zamzam.left
+        anchors.leftMargin: (zamzam.width / 2) - 1
+    }
+
+    Rectangle {
+        id: javadiyeh
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.bottom: line3_2.top
+        anchors.left: (zamzam.left)
+        radius: 180
+
+        Text {
+            anchors.left: javadiyeh.left
+            anchors.leftMargin: -45
+            text: qsTr("Javadiyeh")
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line3_3
+        width: 3
+        height: 20
+        color: "blue"
+        anchors.bottom: javadiyeh.top
+        anchors.left: javadiyeh.left
+        anchors.leftMargin: (javadiyeh.width / 2) - 1
+    }
+
+    Rectangle {
+        id: rahahan
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.bottom: line3_3.top
+        anchors.left: (javadiyeh.left)
+        radius: 180
+
+        Text {
+            anchors.left: rahahan.left
+            anchors.leftMargin: -45
+            text: qsTr("Rahahan")
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line3_4
+        width: 3
+        height: 25
+        color: "blue"
+        anchors.bottom: rahahan.top
+        anchors.left: rahahan.left
+        anchors.leftMargin: (rahahan.width / 2) - 1
+    }
+
+    Rectangle {
+        id: mahdiyeh
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.bottom: line3_4.top
+        anchors.left: (rahahan.left)
+        radius: 180
+
+        Text {
+            anchors.left: mahdiyeh.left
+            anchors.leftMargin: -45
+            text: qsTr("Mahdiyeh")
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line3_5
+        width: 3
+        height: 20
+        color: "blue"
+        anchors.bottom: mahdiyeh.top
+        anchors.left: mahdiyeh.left
+        anchors.leftMargin: (mahdiyeh.width / 2) - 1
+    }
+
+    Rectangle {
+        id: moniriyeh
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.bottom: line3_5.top
+        anchors.left: (mahdiyeh.left)
+        radius: 180
+
+        Text {
+            anchors.left: moniriyeh.left
+            anchors.leftMargin: -45
+            text: qsTr("Moniriyeh")
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line3_6
+        width: 3
+        height: 20
+        color: "blue"
+        anchors.bottom: moniriyeh.top
+        anchors.top: teatreshahr.bottom
+        anchors.left: moniriyeh.left
+        anchors.leftMargin: (moniriyeh.width / 2) - 1
+    }
+
+    Rectangle {
+        id: line3_7
+        width: 3
+        height: 20
+        color: "blue"
+        anchors.bottom: teatreshahr.top
+        anchors.top: meydanehazratevaliasr.bottom
+        anchors.left: teatreshahr.left
+        anchors.leftMargin: (teatreshahr.width / 2) - 1
+    }
+
+    Rectangle {
+        id: meydanehazratevaliasr
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: haftometir.top
+        anchors.left: (teatreshahr.left)
+        radius: 180
+
+        Text {
+            anchors.right: meydanehazratevaliasr.left
+            anchors.rightMargin: -5
+            anchors.top: meydanehazratevaliasr
+            y: -10
+            text: qsTr("Meydan-e Hazrat-e Valiasr")
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line3_8
+        width: 3
+        height: 28
+        color: "blue"
+        anchors.bottom: meydanehazratevaliasr.top
+        anchors.left: meydanehazratevaliasr.left
+        anchors.leftMargin: (meydanehazratevaliasr.width / 2) - 1
+    }
+
+    Rectangle {
+        id: meydanejahad
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.bottom: line3_8.top
+        anchors.left: (meydanehazratevaliasr.left)
+        radius: 180
+
+        Text {
+            anchors.right: meydanejahad.left
+            anchors.leftMargin: -40
+            text: qsTr("Meydan-e Jahad")
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line3_9
+        width: 85
+        height: 3
+        color: "blue"
+        anchors.top: shahidbeheshti.top
+        anchors.topMargin: (shahidbeheshti.height / 2) - 1
+        anchors.right: shahidbeheshti.left
+        // anchors.leftMargin: (shahidbeheshti.width / 2) - 1
+    }
+
+    Rectangle {
+        id: merzayeshirazi
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: shahidbeheshti.top
+        anchors.right: (line3_9.left)
+        radius: 180
+
+        Text {
+            anchors.right: merzayeshirazi.left
+            y: -5
+            text: qsTr("Meydan-e Jahad")
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line3_10
+        width: 80
+        height: 3
+        color: "blue"
+        anchors.top: merzayeshirazi.top
+        anchors.topMargin: (merzayeshirazi.height / 2) - 1
+        anchors.right: merzayeshirazi.left
+        anchors.left: line3_11.right
+        // anchors.leftMargin: (shahidbeheshti.width / 2) - 1
+    }
+
+    Rectangle {
+        id: line3_11
+        width: 3
+        height: 18
+        color: "blue"
+        anchors.bottom: meydanejahad.top
+        anchors.left: meydanejahad.left
+        anchors.leftMargin: (meydanejahad.width / 2) - 1
+    }
+
+    Rectangle {
+        id: line3_12
+        width: 45
+        height: 3
+        color: "blue"
+        anchors.top: shahidbeheshti.top
+        anchors.left: shahidbeheshti.right
+        anchors.topMargin: (shahidbeheshti.height / 2) - 1
+    }
+
+    Rectangle {
+        id: sohrevardi
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: shahidbeheshti.top
+        anchors.left: (line3_12.right)
+        radius: 180
+
+        Text {
+            anchors.bottom: sohrevardi.bottom
+            anchors.bottomMargin: -10
+            text: qsTr("sohrevardi")
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line3_13
+        width: 25
+        height: 3
+        color: "blue"
+        anchors.top: sohrevardi.top
+        anchors.left: sohrevardi.right
+        anchors.topMargin: (sohrevardi.height / 2) - 1
+    }
+
+    Rectangle {
+        id: line3_14
+        width: 3
+        height: 55
+        color: "blue"
+        anchors.bottom: line3_13.bottom
+        anchors.left: line3_13.right
+    }
+
+    Rectangle {
+        id: line3_15
+        width: 25
+        height: 3
+        color: "blue"
+        anchors.top: line3_14.top
+        anchors.left: line3_14.right
+    }
+
+    Rectangle {
+        id: shahidghodousi
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: line3_15.top
+        anchors.left: (line3_15.right)
+        anchors.topMargin: -(shahidghodousi.height / 2) + 1
+        radius: 180
+
+        Text {
+            anchors.top: shahidghodousi.top
+            anchors.topMargin: -15
+            text: qsTr("Shahid Ghodousi")
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line3_16
+        width: 80
+        height: 3
+        color: "blue"
+        anchors.top: line3_15.top
+        anchors.left: shahidghodousi.right
+    }
+
+    Rectangle {
+        id: shahidzeynodin
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: line3_16.top
+        anchors.left: (line3_16.right)
+        anchors.topMargin: -(shahidghodousi.height / 2) + 1
+        radius: 180
+
+        Text {
+            anchors.top: shahidzeynodin.top
+            anchors.topMargin: 28
+            x: -15
+            text: qsTr("Shahid Zeynoddin")
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line3_17
+        width: 55
+        height: 3
+        color: "blue"
+        anchors.top: line3_16.top
+        anchors.left: shahidzeynodin.right
+    }
+
+    Rectangle {
+        id: aghdasiyeh
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: line3_17.top
+        anchors.left: (line3_17.right)
+        anchors.topMargin: -(aghdasiyeh.height / 2) + 1
+        radius: 180
+
+        Text {
+            anchors.top: aghdasiyeh.top
+            anchors.topMargin: 28
+            text: qsTr("Aghdasiyeh")
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line3_18
+        width: 55
+        height: 3
+        color: "blue"
+        anchors.top: line3_16.top
+        anchors.left: shahidzeynodin.right
+    }
+
+    Rectangle {
+        id: ghaem
+        width: 35
+        height: 35
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: aghdasiyeh.top
+        anchors.left: shahidkulahdoz.left
+        anchors.leftMargin: -((ghaem.width - aghdasiyeh.width) / 2)
+        radius: 180
+
+        Text {
+            anchors.top: ghaem.top
+            anchors.topMargin: -15
+            // anchors.leftMargin: -45
+            text: qsTr("Gha'em")
+            font.pixelSize: 10
+        }
+
+        Text {
+
+            topPadding: 9
+            leftPadding: 4
+            text: qsTr("Line_3")
+            color: "blue"
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line3_19
+        // width: 150
+        height: 3
+        color: "blue"
+        anchors.top: line3_16.top
+        anchors.left: aghdasiyeh.right
+        anchors.right: ghaem.left
     }
 }
