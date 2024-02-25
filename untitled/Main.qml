@@ -1515,7 +1515,6 @@ Window {
         Text {
             anchors.top: ghaem.top
             anchors.topMargin: -15
-            // anchors.leftMargin: -45
             text: qsTr("Gha'em")
             font.pixelSize: 10
         }
@@ -1532,7 +1531,6 @@ Window {
 
     Rectangle {
         id: line3_19
-        // width: 150
         height: 3
         color: "blue"
         anchors.top: line3_16.top
@@ -1555,6 +1553,14 @@ Window {
             anchors.top: kouhsar.top
             anchors.topMargin: -15
             text: qsTr("Kouhsar")
+            font.pixelSize: 10
+        }
+        Text {
+
+            topPadding: 9
+            leftPadding: 4
+            text: qsTr("Line_6")
+            color: "pink"
             font.pixelSize: 10
         }
     }
@@ -1663,12 +1669,11 @@ Window {
     Rectangle {
         id: line6_7
         height: 3
-        width: 30
+        width: 194
         color: "pink"
         anchors.top: haftometir.top
         anchors.topMargin: (haftometir.width  / 2)
         anchors.left: (haftometir.right )
-        //anchors.right: haftometir.left
     }
 
     Rectangle {
@@ -1679,7 +1684,6 @@ Window {
         anchors.bottom: meydaneshohada.top
         anchors.rightMargin: (meydaneshohada.width  / 2) - 1.5
         anchors.right: (meydaneshohada.right )
-        //anchors.right: haftometir.left
     }
 
     Rectangle {
@@ -1702,8 +1706,91 @@ Window {
             font.pixelSize: 10
         }
     }
+    Rectangle {
+        id: line6_9
+        height: 16
+        width: 3
+        color: "pink"
+        anchors.bottom: emamhossein.top
+        anchors.leftMargin: (emamhossein.width  / 2) - 1.5
+        anchors.left: (emamhossein.left )
+    }
 
 
+    Rectangle {
+        id: line6_10
+        height: 100
+        width: 3
+        color: "pink"
+        anchors.top: meydaneshohada.bottom
+        anchors.leftMargin: (meydaneshohada.width  / 2) - 1.5
+        anchors.left: (meydaneshohada.left )
+    }
 
+    Rectangle {
+        id: shahidrezaei
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: line6_10.bottom
+        anchors.right: (meydaneshohada.right)
+        radius: 180
+
+        Text {
+            anchors.left: shahidrezaei.right
+            anchors.leftMargin:2
+            text: qsTr("Shahid Rezaei")
+            font.pixelSize: 10
+        }
+    }
+    Rectangle {
+        id: line6_11
+        height: 95
+        width: 3
+        color: "pink"
+        anchors.top: shahidrezaei.bottom
+        anchors.leftMargin: (shahidrezaei.width  / 2) - 1.5
+        anchors.left: (shahidrezaei.left )
+    }
+
+    Rectangle {
+        id: line6_12
+        height: 3
+        width: 315
+        color: "pink"
+        anchors.top: line6_11.bottom
+        anchors.left: (line6_11.left )
+    }
+    Rectangle {
+        id: haramehazrateabdolazim
+        width: 35
+        height: 35
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: kahrizak.top
+        anchors.left :ghaem.left
+        anchors.topMargin: -((ghaem.width - kashani.width) / 2)
+        radius: 180
+
+        Text {
+            anchors.top: haramehazrateabdolazim.top
+            anchors.topMargin: -15
+            anchors.left: haramehazrateabdolazim.left
+            anchors.leftMargin: -40
+            text: qsTr("Haram-e Hazrat-e Abdolazim")
+            font.pixelSize: 10
+        }
+        Text {
+
+            topPadding: 9
+            leftPadding: 4
+            text: qsTr("Line_6")
+            color: "pink"
+            font.pixelSize: 10
+        }
+    }
 
 }
