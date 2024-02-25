@@ -1562,10 +1562,103 @@ Window {
     Rectangle {
         id: line6_1
         height: 3
-        color: "blue"
+        color: "pink"
         anchors.top: kouhsar.top
         anchors.topMargin: (kouhsar.height / 2) - 1
         anchors.left: kouhsar.right
         anchors.right: kashani.left
     }
+
+    Rectangle {
+        id: line6_2
+        height: 3
+        width : 80
+        color: "pink"
+        anchors.top: kashani.top
+        anchors.topMargin: (kashani.height / 2)
+        anchors.left: (kashani.right)
+    }
+
+
+    Rectangle {
+        id: yadegae_e_emam
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: kashani.top
+        anchors.left: line6_2.right
+        anchors.topMargin: -((yadegae_e_emam.width - kashani.width) / 2)
+        radius: 180
+
+        Text {
+            anchors.top: yadegae_e_emam.top
+            anchors.topMargin: -15
+            text: qsTr("Yadegar-e Emam")
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line6_3
+        height: 3
+        width : 80
+        color: "pink"
+        anchors.top: yadegae_e_emam.top
+        anchors.topMargin: (yadegae_e_emam.height / 2)
+        anchors.left: (yadegae_e_emam.right)
+    }
+
+    Rectangle {
+        id: line6_4
+        height: 164
+        width : 4
+        color: "pink"
+        anchors.top: line6_3.top
+        anchors.left: (line6_3.right)
+    }
+
+    Rectangle {
+        id: boostanelale
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.top: line6_4.bottom
+        anchors.leftMargin: 67
+        anchors.left: (yadegae_e_emam.right)
+        radius: 180
+
+        Text {
+            anchors.top: boostanelale.top
+            anchors.topMargin: 30
+            text: qsTr("Boostan-e Laleh")
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: line6_5
+        height: 3
+        color: "pink"
+        anchors.top: boostanelale.top
+        anchors.topMargin: (boostanelale.width  / 2)
+        anchors.left: (boostanelale.right )
+        anchors.right: meydanehazratevaliasr.left
+    }
+
+
+    Rectangle {
+        id: line6_6
+        height: 3
+        color: "pink"
+        anchors.top: meydanehazratevaliasr.top
+        anchors.topMargin: (meydanehazratevaliasr.width  / 2)
+        anchors.left: (meydanehazratevaliasr.right )
+        anchors.right: haftometir.left
+    }
+
+
 }
