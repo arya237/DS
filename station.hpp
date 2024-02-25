@@ -2,20 +2,25 @@
 #define STATION_HPP
 
 #include <iostream>
+#include "vehicle.hpp"
 
 using namespace std;
 
 class station
 {   
     private:
-    unsigned int distance;
-    string vehicle;
+    vehicle bus;
+    vehicle metro_taxi;
+    
 
     public:
-    void setinfo(unsigned int, string); // change to set distance
-    unsigned int getdis();
-    string getvic(); //get type of vehicle
-    station();
+    void setinfo(vehicle value); // change to set distance
+    int getdis();
+    int getdis(const string & type_vehicle);
+    string getvic();
+    station(){};
+    
+    //get type of vehicle
 
 };
 
