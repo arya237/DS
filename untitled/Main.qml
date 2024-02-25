@@ -1660,5 +1660,50 @@ Window {
         anchors.right: haftometir.left
     }
 
+    Rectangle {
+        id: line6_7
+        height: 3
+        width: 30
+        color: "pink"
+        anchors.top: haftometir.top
+        anchors.topMargin: (haftometir.width  / 2)
+        anchors.left: (haftometir.right )
+        //anchors.right: haftometir.left
+    }
+
+    Rectangle {
+        id: line6_8
+        height: 90
+        width: 3
+        color: "pink"
+        anchors.bottom: meydaneshohada.top
+        anchors.rightMargin: (meydaneshohada.width  / 2) - 1.5
+        anchors.right: (meydaneshohada.right )
+        //anchors.right: haftometir.left
+    }
+
+    Rectangle {
+        id: emamhossein
+        width: 30
+        height: 30
+        border.color: "#AAAAAA"
+        border.width: 2
+        color: "#EFEFEF"
+        anchors.bottom: line6_8.top
+        anchors.right: (meydaneshohada.right)
+        radius: 180
+
+        Text {
+            anchors.top: boostanelale.top
+            anchors.topMargin: 40
+            anchors.left: emamhossein.right
+            anchors.leftMargin: 2
+            text: qsTr("Emam Hossein")
+            font.pixelSize: 10
+        }
+    }
+
+
+
 
 }
