@@ -44,6 +44,8 @@ class smnhsh
     void find_lowest_cost(const int & start, const int & end, Time & start_time);
     void show_shortest_path(const node & pathe, Time start_time); //printing name of stations for shortest path 
     void show_cost(const vector <string> & line , const vector <string> & station , Time start_time);//printing name of stations for lowest cost 
+    int get_time(const int & start, const int & end ); 
+    int get_time_getinto(const int & start, const int & end ); 
 };
 
 #endif

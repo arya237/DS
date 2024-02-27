@@ -422,4 +422,100 @@ void smnhsh::show_cost(const vector<string> &line, const vector<string> &station
     start_time.print();
 }
 
-// conflict
+//==============================================================================
+int smnhsh::get_time(const int & start, const int & end )
+{
+    int metro = 0 , taxi = 0 , bus = 0 , t;
+    int answer = 0;
+    metro = pathes[start][end].getdis("M");
+    taxi = metro;
+    bus = pathes[start][end].getdis("B");
+    
+   // if(start_time.get_hour() >=6 && start_time.get_hour()<=8 )
+    
+    taxi *= 2;
+    bus *= 4;
+
+    if(bus == 0 && metro != 0)
+    {
+        t = taxi < metro ? taxi : metro;
+        answer += t;
+    }
+    else if(bus != 0 && metro == 0)
+    {
+        answer += bus;
+    }
+    else if(bus != 0 && metro != 0 && bus < metro && bus < taxi )
+    {
+        answer += bus;
+    }
+    else if(bus != 0 && metro != 0 && metro <= bus && metro <= taxi )
+    {
+        answer += metro;
+    }
+    else if(bus != 0 && metro != 0 && taxi < bus && taxi < metro )
+    {
+        answer += taxi;
+    }
+
+    return answer;
+}
+
+int smnhsh::get_time(const int & start, const int & end )
+{
+    int metro = 0 , taxi = 0 , bus = 0 ;
+    string vic ="";
+    int answer = 0;
+    metro = pathes[start][end].getdis("M");
+    taxi = metro;
+    bus = pathes[start][end].getdis("B");
+    
+    taxi *= 2;
+    bus *= 4;
+
+    if(bus == 0 && metro != 0 && taxi < metro )
+    {
+        answer += taxi;
+        vic = "taxi";
+    }
+    else if(bus == 0 && metro != 0 && taxi >= metro )
+    {
+        answer += metro;
+        vic = "metro";
+    }
+    else if(bus != 0 && metro == 0)
+    {
+        answer += bus;
+        vic = "bus";
+    }
+    else if(bus != 0 && metro != 0 && bus < metro && bus < taxi )
+    {
+        answer += bus;
+        vic = "bus";
+    }
+    else if(bus != 0 && metro != 0 && metro <= bus && metro <= taxi )
+    {
+        answer += metro;
+        vic = "metro";
+    }
+    else if(bus != 0 && metro != 0 && taxi < bus && taxi < metro )
+    {
+        answer += taxi;
+        vic = "taxi";
+    }
+     
+    if(vic == "taxi" )
+    {
+        answer += 5;
+    }
+    else if(vic == "metro" )
+    {
+        answer += 8;
+    }
+    else if(vic == "bus")
+    {
+        answer += 15;
+    }
+
+    return answer;
+}
