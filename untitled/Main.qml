@@ -1,7 +1,9 @@
 import QtQuick
 import QtQuick.Controls
+import QtQuick.Shapes
 
 Window {
+
     width: 1920
     height: 1080
     visible: true
@@ -243,7 +245,7 @@ Window {
 
     Rectangle {
         id: line4_8
-        width: 70
+        width: 80
         height: 3
         color: "yellow"
         anchors.top: towhid.top
@@ -274,7 +276,7 @@ Window {
 
     Rectangle {
         id: line4_9
-        width: 70
+        width: 80
         height: 3
         color: "yellow"
         anchors.top: meydaneenghelab.top
@@ -383,7 +385,7 @@ Window {
 
     Rectangle {
         id: line4_14
-        width: 70
+        width: 75
         height: 3
         color: "yellow"
         anchors.top: darvazehdowlat.top
@@ -1560,7 +1562,7 @@ Window {
             topPadding: 9
             leftPadding: 4
             text: qsTr("Line_6")
-            color: "pink"
+            color: "#FD3BFE"
             font.pixelSize: 10
         }
     }
@@ -1568,7 +1570,7 @@ Window {
     Rectangle {
         id: line6_1
         height: 3
-        color: "pink"
+        color: "#FD3BFE"
         anchors.top: kouhsar.top
         anchors.topMargin: (kouhsar.height / 2) - 1
         anchors.left: kouhsar.right
@@ -1578,13 +1580,12 @@ Window {
     Rectangle {
         id: line6_2
         height: 3
-        width : 80
-        color: "pink"
+        width: 80
+        color: "#FD3BFE"
         anchors.top: kashani.top
         anchors.topMargin: (kashani.height / 2)
         anchors.left: (kashani.right)
     }
-
 
     Rectangle {
         id: yadegae_e_emam
@@ -1609,8 +1610,8 @@ Window {
     Rectangle {
         id: line6_3
         height: 3
-        width : 80
-        color: "pink"
+        width: 80
+        color: "#FD3BFE"
         anchors.top: yadegae_e_emam.top
         anchors.topMargin: (yadegae_e_emam.height / 2)
         anchors.left: (yadegae_e_emam.right)
@@ -1619,8 +1620,8 @@ Window {
     Rectangle {
         id: line6_4
         height: 164
-        width : 4
-        color: "pink"
+        width: 4
+        color: "#FD3BFE"
         anchors.top: line6_3.top
         anchors.left: (line6_3.right)
     }
@@ -1648,42 +1649,41 @@ Window {
     Rectangle {
         id: line6_5
         height: 3
-        color: "pink"
+        color: "#FD3BFE"
         anchors.top: boostanelale.top
-        anchors.topMargin: (boostanelale.width  / 2)
-        anchors.left: (boostanelale.right )
+        anchors.topMargin: (boostanelale.width / 2)
+        anchors.left: (boostanelale.right)
         anchors.right: meydanehazratevaliasr.left
     }
-
 
     Rectangle {
         id: line6_6
         height: 3
-        color: "pink"
+        color: "#FD3BFE"
         anchors.top: meydanehazratevaliasr.top
-        anchors.topMargin: (meydanehazratevaliasr.width  / 2)
-        anchors.left: (meydanehazratevaliasr.right )
+        anchors.topMargin: (meydanehazratevaliasr.width / 2)
+        anchors.left: (meydanehazratevaliasr.right)
         anchors.right: haftometir.left
     }
 
     Rectangle {
         id: line6_7
         height: 3
-        width: 194
-        color: "pink"
+        color: "#FD3BFE"
         anchors.top: haftometir.top
-        anchors.topMargin: (haftometir.width  / 2)
-        anchors.left: (haftometir.right )
+        anchors.topMargin: (haftometir.width / 2)
+        anchors.left: (haftometir.right)
+        anchors.right: line6_8.left
     }
 
     Rectangle {
         id: line6_8
         height: 90
         width: 3
-        color: "pink"
+        color: "#FD3BFE"
         anchors.bottom: meydaneshohada.top
-        anchors.rightMargin: (meydaneshohada.width  / 2) - 1.5
-        anchors.right: (meydaneshohada.right )
+        anchors.rightMargin: (meydaneshohada.width / 2) - 1.5
+        anchors.right: (meydaneshohada.right)
     }
 
     Rectangle {
@@ -1710,21 +1710,20 @@ Window {
         id: line6_9
         height: 16
         width: 3
-        color: "pink"
+        color: "#FD3BFE"
         anchors.bottom: emamhossein.top
-        anchors.leftMargin: (emamhossein.width  / 2) - 1.5
-        anchors.left: (emamhossein.left )
+        anchors.leftMargin: (emamhossein.width / 2) - 1.5
+        anchors.left: (emamhossein.left)
     }
-
 
     Rectangle {
         id: line6_10
         height: 100
         width: 3
-        color: "pink"
+        color: "#FD3BFE"
         anchors.top: meydaneshohada.bottom
-        anchors.leftMargin: (meydaneshohada.width  / 2) - 1.5
-        anchors.left: (meydaneshohada.left )
+        anchors.leftMargin: (meydaneshohada.width / 2) - 1.5
+        anchors.left: (meydaneshohada.left)
     }
 
     Rectangle {
@@ -1740,7 +1739,7 @@ Window {
 
         Text {
             anchors.left: shahidrezaei.right
-            anchors.leftMargin:2
+            anchors.leftMargin: 2
             text: qsTr("Shahid Rezaei")
             font.pixelSize: 10
         }
@@ -1749,19 +1748,19 @@ Window {
         id: line6_11
         height: 95
         width: 3
-        color: "pink"
+        color: "#FD3BFE"
         anchors.top: shahidrezaei.bottom
-        anchors.leftMargin: (shahidrezaei.width  / 2) - 1.5
-        anchors.left: (shahidrezaei.left )
+        anchors.leftMargin: (shahidrezaei.width / 2) - 1.5
+        anchors.left: (shahidrezaei.left)
     }
 
     Rectangle {
         id: line6_12
         height: 3
         width: 315
-        color: "pink"
+        color: "#FD3BFE"
         anchors.top: line6_11.bottom
-        anchors.left: (line6_11.left )
+        anchors.left: (line6_11.left)
     }
     Rectangle {
         id: haramehazrateabdolazim
@@ -1771,7 +1770,7 @@ Window {
         border.width: 2
         color: "#EFEFEF"
         anchors.top: kahrizak.top
-        anchors.left :ghaem.left
+        anchors.left: ghaem.left
         anchors.topMargin: -((ghaem.width - kashani.width) / 2)
         radius: 180
 
@@ -1788,9 +1787,132 @@ Window {
             topPadding: 9
             leftPadding: 4
             text: qsTr("Line_6")
-            color: "pink"
+            color: "#FD3BFE"
             font.pixelSize: 10
         }
     }
 
+    Rectangle {
+        id: bimeh
+        width: 35
+        height: 35
+        border.color: "#77E776"
+        border.width: 2
+        color: "#77E776"
+        anchors.top: meydaneazadi.top
+        anchors.left: kouhsar.left
+        anchors.topMargin: -((ghaem.height - meydaneazadi.height) / 2)
+        radius: 180
+
+        Text {
+            anchors.top: bimeh.top
+            anchors.topMargin: -15
+            text: qsTr("Bimeh")
+            font.pixelSize: 10
+        }
+        Text {
+
+            topPadding: 9
+            leftPadding: 4
+            text: qsTr("BUS 1")
+            font.pixelSize: 10
+        }
+    }
+
+    Shape {
+        anchors.left: bimeh.right
+        anchors.top: bimeh.top
+        anchors.topMargin: (bimeh.height / 2) + 1
+
+        ShapePath {
+            strokeWidth: 2
+            strokeColor: "black"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 3]
+            startX: 1
+            startY: 0
+            PathLine {
+                x: 143
+                y: 0
+            }
+        }
+
+        ShapePath {
+            strokeWidth: 2
+            strokeColor: "black"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 3]
+            startX: 153
+            startY: 16
+            PathLine {
+                relativeX: 0
+                relativeY: 9
+            }
+        }
+
+        ShapePath {
+            strokeWidth: 2
+            strokeColor: "black"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 3]
+            startX: 153
+            startY: 24
+            PathLine {
+                relativeX: 57
+                relativeY: 0
+            }
+        }
+
+        ShapePath {
+            strokeWidth: 2
+            strokeColor: "black"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 3]
+            startX: 208
+            startY: 24
+            PathLine {
+                relativeX: 0
+                relativeY: -15
+            }
+        }
+
+        ShapePath {
+            strokeWidth: 2
+            strokeColor: "black"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 3]
+            startX: 208
+            startY: 24
+            PathLine {
+                relativeX: 225
+                relativeY: 0
+            }
+        }
+
+        ShapePath {
+            strokeWidth: 2
+            strokeColor: "black"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 3]
+            startX: 428
+            startY: 24
+            PathLine {
+                relativeX: 0
+                relativeY: -15
+            }
+        }
+
+        ShapePath {
+            strokeWidth: 2
+            strokeColor: "black"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 3]
+            startX: 428
+            startY: 24
+            PathLine {
+                relativeX: 100
+                relativeY: 0
+            }
+        }
+    }
 }
