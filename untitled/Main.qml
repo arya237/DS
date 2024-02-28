@@ -2100,4 +2100,191 @@ Window {
             }
         }
     }
+
+    Rectangle {
+        id: payanehjavanmard
+        width: 35
+        height: 35
+        border.color: "#77E776"
+        border.width: 2
+        color: "#77E776"
+        anchors.top: kahrizak.top
+        anchors.left: darvazehshemiran.left
+        radius: 180
+
+        Text {
+            anchors.left: payanehjavanmard.right
+            anchors.leftMargin: 5
+            y: 10
+            text: qsTr("Payaneh Javanmard")
+            font.pixelSize: 10
+        }
+        Text {
+
+            topPadding: 9
+            leftPadding: 4
+            text: qsTr("BUS 2")
+            font.pixelSize: 10
+        }
+    }
+
+    Rectangle {
+        id: khajehabdolah
+        width: 35
+        height: 35
+        border.color: "#77E776"
+        border.width: 2
+        color: "#77E776"
+        anchors.bottom: ghaem.top
+        anchors.bottomMargin: 43.5
+        anchors.left: shahidzeynodin.left
+        anchors.leftMargin: -40
+        radius: 180
+
+        Text {
+            anchors.bottom: khajehabdolah.top
+            x: -40
+            text: qsTr("Khajeh Abdolah-e Ansari")
+            font.pixelSize: 10
+        }
+        Text {
+
+            topPadding: 9
+            leftPadding: 4
+            text: qsTr("BUS 2")
+            font.pixelSize: 10
+        }
+    }
+
+    Shape {
+        anchors.left: payanehjavanmard.left
+        anchors.leftMargin: (payanehjavanmard.height / 2) + 1
+        anchors.bottom: payanehjavanmard.top
+
+        ShapePath {
+            strokeWidth: 2
+            strokeColor: "black"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 3]
+            startX: 0
+            startY: 0
+
+            PathLine {
+                relativeX: 0
+                relativeY: -95
+            }
+        }
+
+        ShapePath {
+            strokeWidth: 2
+            strokeColor: "black"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 3]
+            startX: 0
+            startY: -95
+
+            PathLine {
+                relativeX: 95
+                relativeY: 0
+            }
+        }
+
+        ShapePath {
+            strokeWidth: 2
+            strokeColor: "black"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 3]
+            startX: 120
+            startY: -95
+
+            PathLine {
+                relativeX: 117.5
+                relativeY: 0
+            }
+        }
+
+        ShapePath {
+            strokeWidth: 2
+            strokeColor: "black"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 3]
+            startX: 237.5
+            startY: -95
+
+            PathLine {
+                relativeX: 0
+                relativeY: -115
+            }
+        }
+
+        ShapePath {
+            strokeWidth: 2
+            strokeColor: "black"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 3]
+            startX: 237.5
+            startY: -240
+
+            PathLine {
+                relativeX: 0
+                relativeY: -130
+            }
+        }
+
+        ShapePath {
+            strokeWidth: 2
+            strokeColor: "black"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 3]
+            startX: 237.5
+            startY: -370
+
+            PathLine {
+                relativeX: 200
+                relativeY: 0
+            }
+        }
+
+        ShapePath {
+            strokeWidth: 2
+            strokeColor: "black"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 3]
+            startX: 437.5
+            startY: -370
+
+            PathLine {
+                relativeX: 0
+                relativeY: -130
+            }
+        }
+
+        ShapePath {
+            strokeWidth: 2
+            strokeColor: "black"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 3]
+            startX: 437.5
+            startY: -535
+
+            PathLine {
+                relativeX: 0
+                relativeY: -60
+            }
+        }
+
+        ShapePath {
+            strokeWidth: 2
+            strokeColor: "black"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 3]
+            startX: 437.5
+            startY: -595
+
+            PathLine {
+                relativeX: -300
+                relativeY: 0
+            }
+        }
+    }
 }
