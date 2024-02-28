@@ -2,6 +2,7 @@
 #include <stdexcept>
 #include <algorithm>
 #include <fstream>
+#include <time.h>
 
 #include "smnhsh.hpp"
 
@@ -67,7 +68,13 @@ void smnhsh::get_input()
         }
 
         cout << "# Shortest Path #" << endl;
+        // time_t tstart = clock(); 
         find_short_path(names_of_station[start], names_of_station[end], start_time);
+        // time_t tend = clock();
+
+        // double time_taken = double(tend - tstart) / double(CLOCKS_PER_SEC);
+
+
         cout << "# Lowest Cost #" << endl;
         find_lowest_cost(names_of_station[start], names_of_station[end], start_time);
     }
@@ -121,7 +128,9 @@ void smnhsh::read_distance_from_file()
                     names_of_station.insert({start, counter});
                     counter++;
                 }
+
                 lines[type].push_back(start);
+
                 if (!names_of_station.count(destiny))
                 {
                     names_of_station.insert({destiny, counter});
@@ -144,8 +153,6 @@ void smnhsh::read_distance_from_file()
 
             temp.setdis(stoi(distance));
             temp.setvic(type);
-
-           
 
             pathes[names_of_station[start]][names_of_station[destiny]].setinfo(temp);
             pathes[names_of_station[destiny]][names_of_station[start]].setinfo(temp);
@@ -242,7 +249,8 @@ int smnhsh::minDistance(const node dist[], const bool sptSet[]) const
 //--------------------------------------------------------
 
 void smnhsh::find_short_path(const int &start, const int &end, Time &start_time)
-{
+{   
+    bool flag = 0;
     node shortest[59];
     bool sptSet[59];
 
@@ -257,20 +265,28 @@ void smnhsh::find_short_path(const int &start, const int &end, Time &start_time)
         int u = minDistance(shortest, sptSet);
 
         sptSet[u] = true;
+        flag = u == end ? 1 : 0;
 
         for (int v = 0; v < 59; v++)
         {
 
             // cout << search_in_map(u) << " -> " << search_in_map(v) << ": " << pathes[u][v].getdis() << endl;
             if (!sptSet[v] && pathes[u][v].getdis() && shortest[u].value != INT_MAX && shortest[u].value + pathes[u][v].getdis() < shortest[v].value)
-            {
+            {   
+
                 shortest[v].value = shortest[u].value + pathes[u][v].getdis();
                 shortest[v].directions = shortest[u].directions;
                 shortest[v].directions.push_back(search_in_map(v));
                 shortest[v].type_of_vehicle = shortest[u].type_of_vehicle;
                 shortest[v].type_of_vehicle.push_back(pathes[v][u].getvic());
             }
+
+            if(flag)
+            break;
         }
+
+        if(flag)
+        break;
     }
 
     show_shortest_path(shortest[end], start_time);
