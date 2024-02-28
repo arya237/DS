@@ -26,7 +26,6 @@ int station::getdis()
     return max(bus.get_distance() , metro_taxi.get_distance());
    }
 
- 
 } 
 
 string station::getvic()

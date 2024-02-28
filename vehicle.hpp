@@ -8,7 +8,7 @@ class vehicle
     string type_vehicle;
 
     public:
-    vehicle(){distance = 0; type_vehicle = "";} // problem
+    vehicle(){distance = 0; type_vehicle = "";} //problem
     unsigned int get_distance(){return distance;}
     string get_type_vehicle(){return type_vehicle;}
     void setdis(int dis);
