@@ -69,17 +69,13 @@ void smnhsh::get_input()
         
 
         cout << "# Shortest Path #" << endl;
-        // time_t tstart = clock(); 
+  
         find_short_path(names_of_station[start], names_of_station[end], start_time);
-        // time_t tend = clock();
+
         cout << "# Lowest Cost #" << endl;
         find_lowest_cost(names_of_station[start], names_of_station[end], start_time);
-        // double time_taken = double(tend - tstart) / double(CLOCKS_PER_SEC);
 
-
-        
-
-         find_lowest_time(names_of_station[start], names_of_station[end], start_time);
+        find_lowest_time(names_of_station[start], names_of_station[end], start_time);
     }
 }
 
@@ -336,7 +332,7 @@ void smnhsh::find_lowest_cost(const int &start, const int &end, Time &start_time
         }
     }
     cout << shortest[end].value << endl;
-    show_cost(shortest[end].line_of_vehicle, shortest[end].directions, start_time);
+    show_cost(shortest[end].line_of_vehicle, shortest[end].directions, shortest[end].type_of_vehicle ,start_time);
 }
 
 //--------------------------------------------------------
@@ -393,7 +389,7 @@ void smnhsh::show_shortest_path(const node &path, Time start_time)
 
 //--------------------------------------------------------
 
-void smnhsh::show_cost(const vector<string> &line, const vector<string> &station, Time start_time)
+void smnhsh::show_cost(const vector<string> &line, const vector<string> &station, const vector<string> & vehicle, Time start_time)
 {
     int j = 0;
 
@@ -440,7 +436,8 @@ void smnhsh::show_cost(const vector<string> &line, const vector<string> &station
             time += trafic_time;
         }
 
-        cout << ": " << line[j] << endl;
+        cout << ": " << vehicle[j] << " with " << line[j] << endl;
+    
         start_time + time;
 
         j++;
