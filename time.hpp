@@ -10,7 +10,7 @@ class Time
     int min = 0;
     
     public:
-    Time(std::string start_time);
+    Time(const std::string & start_time);
     void operator+(int minute);
     void print();
     int get_hour(){return hour;}

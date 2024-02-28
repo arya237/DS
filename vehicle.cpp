@@ -8,7 +8,12 @@ void vehicle:: setdis(int dis)
     this -> distance = dis;
 }
 
-void vehicle:: setvic(string vic)
+void vehicle:: set_line(string line)
 {
-    this -> type_vehicle = vic;
+    this -> line_vic = line;
+}
+
+void vehicle:: set_vic(string vic)
+{
+    this -> vic_type = vic;
 }

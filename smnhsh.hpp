@@ -19,6 +19,7 @@ struct node
     int value = INT_MAX;
     vector <string> directions;      //name of station
     vector <string> type_of_vehicle; //name of vehicle (bus / taxi_metro)
+    vector <string> line_of_vehicle;
 
 };
 
@@ -43,7 +44,9 @@ class smnhsh
     void find_short_path(const int & start, const int & end , Time & start_time); 
     void find_lowest_cost(const int & start, const int & end, Time & start_time);
     void show_shortest_path(const node & pathe, Time start_time); //printing name of stations for shortest path 
-    void show_cost(const vector <string> & line , const vector <string> & station , Time start_time);//printing name of stations for lowest cost 
+    void show_cost(const vector <string> & line , const vector <string> & station, const vector <string> & vehicle , Time start_time);//printing name of stations for lowest cost 
+    void find_lowest_time(const int &start, const int &end, Time &start_time);
+    void show_lowest_time( const vector<string> &line, const vector<string> &station, const vector<string> & vehicle, Time start_time);
 };
 
 #endif

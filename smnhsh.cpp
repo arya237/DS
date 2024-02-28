@@ -2,6 +2,7 @@
 #include <stdexcept>
 #include <algorithm>
 #include <fstream>
+#include <time.h>
 
 #include "smnhsh.hpp"
 
@@ -46,7 +47,6 @@ void smnhsh::get_input()
 {
 
     int num_order;
-    ;
     cin >> num_order;
     cin.ignore();
 
@@ -66,10 +66,16 @@ void smnhsh::get_input()
             getline(cin, end);
         }
 
+        
+
         cout << "# Shortest Path #" << endl;
+  
         find_short_path(names_of_station[start], names_of_station[end], start_time);
+
         cout << "# Lowest Cost #" << endl;
         find_lowest_cost(names_of_station[start], names_of_station[end], start_time);
+
+        find_lowest_time(names_of_station[start], names_of_station[end], start_time);
     }
 }
 
@@ -121,7 +127,9 @@ void smnhsh::read_distance_from_file()
                     names_of_station.insert({start, counter});
                     counter++;
                 }
+
                 lines[type].push_back(start);
+
                 if (!names_of_station.count(destiny))
                 {
                     names_of_station.insert({destiny, counter});
@@ -143,9 +151,9 @@ void smnhsh::read_distance_from_file()
             }
 
             temp.setdis(stoi(distance));
-            temp.setvic(type);
+            temp.set_line(type);
 
-           
+            // cout << start << " -> " <<  destiny << "= " << temp.get_distance() << endl;
 
             pathes[names_of_station[start]][names_of_station[destiny]].setinfo(temp);
             pathes[names_of_station[destiny]][names_of_station[start]].setinfo(temp);
@@ -156,6 +164,13 @@ void smnhsh::read_distance_from_file()
         file.close();
     }
 
+    // for(int i = 0; i < 59; i++)
+    // {
+    //     for(int j = 0; j < 59; j++)
+    //     {
+    //         cout << search_in_map(i) << "->" << search_in_map(j) << "= " << pathes[names_of_station[start]][names_of_station[destiny]].getdis() << endl; 
+    //     }
+    // }
     
 }
 
@@ -178,23 +193,29 @@ void smnhsh::complete_graph_for_cost()
                 if (Bus_flag)
                 {
                     temp.setdis(2250);
-                    temp.setvic(i.first);
+                    temp.set_line(i.first);
+
                     costs[names_of_station[j]][names_of_station[k]].setinfo(temp);
                     costs[names_of_station[k]][names_of_station[j]].setinfo(temp);
                 }
+
                 if (Metro_Taxi && costs[names_of_station[j]][names_of_station[k]].getdis() != 2250)
                 {
                     int cost = pathes[names_of_station[j]][names_of_station[k]].getdis() * 6000;
+
                     temp.setdis(cost);
-                    temp.setvic(i.first);
+                    temp.set_line(i.first);
+
                     costs[names_of_station[j]][names_of_station[k]].setinfo(temp);
                     costs[names_of_station[k]][names_of_station[j]].setinfo(temp);
                 }
+
                 if (Metro_Taxi && (costs[names_of_station[j]][names_of_station[k]].getdis() > 3267 ||
                                    costs[names_of_station[j]][names_of_station[k]].getdis() == 0))
                 {
                     temp.setdis(3267);
-                    temp.setvic(i.first);
+                    temp.set_line(i.first);
+                    
                     costs[names_of_station[j]][names_of_station[k]].setinfo(temp);
                     costs[names_of_station[k]][names_of_station[j]].setinfo(temp);
                 }
@@ -215,7 +236,7 @@ string smnhsh::search_in_map(int i)
         }
     }
 
-    return NULL;
+    return "";
 }
 
 //--------------------------------------------------------
@@ -236,7 +257,7 @@ int smnhsh::minDistance(const node dist[], const bool sptSet[]) const
 //--------------------------------------------------------
 
 void smnhsh::find_short_path(const int &start, const int &end, Time &start_time)
-{
+{   
     node shortest[59];
     bool sptSet[59];
 
@@ -256,13 +277,17 @@ void smnhsh::find_short_path(const int &start, const int &end, Time &start_time)
         {
 
             // cout << search_in_map(u) << " -> " << search_in_map(v) << ": " << pathes[u][v].getdis() << endl;
-            if (!sptSet[v] && pathes[u][v].getdis() && shortest[u].value != INT_MAX && shortest[u].value + pathes[u][v].getdis() < shortest[v].value)
-            {
+            if (!sptSet[v] && pathes[u][v].getdis() && shortest[u].value != INT_MAX 
+            && shortest[u].value + pathes[u][v].getdis() < shortest[v].value)
+            {   
+                
                 shortest[v].value = shortest[u].value + pathes[u][v].getdis();
                 shortest[v].directions = shortest[u].directions;
                 shortest[v].directions.push_back(search_in_map(v));
+                shortest[v].line_of_vehicle = shortest[u].line_of_vehicle;
+                shortest[v].line_of_vehicle.push_back(pathes[v][u].getvic().first);
                 shortest[v].type_of_vehicle = shortest[u].type_of_vehicle;
-                shortest[v].type_of_vehicle.push_back(pathes[v][u].getvic());
+                shortest[v].type_of_vehicle.push_back(pathes[v][u].getvic().second);
             }
         }
     }
@@ -291,19 +316,23 @@ void smnhsh::find_lowest_cost(const int &start, const int &end, Time &start_time
 
         for (int v = 0; v < 59; v++)
         {
-            if (!sptSet[v] && costs[u][v].getdis() && shortest[u].value != INT_MAX && shortest[u].value + costs[u][v].getdis() < shortest[v].value)
-            {
+          
+            if (!sptSet[v] && costs[u][v].getdis() && shortest[u].value != INT_MAX 
+            && shortest[u].value + costs[u][v].getdis() <= shortest[v].value)
+            {   
+                
                 shortest[v].value = shortest[u].value + costs[u][v].getdis();
                 shortest[v].directions = shortest[u].directions;
                 shortest[v].directions.push_back(search_in_map(v));
+                shortest[v].line_of_vehicle = shortest[u].line_of_vehicle;
+                shortest[v].line_of_vehicle.push_back(costs[v][u].getvic().first);
                 shortest[v].type_of_vehicle = shortest[u].type_of_vehicle;
-                shortest[v].type_of_vehicle.push_back(costs[v][u].getvic());
+                shortest[v].type_of_vehicle.push_back(costs[v][u].getvic().second);
             }
         }
     }
-
     cout << shortest[end].value << endl;
-    show_cost(shortest[end].type_of_vehicle, shortest[end].directions, start_time);
+    show_cost(shortest[end].line_of_vehicle, shortest[end].directions, shortest[end].type_of_vehicle ,start_time);
 }
 
 //--------------------------------------------------------
@@ -324,7 +353,7 @@ void smnhsh::show_shortest_path(const node &path, Time start_time)
         int time = 0;
 
         cout << " -> " << path.directions[i];
-        if (path.type_of_vehicle[j][0] == 'B')
+        if (path.line_of_vehicle[j][0] == 'B')
         {
             int trafic_time = start_time.get_hour() < 8 && start_time.get_hour() >= 6 ? 8 : 4;
             time += pathes[names_of_station[path.directions[j]]][names_of_station[path.directions[i]]].getdis() * trafic_time;
@@ -335,9 +364,9 @@ void smnhsh::show_shortest_path(const node &path, Time start_time)
             time += pathes[names_of_station[path.directions[j]]][names_of_station[path.directions[i]]].getdis();
         }
 
-        if (path.type_of_vehicle[j + 1] != path.type_of_vehicle[j])
+        if (path.line_of_vehicle[j + 1] != path.line_of_vehicle[j])
         {
-            if (path.type_of_vehicle[j][0] == 'B')
+            if (path.line_of_vehicle[j][0] == 'B')
             {
                 time += 15;
             }
@@ -348,7 +377,7 @@ void smnhsh::show_shortest_path(const node &path, Time start_time)
                 time += trafic_time;
             }
 
-            cout << ": " << path.type_of_vehicle[j] << endl;
+            cout << ": " << path.line_of_vehicle[j] << endl;
         }
 
         start_time + time;
@@ -360,7 +389,7 @@ void smnhsh::show_shortest_path(const node &path, Time start_time)
 
 //--------------------------------------------------------
 
-void smnhsh::show_cost(const vector<string> &line, const vector<string> &station, Time start_time)
+void smnhsh::show_cost(const vector<string> &line, const vector<string> &station, const vector<string> & vehicle, Time start_time)
 {
     int j = 0;
 
@@ -380,12 +409,12 @@ void smnhsh::show_cost(const vector<string> &line, const vector<string> &station
                 if (line[j][0] == 'B')
                 {
                     int trafic_time = start_time.get_hour() < 8 && start_time.get_hour() >= 6 ? 8 : 4;
-                    time += pathes[names_of_station[*k]][names_of_station[*(k + dir)]].getdis() * trafic_time;
+                    time += pathes[names_of_station[*k]][names_of_station[*(k + dir)]].getdis(line[j]) * trafic_time;
                 }
 
                 else
                 {
-                    time += pathes[names_of_station[*k]][names_of_station[*(k + dir)]].getdis();
+                    time += pathes[names_of_station[*k]][names_of_station[*(k + dir)]].getdis(line[j]);
                 }
             }
 
@@ -407,7 +436,8 @@ void smnhsh::show_cost(const vector<string> &line, const vector<string> &station
             time += trafic_time;
         }
 
-        cout << ": " << line[j] << endl;
+        cout << ": " << vehicle[j] << " with " << line[j] << endl;
+    
         start_time + time;
 
         j++;
@@ -416,4 +446,86 @@ void smnhsh::show_cost(const vector<string> &line, const vector<string> &station
     start_time.print();
 }
 
-// conflict
+//==============================================================================
+
+//--------------------------------------------------------
+
+void smnhsh::find_lowest_time(const int &start, const int &end, Time &start_time)
+{   
+    
+    node shortest[59];//shorthestu.save
+    bool sptSet[59];
+
+    for (int i = 0; i < 59; i++)
+        shortest[i].value = INT_MAX, sptSet[i] = false;
+
+    shortest[start].value = 0;
+    shortest[start].directions.push_back(search_in_map(start));
+
+    for (int count = 0; count < 58; count++)
+    {
+        int u = minDistance(shortest, sptSet);
+
+        sptSet[u] = true;
+
+        for (int v = 0; v < 59; v++)
+        {
+            string preline , pre_vic;
+            if(shortest[u].line_of_vehicle.size() != 0)
+            {
+                preline = shortest[u].line_of_vehicle[shortest[u].line_of_vehicle.size() - 1];
+                pre_vic = shortest[u].type_of_vehicle[shortest[u].type_of_vehicle.size() - 1];
+            }
+            
+            if (!sptSet[v] && pathes[u][v].getdis() && shortest[u].value != INT_MAX && shortest[u].value + 
+            pathes[u][v].get_time(preline, pre_vic).get_distance() < shortest[v].value)
+            {
+                shortest[v].value = shortest[u].value +pathes[u][v].get_time(preline, pre_vic).get_distance();
+                shortest[v].directions = shortest[u].directions;
+                shortest[v].directions.push_back(search_in_map(v));
+                shortest[v].line_of_vehicle = shortest[u].line_of_vehicle;
+                shortest[v].line_of_vehicle.push_back(pathes[v][u].getvic().first);
+                shortest[v].type_of_vehicle = shortest[u].type_of_vehicle;
+                shortest[v].type_of_vehicle.push_back(pathes[v][u].getvic().second);
+            }
+        }
+    }
+    cout << "Minute : \n";
+
+    cout << shortest[end].value << endl;
+    show_lowest_time(shortest[end].line_of_vehicle, shortest[end].directions, shortest[end].type_of_vehicle ,start_time);
+   
+    
+}
+
+//--------------------------------------------------------
+
+
+void smnhsh::show_lowest_time(const vector<string> &line, const vector<string> &station, const vector<string> & vehicle, Time start_time)
+{
+
+    int j = 0;
+
+    for (int i = 0; i < station.size() - 1; i++)
+    {
+        auto start = find(lines[line[j]].begin(), lines[line[j]].end(), station[i]);
+        auto end = find(lines[line[j]].begin(), lines[line[j]].end(), station[i + 1]);
+        int dir = 0;
+        int time = 0;
+
+        dir = start < end ? 1 : -1;
+        for (auto k = start; k != end + dir; k += dir)
+        {
+            cout << *k;
+            if (k != end)
+            {
+                cout << " -> ";
+            }
+        }
+
+        cout << ": " << vehicle[j] << " with " << line[j] << endl;
+    
+        j++;
+    }
+
+}
