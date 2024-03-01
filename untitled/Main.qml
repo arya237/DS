@@ -2287,4 +2287,92 @@ Window {
             }
         }
     }
+
+    Rectangle {
+        id: shahidsadr
+        width: 35
+        height: 35
+        border.color: "#77E776"
+        border.width: 2
+        color: "#77E776"
+        anchors.top: gheytariyeh.top
+        anchors.topMargin: 30
+        anchors.left: merzayeshirazi.left
+        anchors.leftMargin: -30
+        radius: 180
+
+        Text {
+            anchors.top: shahidsadr.top
+            anchors.topMargin: 12.5
+            anchors.right: shahidsadr.left
+            anchors.rightMargin: 10
+            text: qsTr("Shahid Sadr")
+            font.pixelSize: 10
+        }
+        Text {
+
+            topPadding: 9
+            leftPadding: 4
+            text: qsTr("BUS 3")
+            font.pixelSize: 10
+        }
+    }
+
+    Shape {
+        anchors.bottom: shahidsadr.top
+        anchors.left: shahidsadr.left
+        anchors.leftMargin: (shahidsadr.width / 2) + 1
+
+        ShapePath {
+            strokeWidth: 2
+            strokeColor: "black"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 3]
+            startX: 0
+            startY: 0
+            PathLine {
+                relativeX: 0
+                relativeY: -70
+            }
+        }
+
+        ShapePath {
+            strokeWidth: 2
+            strokeColor: "black"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 3]
+            startX: 0
+            startY: -70
+            PathLine {
+                relativeX: 125
+                relativeY: 0
+            }
+        }
+
+        ShapePath {
+            strokeWidth: 2
+            strokeColor: "black"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 3]
+            startX: 160
+            startY: -70
+            PathLine {
+                relativeX: 50
+                relativeY: 0
+            }
+        }
+
+        ShapePath {
+            strokeWidth: 2
+            strokeColor: "black"
+            strokeStyle: ShapePath.DashLine
+            dashPattern: [1, 3]
+            startX: 210
+            startY: -70
+            PathLine {
+                relativeX: 0
+                relativeY: 100
+            }
+        }
+    }
 }
