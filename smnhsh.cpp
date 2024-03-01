@@ -226,27 +226,30 @@ void smnhsh::complete_graph_for_cost()
                 {
                     temp.setdis(2250);
                     temp.set_line(i.first);
+                    temp.set_vic("bus");
 
                     costs[names_of_station[j]][names_of_station[k]].setinfo(temp);
                     costs[names_of_station[k]][names_of_station[j]].setinfo(temp);
                 }
 
-                if (Metro_Taxi && costs[names_of_station[j]][names_of_station[k]].getdis() != 2250)
+                if (Metro_Taxi && costs[names_of_station[j]][names_of_station[k]].getdis().get_distance() != 2250)
                 {
-                    int cost = pathes[names_of_station[j]][names_of_station[k]].getdis() * 6000;
+                    int cost = pathes[names_of_station[j]][names_of_station[k]].getdis().get_distance() * 6000;
 
                     temp.setdis(cost);
                     temp.set_line(i.first);
+                    temp.set_vic("taxi");
 
                     costs[names_of_station[j]][names_of_station[k]].setinfo(temp);
                     costs[names_of_station[k]][names_of_station[j]].setinfo(temp);
                 }
 
-                if (Metro_Taxi && (costs[names_of_station[j]][names_of_station[k]].getdis() > 3267 ||
-                                   costs[names_of_station[j]][names_of_station[k]].getdis() == 0))
+                if (Metro_Taxi && (costs[names_of_station[j]][names_of_station[k]].getdis().get_distance() > 3267 ||
+                                   costs[names_of_station[j]][names_of_station[k]].getdis().get_distance() == 0))
                 {
                     temp.setdis(3267);
                     temp.set_line(i.first);
+                    temp.set_vic("metro");
                     
                     costs[names_of_station[j]][names_of_station[k]].setinfo(temp);
                     costs[names_of_station[k]][names_of_station[j]].setinfo(temp);
@@ -309,17 +312,17 @@ void smnhsh::find_short_path(const int &start, const int &end, Time &start_time)
         {
 
             // cout << search_in_map(u) << " -> " << search_in_map(v) << ": " << pathes[u][v].getdis() << endl;
-            if (!sptSet[v] && pathes[u][v].getdis() && shortest[u].value != INT_MAX 
-            && shortest[u].value + pathes[u][v].getdis() < shortest[v].value)
+            if (!sptSet[v] && pathes[u][v].getdis().get_distance() && shortest[u].value != INT_MAX 
+            && shortest[u].value + pathes[u][v].getdis().get_distance() < shortest[v].value)
             {   
                 
-                shortest[v].value = shortest[u].value + pathes[u][v].getdis();
+                shortest[v].value = shortest[u].value + pathes[u][v].getdis().get_distance();
                 shortest[v].directions = shortest[u].directions;
                 shortest[v].directions.push_back(search_in_map(v));
                 shortest[v].line_of_vehicle = shortest[u].line_of_vehicle;
-                shortest[v].line_of_vehicle.push_back(pathes[v][u].getvic().first);
+                shortest[v].line_of_vehicle.push_back(pathes[v][u].getdis().get_line());
                 shortest[v].type_of_vehicle = shortest[u].type_of_vehicle;
-                shortest[v].type_of_vehicle.push_back(pathes[v][u].getvic().second);
+                shortest[v].type_of_vehicle.push_back(pathes[v][u].getdis().get_vic());
             }
         }
     }
@@ -349,17 +352,17 @@ void smnhsh::find_lowest_cost(const int &start, const int &end, Time &start_time
         for (int v = 0; v < 59; v++)
         {
           
-            if (!sptSet[v] && costs[u][v].getdis() && shortest[u].value != INT_MAX 
-            && shortest[u].value + costs[u][v].getdis() <= shortest[v].value)
+            if (!sptSet[v] && costs[u][v].getdis().get_distance() && shortest[u].value != INT_MAX 
+            && shortest[u].value + costs[u][v].getdis().get_distance() <= shortest[v].value)
             {   
                 
-                shortest[v].value = shortest[u].value + costs[u][v].getdis();
+                shortest[v].value = shortest[u].value + costs[u][v].getdis().get_distance();
                 shortest[v].directions = shortest[u].directions;
                 shortest[v].directions.push_back(search_in_map(v));
                 shortest[v].line_of_vehicle = shortest[u].line_of_vehicle;
-                shortest[v].line_of_vehicle.push_back(costs[v][u].getvic().first);
+                shortest[v].line_of_vehicle.push_back(costs[v][u].getdis().get_line());
                 shortest[v].type_of_vehicle = shortest[u].type_of_vehicle;
-                shortest[v].type_of_vehicle.push_back(costs[v][u].getvic().second);
+                shortest[v].type_of_vehicle.push_back(costs[v][u].getdis().get_vic());
             }
         }
     }
@@ -388,12 +391,12 @@ void smnhsh::show_shortest_path(const node &path, Time start_time)
         if (path.line_of_vehicle[j][0] == 'B')
         {
             int trafic_time = start_time.get_hour() < 8 && start_time.get_hour() >= 6 ? 8 : 4;
-            time += pathes[names_of_station[path.directions[j]]][names_of_station[path.directions[i]]].getdis() * trafic_time;
+            time += pathes[names_of_station[path.directions[j]]][names_of_station[path.directions[i]]].getdis().get_distance() * trafic_time;
         }
 
         else
         {
-            time += pathes[names_of_station[path.directions[j]]][names_of_station[path.directions[i]]].getdis();
+            time += pathes[names_of_station[path.directions[j]]][names_of_station[path.directions[i]]].getdis().get_distance();
         }
 
         if (path.line_of_vehicle[j + 1] != path.line_of_vehicle[j])

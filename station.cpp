@@ -5,7 +5,24 @@
 void station::setinfo(vehicle value)
 {   
 
-    if(value.get_line()[0] == 'B')
+    //added new because for cost was false
+    if(value.get_vic() == "bus")
+    {
+        this->bus = value;
+    }
+
+    else if(value.get_vic() == "metro")
+    {   
+        this->metro = value;
+    }
+
+
+    else if(value.get_vic() == "taxi")
+    {
+        this->taxi = value;
+    }
+
+    else if(value.get_line()[0] == 'B')
     {   
         
         this->bus = value;
@@ -17,13 +34,14 @@ void station::setinfo(vehicle value)
         
         this->metro = value;
         this->metro.set_vic("metro");
-       
-        this->taxi  = value;
+        
+        this->metro = value;
         this->taxi.set_vic("taxi");
     }
+
 }
 
-int station::getdis()
+vehicle station::getdis()
 {  
 //    if((bus.get_distance()== 0 && metro.get_distance() == 0) || 
 //    (bus.get_distance()!= 0 && metro.get_distance() != 0)) 
@@ -37,41 +55,46 @@ int station::getdis()
 //         return max(bus.get_distance() , metro.get_distance());
 //    }
 
-    int min = metro.get_distance();
-    
-    if(bus.get_distance() && bus.get_distance() < min || min == 0)
-    min = bus.get_distance();
+    //added new
 
-    if(taxi.get_distance() && taxi.get_distance() < min || min == 0)
-    min = taxi.get_distance();
+    vehicle min = this->metro;
+    
+    if( (bus.get_distance() && bus.get_distance() < min.get_distance() ) || min.get_distance() == 0)
+    min = this->bus;
+
+    if( (taxi.get_distance() && taxi.get_distance() < min.get_distance()) || min.get_distance() == 0)
+    min = this->taxi;
 
     return min;
 } 
 
 int station::getdis(const string & type_vehicle)
-{
+{   
+    //added taxi
     return type_vehicle == "metro" ? this->metro.get_distance() : type_vehicle == "taxi" ? this->taxi.get_distance(): this->bus.get_distance();
 }
 
 pair<string , string > station::getvic()
 {
-    if(bus.get_distance()!= 0 && metro.get_distance()!= 0 
-    && min(bus.get_distance() , metro.get_distance()) == bus.get_distance())
-        return make_pair(bus.get_line() , bus.get_vic());
+    // if(bus.get_distance()!= 0 && metro.get_distance()!= 0 
+    // && min(bus.get_distance() , metro.get_distance()) == bus.get_distance())
+    //     return make_pair(bus.get_line() , bus.get_vic());
         
-    else if(bus.get_distance()!= 0 && metro.get_distance()!= 0 
-    && min(bus.get_distance() , metro.get_distance()) == metro.get_distance())
-        return make_pair(metro.get_line() , metro.get_vic());
+    // else if(bus.get_distance()!= 0 && metro.get_distance()!= 0 
+    // && min(bus.get_distance() , metro.get_distance()) == metro.get_distance())
+    //     return make_pair(metro.get_line() , metro.get_vic());
 
-    else if (bus.get_distance()== 0 && metro.get_distance() != 0) 
-        return  make_pair(metro.get_line() , metro.get_vic());
+    // else if (bus.get_distance()== 0 && metro.get_distance() != 0) 
+    //     return  make_pair(metro.get_line() , metro.get_vic());
 
-    else if (bus.get_distance()!= 0 && metro.get_distance() == 0)
-        return make_pair(bus.get_line() , bus.get_vic());
+    // else if (bus.get_distance()!= 0 && metro.get_distance() == 0)
+    //     return make_pair(bus.get_line() , bus.get_vic());
     
     // if(bus.get_distance()!= 0 && metro.get_distance()!= 0 && 
     // && min(bus.get_distance() , metro.get_distance()) == bus.get_distance())
     //     return make_pair(bus.get_line() , bus.get_vic());
+
+
 
     //if two = 0??
 }
