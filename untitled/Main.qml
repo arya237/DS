@@ -1855,7 +1855,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#3B8836"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 1
@@ -1868,7 +1868,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#3B8836"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 153
@@ -1881,7 +1881,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#3B8836"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 153
@@ -1894,7 +1894,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#3B8836"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 208
@@ -1907,7 +1907,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#3B8836"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 208
@@ -1920,7 +1920,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#3B8836"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 428
@@ -1933,7 +1933,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#3B8836"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 428
@@ -1946,7 +1946,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#3B8836"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 632
@@ -1959,7 +1959,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#3B8836"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 632
@@ -1972,7 +1972,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#3B8836"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 632
@@ -1985,7 +1985,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#3B8836"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 747
@@ -1998,7 +1998,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#3B8836"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 762
@@ -2011,7 +2011,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#3B8836"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 762
@@ -2024,7 +2024,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#3B8836"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 802
@@ -2037,7 +2037,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#3B8836"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 802
@@ -2050,7 +2050,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#3B8836"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 980
@@ -2063,7 +2063,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#3B8836"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 1033
@@ -2076,7 +2076,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#3B8836"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 1033
@@ -2089,7 +2089,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#3B8836"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 1033
@@ -2163,7 +2163,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#87873D"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 0
@@ -2177,7 +2177,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#87873D"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 0
@@ -2191,7 +2191,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#87873D"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 120
@@ -2205,7 +2205,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#87873D"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 237.5
@@ -2219,7 +2219,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#87873D"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 237.5
@@ -2233,7 +2233,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#87873D"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 237.5
@@ -2247,7 +2247,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#87873D"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 437.5
@@ -2261,7 +2261,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#87873D"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 437.5
@@ -2275,7 +2275,7 @@ Window {
 
         ShapePath {
             strokeWidth: 2
-            strokeColor: "black"
+            strokeColor: "#87873D"
             strokeStyle: ShapePath.DashLine
             dashPattern: [1, 3]
             startX: 437.5
