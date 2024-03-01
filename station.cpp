@@ -25,22 +25,32 @@ void station::setinfo(vehicle value)
 
 int station::getdis()
 {  
-   if((bus.get_distance()== 0 && metro.get_distance() == 0) || 
-   (bus.get_distance()!= 0 && metro.get_distance() != 0)) 
-   {     
-        return min(bus.get_distance() , metro.get_distance());
-   }
+//    if((bus.get_distance()== 0 && metro.get_distance() == 0) || 
+//    (bus.get_distance()!= 0 && metro.get_distance() != 0)) 
+//    {     
+//         return min(bus.get_distance() , metro.get_distance());
+//    }
 
-   else if((bus.get_distance()== 0 && metro.get_distance() != 0) || 
-   (bus.get_distance()!= 0 && metro.get_distance() == 0)) 
-   {
-        return max(bus.get_distance() , metro.get_distance());
-   }
+//    else if((bus.get_distance()== 0 && metro.get_distance() != 0) || 
+//    (bus.get_distance()!= 0 && metro.get_distance() == 0)) 
+//    {
+//         return max(bus.get_distance() , metro.get_distance());
+//    }
+
+    int min = metro.get_distance();
+    
+    if(bus.get_distance() && bus.get_distance() < min || min == 0)
+    min = bus.get_distance();
+
+    if(taxi.get_distance() && taxi.get_distance() < min || min == 0)
+    min = taxi.get_distance();
+
+    return min;
 } 
 
 int station::getdis(const string & type_vehicle)
 {
-    return type_vehicle[0] == 'M' ? this->metro.get_distance() : this->bus.get_distance();
+    return type_vehicle == "metro" ? this->metro.get_distance() : type_vehicle == "taxi" ? this->taxi.get_distance(): this->bus.get_distance();
 }
 
 pair<string , string > station::getvic()
@@ -65,8 +75,14 @@ pair<string , string > station::getvic()
 
     //if two = 0??
 }
-//getvictime
 
+// int station::get_time(string vehicle)
+// {   
+//     int 
+//     return 
+// }
+//getvictime
+/*
 vehicle station::get_time(string pre_line , string pre_vic )
 {
     int m = 8 , t = 2 , b = 4  ;
@@ -156,3 +172,4 @@ vehicle station::get_time(string pre_line , string pre_vic )
     
     return answer;
 }
+*/

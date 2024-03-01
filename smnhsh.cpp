@@ -75,7 +75,7 @@ void smnhsh::get_input()
         cout << "# Lowest Cost #" << endl;
         find_lowest_cost(names_of_station[start], names_of_station[end], start_time);
 
-        find_lowest_time(names_of_station[start], names_of_station[end], start_time);
+        // find_lowest_time(names_of_station[start], names_of_station[end], start_time);
     }
 }
 
@@ -130,12 +130,28 @@ void smnhsh::read_distance_from_file()
 
                 lines[type].push_back(start);
 
+                if(type[0] == 'M')
+                {
+                    station_vechicle[start][type].push_back("metro");
+                    station_vechicle[start][type].push_back("taxi");
+                }
+
+                else station_vechicle[start][type].push_back("bus");
+
                 if (!names_of_station.count(destiny))
                 {
                     names_of_station.insert({destiny, counter});
                     counter++;
                 }
                 lines[type].push_back(destiny);
+
+                if(type[0] == 'M')
+                {
+                    station_vechicle[destiny][type].push_back("metro");
+                    station_vechicle[destiny][type].push_back("taxi");
+                }
+
+                else station_vechicle[destiny][type].push_back("bus");
                 flag = 1;
             }
 
@@ -148,6 +164,14 @@ void smnhsh::read_distance_from_file()
                 }
 
                 lines[type].push_back(destiny);
+                 
+                if(type[0] == 'M')
+                {
+                    station_vechicle[destiny][type].push_back("metro");
+                    station_vechicle[destiny][type].push_back("taxi");
+                }
+
+                else station_vechicle[destiny][type].push_back("bus");
             }
 
             temp.setdis(stoi(distance));
@@ -164,12 +188,20 @@ void smnhsh::read_distance_from_file()
         file.close();
     }
 
-    // for(int i = 0; i < 59; i++)
-    // {
-    //     for(int j = 0; j < 59; j++)
-    //     {
-    //         cout << search_in_map(i) << "->" << search_in_map(j) << "= " << pathes[names_of_station[start]][names_of_station[destiny]].getdis() << endl; 
+    // for(auto i: station_vechicle)
+    // {   
+    //     cout << i.first << " -> ";
+    //     for(auto j: i.second)
+    //     {   
+    //         cout << j.first << ": ";
+
+    //         for(auto k: j.second)
+    //         {
+    //             cout << k << " ";
+    //         }
     //     }
+
+    //     cout << endl;
     // }
     
 }
@@ -409,12 +441,12 @@ void smnhsh::show_cost(const vector<string> &line, const vector<string> &station
                 if (line[j][0] == 'B')
                 {
                     int trafic_time = start_time.get_hour() < 8 && start_time.get_hour() >= 6 ? 8 : 4;
-                    time += pathes[names_of_station[*k]][names_of_station[*(k + dir)]].getdis(line[j]) * trafic_time;
+                    time += pathes[names_of_station[*k]][names_of_station[*(k + dir)]].getdis(vehicle[j]) * trafic_time;
                 }
 
                 else
                 {
-                    time += pathes[names_of_station[*k]][names_of_station[*(k + dir)]].getdis(line[j]);
+                    time += pathes[names_of_station[*k]][names_of_station[*(k + dir)]].getdis(vehicle[j]);
                 }
             }
 
@@ -449,7 +481,7 @@ void smnhsh::show_cost(const vector<string> &line, const vector<string> &station
 //==============================================================================
 
 //--------------------------------------------------------
-
+/*
 void smnhsh::find_lowest_time(const int &start, const int &end, Time &start_time)
 {   
     
@@ -529,3 +561,22 @@ void smnhsh::show_lowest_time(const vector<string> &line, const vector<string> &
     }
 
 }
+
+
+void smnhsh::calculate_each_line(unordered_map<string, vector<string>> vechicles, string src, node array[])
+{
+    for(auto line: vechicles)
+    {
+        for(auto vehicle: line.second)
+        {
+            auto start = find(this->lines[line.first].begin(), this->lines[line.first].end(), src);
+            int resault = 0;
+
+            for(auto i = start; i < this->lines[line.first].end() - 1; i++)
+            {
+                resault = pathes[names_of_station[*i]][names_of_station[*(i + 1)]];
+            }
+        }
+    }
+}
+*/

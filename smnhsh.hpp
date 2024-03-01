@@ -30,6 +30,7 @@ class smnhsh
     station costs  [59][59] = {};
     map <string, int > names_of_station;         
     unordered_map <string, vector<string>> lines; //for linking each line to its stations
+    unordered_map <string, unordered_map<string, vector<string>>> station_vechicle;
 
 
     public:
@@ -45,8 +46,9 @@ class smnhsh
     void find_lowest_cost(const int & start, const int & end, Time & start_time);
     void show_shortest_path(const node & pathe, Time start_time); //printing name of stations for shortest path 
     void show_cost(const vector <string> & line , const vector <string> & station, const vector <string> & vehicle , Time start_time);//printing name of stations for lowest cost 
-    void find_lowest_time(const int &start, const int &end, Time &start_time);
-    void show_lowest_time( const vector<string> &line, const vector<string> &station, const vector<string> & vehicle, Time start_time);
+    // void calculate_each_line(unordered_map<string, vector<string>> vechicles, string src, node array[]);
+    // void find_lowest_time(const int &start, const int &end, Time &start_time);
+    // void show_lowest_time( const vector<string> &line, const vector<string> &station, const vector<string> & vehicle, Time start_time);
 };
 
 #endif
