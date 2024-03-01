@@ -36,6 +36,12 @@ Window {
             anchors.leftMargin: -10
             text: qsTr("chaharbagh")
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -66,6 +72,12 @@ Window {
             text: qsTr("Kashani")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -94,6 +106,12 @@ Window {
             anchors.leftMargin: -65
             text: qsTr("Alameh Jafari")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
 
@@ -124,6 +142,12 @@ Window {
             text: qsTr("Eram-e Sabz")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -152,6 +176,12 @@ Window {
             anchors.leftMargin: -77
             text: qsTr("Meydan-e Azadi")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
 
@@ -183,6 +213,12 @@ Window {
             text: qsTr("Ostad Mo'in")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -212,6 +248,12 @@ Window {
             text: qsTr("Shademan")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -240,6 +282,12 @@ Window {
             anchors.topMargin: -20
             text: qsTr("Towhid")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
 
@@ -272,6 +320,12 @@ Window {
             text: qsTr("Meydan-e Enghelab-e Eslami")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -302,6 +356,12 @@ Window {
             text: qsTr("Teatr-e Shahr")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -331,6 +391,12 @@ Window {
             x: -5
             text: qsTr("Ferdowsi")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
 
@@ -381,6 +447,12 @@ Window {
             text: qsTr("Darvazeh Dowlat")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -411,6 +483,12 @@ Window {
             x: 5
             text: qsTr("Darvazeh Shemiran")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
 
@@ -461,6 +539,12 @@ Window {
             text: qsTr("Meydan-e Shohada")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -492,6 +576,12 @@ Window {
             text: qsTr("Ebn-e Sina")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -522,6 +612,12 @@ Window {
             text: qsTr("Pirouzi")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
     Rectangle {
         id: line4_20
@@ -550,6 +646,12 @@ Window {
             anchors.topMargin: 30
             text: qsTr("Nabard")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
 
@@ -580,6 +682,12 @@ Window {
             anchors.topMargin: 30
             text: qsTr("Nirou Havai")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
 
@@ -619,6 +727,12 @@ Window {
             color: "#FDD835"
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -647,6 +761,12 @@ Window {
             text: qsTr("Line_1")
             color: "red"
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
 
@@ -678,6 +798,12 @@ Window {
             text: qsTr("Gheytariyeh")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -707,6 +833,12 @@ Window {
             anchors.rightMargin: 5
             text: qsTr("Gholhak")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
 
@@ -738,6 +870,12 @@ Window {
             text: qsTr("Mirdamad")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -767,6 +905,12 @@ Window {
             anchors.rightMargin: 5
             text: qsTr("Shahid Haghani")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
 
@@ -798,6 +942,12 @@ Window {
             text: qsTr("Shahid Beheshti")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -827,6 +977,12 @@ Window {
             anchors.rightMargin: 5
             text: qsTr("Shahid Mofatteh")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
 
@@ -858,6 +1014,12 @@ Window {
             text: qsTr("Haftom-e Tir")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -887,6 +1049,12 @@ Window {
             anchors.rightMargin: 0
             text: qsTr("Talaghani")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
 
@@ -928,6 +1096,12 @@ Window {
             text: qsTr("Panzadah-e Khordad")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -957,6 +1131,12 @@ Window {
             anchors.rightMargin: 5
             text: qsTr("Shoush")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
 
@@ -988,6 +1168,12 @@ Window {
             text: qsTr("Jonoub Terminal")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -1017,6 +1203,12 @@ Window {
             anchors.rightMargin: 5
             text: qsTr("Shahr-e Rey")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
 
@@ -1057,6 +1249,12 @@ Window {
             color: "red"
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -1085,6 +1283,12 @@ Window {
             text: qsTr("Line_3")
             color: "blue"
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
 
@@ -1116,6 +1320,12 @@ Window {
             text: qsTr("Zamzam")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -1144,6 +1354,12 @@ Window {
             anchors.leftMargin: -45
             text: qsTr("Javadiyeh")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
 
@@ -1174,6 +1390,12 @@ Window {
             text: qsTr("Rahahan")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -1203,6 +1425,12 @@ Window {
             text: qsTr("Mahdiyeh")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -1231,6 +1459,12 @@ Window {
             anchors.leftMargin: -45
             text: qsTr("Moniriyeh")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
 
@@ -1275,6 +1509,12 @@ Window {
             text: qsTr("Meydan-e Hazrat-e Valiasr")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -1303,6 +1543,12 @@ Window {
             anchors.leftMargin: -40
             text: qsTr("Meydan-e Jahad")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
 
@@ -1333,6 +1579,12 @@ Window {
             y: -5
             text: qsTr("Meydan-e Jahad")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
 
@@ -1385,6 +1637,12 @@ Window {
             text: qsTr("sohrevardi")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -1433,6 +1691,12 @@ Window {
             text: qsTr("Shahid Ghodousi")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -1463,6 +1727,12 @@ Window {
             text: qsTr("Shahid Zeynoddin")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -1491,6 +1761,12 @@ Window {
             anchors.topMargin: 28
             text: qsTr("Aghdasiyeh")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
 
@@ -1530,6 +1806,12 @@ Window {
             color: "blue"
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -1565,6 +1847,12 @@ Window {
             text: qsTr("Line_6")
             color: "#FD3BFE"
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
 
@@ -1606,6 +1894,12 @@ Window {
             text: qsTr("Yadegar-e Emam")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -1644,6 +1938,12 @@ Window {
             anchors.topMargin: 30
             text: qsTr("Boostan-e Laleh")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
 
@@ -1706,6 +2006,12 @@ Window {
             text: qsTr("Emam Hossein")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
     Rectangle {
         id: line6_9
@@ -1743,6 +2049,12 @@ Window {
             anchors.leftMargin: 2
             text: qsTr("Shahid Rezaei")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
         }
     }
     Rectangle {
@@ -1791,6 +2103,12 @@ Window {
             color: "#FD3BFE"
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#EFEFEF") ? "#546E7A" : "#EFEFEF"
+        }
     }
 
     Rectangle {
@@ -1817,6 +2135,12 @@ Window {
             leftPadding: 4
             text: qsTr("BUS 1")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#77E776") ? "#546E7A" : "#77E776"
         }
     }
 
@@ -1845,6 +2169,12 @@ Window {
             leftPadding: 4
             text: qsTr("BUS 1")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#77E776") ? "#546E7A" : "#77E776"
         }
     }
 
@@ -2126,6 +2456,12 @@ Window {
             text: qsTr("BUS 2")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#77E776") ? "#546E7A" : "#77E776"
+        }
     }
 
     Rectangle {
@@ -2153,6 +2489,12 @@ Window {
             leftPadding: 4
             text: qsTr("BUS 2")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#77E776") ? "#546E7A" : "#77E776"
         }
     }
 
@@ -2316,6 +2658,12 @@ Window {
             text: qsTr("BUS 3")
             font.pixelSize: 10
         }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#77E776") ? "#546E7A" : "#77E776"
+        }
     }
 
     Rectangle {
@@ -2344,6 +2692,12 @@ Window {
             leftPadding: 4
             text: qsTr("BUS 3")
             font.pixelSize: 10
+        }
+
+        MouseArea {
+            anchors.fill: parent
+            onClicked: parent.color = Qt.colorEqual(
+                           parent.color, "#77E776") ? "#546E7A" : "#77E776"
         }
     }
 
