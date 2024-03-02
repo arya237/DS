@@ -18,11 +18,11 @@ class station
     public:
     void setinfo(vehicle value); // change to set distance
     vehicle getdis();
-    int getdis(const string & type_vehicle);
+    vehicle getdis(const string & type_vehicle);
     pair <string , string> getvic();
     station(){};
     // vehicle get_time(string pre_line , string pre_vic );
-    int get_time(string vehicle);
+    int get_time(string vehicle, bool flag);
     //int get_time_getinto(const int & start, const int & end ); 
     
     //get type of vehicle

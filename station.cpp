@@ -35,7 +35,7 @@ void station::setinfo(vehicle value)
         this->metro = value;
         this->metro.set_vic("metro");
         
-        this->metro = value;
+        this->taxi = value;
         this->taxi.set_vic("taxi");
     }
 
@@ -68,10 +68,10 @@ vehicle station::getdis()
     return min;
 } 
 
-int station::getdis(const string & type_vehicle)
+vehicle station::getdis(const string & type_vehicle)
 {   
     //added taxi
-    return type_vehicle == "metro" ? this->metro.get_distance() : type_vehicle == "taxi" ? this->taxi.get_distance(): this->bus.get_distance();
+    return type_vehicle == "metro" ? this->metro : type_vehicle == "taxi" ? this->taxi: this->bus;
 }
 
 pair<string , string > station::getvic()
@@ -196,3 +196,24 @@ vehicle station::get_time(string pre_line , string pre_vic )
     return answer;
 }
 */
+
+int station::get_time(string vehicle, bool flag)
+{
+    if(vehicle == "metro" && flag)
+        return getdis(vehicle).get_distance() + 8;
+
+    else if(vehicle == "metro" && !flag) 
+        return getdis(vehicle).get_distance();
+
+    else if(vehicle == "bus" && flag)
+        return getdis(vehicle).get_distance() * 4 + 15;
+
+    else if(vehicle == "bus" && !flag) 
+        return getdis(vehicle).get_distance() * 4 ;
+
+    if(vehicle == "taxi" && flag)
+        return getdis(vehicle).get_distance() * 2 + 5;
+
+    else if(vehicle == "taxi" && !flag) 
+        return getdis(vehicle).get_distance() * 2;
+}
