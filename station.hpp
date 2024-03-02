@@ -4,6 +4,7 @@
 #include <iostream>
 #include "vehicle.hpp"
 #include <utility> 
+#include "time.hpp"
 
 using namespace std;
 
@@ -22,7 +23,7 @@ class station
     pair <string , string> getvic();
     station(){};
     // vehicle get_time(string pre_line , string pre_vic );
-    int get_time(string vehicle, bool flag);
+    int get_time(string vehicle, bool flag,Time &start_time);
     //int get_time_getinto(const int & start, const int & end ); 
     
     //get type of vehicle

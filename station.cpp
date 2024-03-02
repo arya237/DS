@@ -43,19 +43,6 @@ void station::setinfo(vehicle value)
 
 vehicle station::getdis()
 {  
-//    if((bus.get_distance()== 0 && metro.get_distance() == 0) || 
-//    (bus.get_distance()!= 0 && metro.get_distance() != 0)) 
-//    {     
-//         return min(bus.get_distance() , metro.get_distance());
-//    }
-
-//    else if((bus.get_distance()== 0 && metro.get_distance() != 0) || 
-//    (bus.get_distance()!= 0 && metro.get_distance() == 0)) 
-//    {
-//         return max(bus.get_distance() , metro.get_distance());
-//    }
-
-    //added new
 
     vehicle min = this->metro;
     
@@ -76,144 +63,32 @@ vehicle station::getdis(const string & type_vehicle)
 
 pair<string , string > station::getvic()
 {
-    // if(bus.get_distance()!= 0 && metro.get_distance()!= 0 
-    // && min(bus.get_distance() , metro.get_distance()) == bus.get_distance())
-    //     return make_pair(bus.get_line() , bus.get_vic());
-        
-    // else if(bus.get_distance()!= 0 && metro.get_distance()!= 0 
-    // && min(bus.get_distance() , metro.get_distance()) == metro.get_distance())
-    //     return make_pair(metro.get_line() , metro.get_vic());
-
-    // else if (bus.get_distance()== 0 && metro.get_distance() != 0) 
-    //     return  make_pair(metro.get_line() , metro.get_vic());
-
-    // else if (bus.get_distance()!= 0 && metro.get_distance() == 0)
-    //     return make_pair(bus.get_line() , bus.get_vic());
-    
-    // if(bus.get_distance()!= 0 && metro.get_distance()!= 0 && 
-    // && min(bus.get_distance() , metro.get_distance()) == bus.get_distance())
-    //     return make_pair(bus.get_line() , bus.get_vic());
-
-
-
-    //if two = 0??
+   
 }
 
-// int station::get_time(string vehicle)
-// {   
-//     int 
-//     return 
-// }
-//getvictime
-/*
-vehicle station::get_time(string pre_line , string pre_vic )
+
+
+int station::get_time(string vehicle, bool flag , Time &start_time)
 {
-    int m = 8 , t = 2 , b = 4  ;
-    int m_time =0 , t_time = 0 , b_time = 0; 
-    vehicle answer;
-    answer.setdis(0);
+    int b = start_time.get_hour() >= 6 && start_time.get_hour() <= 8 ? 2 : 1;
+    int m = start_time.get_hour() >= 6 && start_time.get_hour() <= 8 ? 24 : 8;
+    int t = start_time.get_hour() >= 18 && start_time.get_hour() <= 20 ? 2 : 1;
 
-    //if(time.get_hour() >=6 && start_time.get_hour()<=8 )
-
-    m_time = metro.get_distance() ; 
-    t_time = taxi.get_distance() *t;  
-    b_time = bus.get_distance()  *b; 
-
-
-    //-----------------------------------------------------------------
-    if((pre_line == metro.get_line() && pre_vic != metro.get_vic()) ||
-    (pre_line != taxi.get_line() && pre_vic == taxi.get_vic())) //same line change to taxi or both taxi diffrent line
-    {
-        answer.setdis(t_time + 5);
-        answer.set_line(taxi.get_line());
-        answer.set_vic("taxi");
-
-    }
-
-    else if((pre_line == taxi.get_line() && pre_vic != taxi.get_vic()) ||
-    (pre_line != metro.get_line() && pre_vic == metro.get_vic()))//same line change to metro or both metro difrrent line
-    {
-        answer.setdis(m_time + m);
-        answer.set_line(metro.get_line());
-        answer.set_vic("metro");
-    }
-    //-----------------------------------------------------------------
-    
-    else if((pre_line != bus.get_line() && pre_vic == bus.get_vic())) // both bus in a diffrent line(dont have same line but difrrent vic)
-    {
-        answer.setdis(b_time + 15);
-        answer.set_line(bus.get_line());
-        answer.set_vic("bus");
-    }
-    //-----------------------------------------------------------------
-    else
-    {
-        if(b_time != 0 && m_time != 0)
-        {
-            if(min( min(t_time , b_time) , m_time ) == t_time)
-            {
-                answer.setdis(t_time);
-                answer.set_line(taxi.get_line());
-                answer.set_vic("taxi");
-            }
-            else if (min( min(t_time , b_time) , m_time) == m_time)
-            {
-                answer.setdis(m_time);
-                answer.set_line(metro.get_line());
-                answer.set_vic("metro");
-            }
-            else
-            {
-                answer.setdis(b_time);
-                answer.set_line(bus.get_line());
-                answer.set_vic("bus");
-            }
-        }
-        else if(b_time == 0 && m_time != 0)
-        {
-            if(min(t_time , m_time) == t_time)
-            {
-                answer.setdis(t_time);
-                answer.set_line(taxi.get_line());
-                answer.set_vic("taxi");
-            }
-            else 
-            {
-                answer.setdis(m_time);
-                answer.set_line(metro.get_line());
-                answer.set_vic("metro");
-            }
-        }
-        else if (b_time != 0 && m_time == 0)
-        {
-            answer.setdis(b_time);
-            answer.set_line(bus.get_line());
-            answer.set_vic("bus");
-
-        }
-    }
-    
-    return answer;
-}
-*/
-
-int station::get_time(string vehicle, bool flag)
-{
     if(vehicle == "metro" && flag)
-        return getdis(vehicle).get_distance() + 8;
+        return getdis(vehicle).get_distance() + m;
 
     else if(vehicle == "metro" && !flag) 
         return getdis(vehicle).get_distance();
 
     else if(vehicle == "bus" && flag)
-        return getdis(vehicle).get_distance() * 4 + 15;
+        return getdis(vehicle).get_distance() * (4*b) + (15*b);
 
     else if(vehicle == "bus" && !flag) 
-        return getdis(vehicle).get_distance() * 4 ;
+        return getdis(vehicle).get_distance() * (4*b) ;
 
     if(vehicle == "taxi" && flag)
-        return getdis(vehicle).get_distance() * 2 + 5;
+        return getdis(vehicle).get_distance() * (2*t) + (5*t);
 
     else if(vehicle == "taxi" && !flag) 
-        return getdis(vehicle).get_distance() * 2;
+        return getdis(vehicle).get_distance() * (2*t);
 }
