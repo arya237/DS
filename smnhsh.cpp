@@ -491,19 +491,6 @@ void smnhsh::find_lowest_time(const int &start, const int &end, Time &start_time
         
 
     cout << shortest[end].value << endl;
-
-    // int j = 0;
-    // for(auto i: shortest[end].directions)
-    // {
-    //     cout << i << "  ";
-    //     // cout << shortest[end].type_of_vehicle[j] << " " << endl;
-    //     // j++;
-    // }
-    for(int i = 0 ; i < shortest[end].directions.size() -1 ; i++ )
-    {
-        cout << shortest[end].directions[i]  << "-> ";
-    }
-    cout << shortest[end].directions[shortest[end].directions.size()-1] <<endl;
     
 }
 
@@ -516,71 +503,76 @@ void smnhsh::calculate_each_line(unordered_map<string, unordered_set<string>> ve
         {   
             
             auto source = find(this->lines[line.first].begin(), this->lines[line.first].end(), src) ;
-            int resault = array[names_of_station[src]].value;
+            node resault = array[names_of_station[src]];
             bool flag = 1;
 
             for(auto i = source; i != this->lines[line.first].end() - 1; i++)
             {   
-               
-                resault += pathes[names_of_station[*i]][names_of_station[*(i + 1)]].get_time(vehicle, flag,start_time);
-                flag = 0;
-   
-                if(array[names_of_station[*(i + 1)]].value > resault )
+
+                if(i == source)
                 {
-                    //cout << *i << " -> " << *(i + 1) << resault << " " << endl;
+                    if(!array[names_of_station[src]].type_of_vehicle.size())
+                    {   
+                        flag = 1;
+                    }
 
-                    array[names_of_station[*(i + 1)]].value = resault ;
-                   
-                    array[names_of_station[*(i + 1)]].directions = array[names_of_station[*(i)]].directions;
-                    array[names_of_station[*(i + 1)]].directions.push_back(search_in_map(names_of_station[*(i + 1)]));
-                    array[names_of_station[*(i + 1)]].line_of_vehicle = array[names_of_station[*(i)]].line_of_vehicle;
-                    array[names_of_station[*(i + 1)]].line_of_vehicle.push_back(pathes[names_of_station[*i]][names_of_station[*(i + 1)]].getdis(vehicle).get_line());
-                    array[names_of_station[*(i + 1)]].type_of_vehicle = array[names_of_station[*(i)]].type_of_vehicle;
+                    else if(array[names_of_station[src]].type_of_vehicle[array[names_of_station[src]].type_of_vehicle.size() - 1] != vehicle)
+                    flag = 1;
 
-                    // array[names_of_station[*(i + 1)]].type_of_vehicle.push_back(vehicle).get_vic());
+                    else if(array[names_of_station[src]].type_of_vehicle[array[names_of_station[src]].line_of_vehicle.size() - 1] != line.first)
+                    flag = 1;
 
-
-
-                    // cout << *(i + 1) << ": " << array[names_of_station[*(i + 1)]].value << endl;
                 }
+   
+                    resault.value += pathes[names_of_station[*i]][names_of_station[*(i + 1)]].get_time(vehicle, flag, start_time);
+                    resault.directions.push_back(*(i + 1));
+                    resault.line_of_vehicle.push_back(line.first);
+                    resault.type_of_vehicle.push_back(vehicle);
 
-                //station_vechicle[*(i + 1)][line.first].erase(*line.second.begin()); 
+                    flag = 0;
 
+                if(array[names_of_station[*(i + 1)]].value >= resault.value )
+                {
+                    array[names_of_station[*(i + 1)]] = resault;
+                }
             }
 
+            resault = array[names_of_station[src]]; 
             flag = 1;
-            resault = array[names_of_station[src]].value;
 
             for(auto i = source; i != this->lines[line.first].begin(); i--)
             {   
                 if(!visible[names_of_station[*(i - 1)]])
+                {   
+
+                if(i == source)
                 {
-                    resault += pathes[names_of_station[*i]][names_of_station[*(i - 1)]].get_time(vehicle, flag,start_time);
+                    if(!array[names_of_station[src]].type_of_vehicle.size())
+                    {   
+                        flag = 1;
+                    }
+
+                    else if(array[names_of_station[src]].type_of_vehicle[array[names_of_station[src]].type_of_vehicle.size() - 1] != vehicle)
+                    flag = 1;
+
+                    else if(array[names_of_station[src]].type_of_vehicle[array[names_of_station[src]].line_of_vehicle.size() - 1] != line.first)
+                    flag = 1;
+
+                }
+
+                    resault.value += pathes[names_of_station[*i]][names_of_station[*(i - 1)]].get_time(vehicle, flag, start_time);
+                    resault.directions.push_back(*(i - 1));
+                    resault.line_of_vehicle.push_back(line.first);
+                    resault.type_of_vehicle.push_back(vehicle);
                     flag = 0;
                     
                     
-                    if(array[names_of_station[*(i - 1)]].value  > resault )
+                    if(array[names_of_station[*(i - 1)]].value  >= resault .value)
                     {
-                        
-                        array[names_of_station[*(i - 1)]].value = resault ;
-                    
-                        array[names_of_station[*(i - 1)]].directions = array[names_of_station[*(i)]].directions;
-                        array[names_of_station[*(i - 1)]].directions.push_back(search_in_map(names_of_station[*(i - 1)]));
-                        array[names_of_station[*(i - 1)]].line_of_vehicle = array[names_of_station[*(i)]].line_of_vehicle;
-                        array[names_of_station[*(i - 1)]].line_of_vehicle.push_back(pathes[names_of_station[*i]][names_of_station[*(i - 1)]].getdis(vehicle).get_line());
-                        array[names_of_station[*(i - 1)]].type_of_vehicle = array[names_of_station[*(i)]].type_of_vehicle;
-
-                        array[names_of_station[*(i - 1)]].type_of_vehicle.push_back(pathes[names_of_station[*i]][names_of_station[*(i - 1)]].getdis(vehicle).get_vic());
-
+                        array[names_of_station[*(i - 1)]] = resault ;
                     }
                 }
-
-
-               // station_vechicle[*(i + 1)][line.first].erase(*line.second.begin()); 
             }
-            
-
-            // line.second.erase(line.second.begin());
         }
       
     }
