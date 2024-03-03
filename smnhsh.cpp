@@ -498,12 +498,11 @@ void smnhsh::print_lowest_time(const node &time, Time start_time)
     cout << time.value << endl;
     start_time + time.value;
     
-    for(int i = 1 ; i < time.directions.size() -1 ; i++ )
+    for(int i = 0 ; i < time.directions.size() -1 ; i++ )
     {
         cout << time.directions[i]  << "(" << time.type_of_vehicle[i] << ")" <<" -> ";
     }
-    cout << time.directions[time.directions.size()-1] 
-    << "(" << time.type_of_vehicle[time.type_of_vehicle.size()-1] << ")" <<endl;
+    cout << time.directions[time.directions.size()-1] << endl;
     
     start_time.print();
 }
