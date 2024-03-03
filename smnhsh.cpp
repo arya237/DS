@@ -68,7 +68,7 @@ void smnhsh::get_input()
 
         
 
-        cout << "# Shortest Path #" << endl;
+        cout << "\n# Shortest Path #" << endl;
   
         find_short_path(names_of_station[start], names_of_station[end], start_time);
 
@@ -464,8 +464,6 @@ void smnhsh::show_cost(const vector<string> &line, const vector<string> &station
     start_time.print();
 }
 
-//==============================================================================
-
 //--------------------------------------------------------
 
 void smnhsh::find_lowest_time(const int &start, const int &end, Time &start_time)
@@ -488,12 +486,29 @@ void smnhsh::find_lowest_time(const int &start, const int &end, Time &start_time
 
         sptSet[u] = true;
     }
-        
 
-    cout << shortest[end].value << endl;
+    print_lowest_time(shortest[end], start_time);
     
 }
 
+//--------------------------------------------------------
+
+void smnhsh::print_lowest_time(const node &time, Time start_time)
+{
+    cout << time.value << endl;
+    start_time + time.value;
+    
+    for(int i = 1 ; i < time.directions.size() -1 ; i++ )
+    {
+        cout << time.directions[i]  << "(" << time.type_of_vehicle[i] << ")" <<" -> ";
+    }
+    cout << time.directions[time.directions.size()-1] 
+    << "(" << time.type_of_vehicle[time.type_of_vehicle.size()-1] << ")" <<endl;
+    
+    start_time.print();
+}
+
+//--------------------------------------------------------
 
 void smnhsh::calculate_each_line(unordered_map<string, unordered_set<string>> vechicles, string src, node array[], bool visible[],Time &start_time)
 {
@@ -545,20 +560,20 @@ void smnhsh::calculate_each_line(unordered_map<string, unordered_set<string>> ve
                 if(!visible[names_of_station[*(i - 1)]])
                 {   
 
-                if(i == source)
-                {
-                    if(!array[names_of_station[src]].type_of_vehicle.size())
-                    {   
+                    if(i == source)
+                    {
+                        if(!array[names_of_station[src]].type_of_vehicle.size())
+                        {   
+                            flag = 1;
+                        }
+
+                        else if(array[names_of_station[src]].type_of_vehicle[array[names_of_station[src]].type_of_vehicle.size() - 1] != vehicle)
                         flag = 1;
+
+                        else if(array[names_of_station[src]].type_of_vehicle[array[names_of_station[src]].line_of_vehicle.size() - 1] != line.first)
+                        flag = 1;
+
                     }
-
-                    else if(array[names_of_station[src]].type_of_vehicle[array[names_of_station[src]].type_of_vehicle.size() - 1] != vehicle)
-                    flag = 1;
-
-                    else if(array[names_of_station[src]].type_of_vehicle[array[names_of_station[src]].line_of_vehicle.size() - 1] != line.first)
-                    flag = 1;
-
-                }
 
                     resault.value += pathes[names_of_station[*i]][names_of_station[*(i - 1)]].get_time(vehicle, flag, start_time);
                     resault.directions.push_back(*(i - 1));
@@ -574,7 +589,6 @@ void smnhsh::calculate_each_line(unordered_map<string, unordered_set<string>> ve
                 }
             }
         }
-      
     }
 
 }

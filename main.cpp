@@ -7,7 +7,6 @@ int main()
 {
     smnhsh o1;
     o1.run();
-    //o1.print();
     
 }  
 

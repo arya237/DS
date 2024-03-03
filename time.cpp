@@ -16,6 +16,8 @@ Time::Time(const string & start_time)
     hour = stoi(time_hr);
 }
 
+//--------------------------------------------------------
+
 void Time::operator+(int minute)
 {
     min += minute;
@@ -23,6 +25,8 @@ void Time::operator+(int minute)
     hour %= 24; 
     min %= 60;
 }
+
+//--------------------------------------------------------
 
 void Time::print()
 {

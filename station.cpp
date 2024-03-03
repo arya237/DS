@@ -4,8 +4,6 @@
 
 void station::setinfo(vehicle value)
 {   
-
-    //added new because for cost was false
     if(value.get_vic() == "bus")
     {
         this->bus = value;
@@ -41,6 +39,8 @@ void station::setinfo(vehicle value)
 
 }
 
+//--------------------------------------------------------
+
 vehicle station::getdis()
 {  
 
@@ -55,18 +55,15 @@ vehicle station::getdis()
     return min;
 } 
 
+//--------------------------------------------------------
+
 vehicle station::getdis(const string & type_vehicle)
 {   
     //added taxi
     return type_vehicle == "metro" ? this->metro : type_vehicle == "taxi" ? this->taxi: this->bus;
 }
 
-pair<string , string > station::getvic()
-{
-   
-}
-
-
+//--------------------------------------------------------
 
 int station::get_time(string vehicle, bool flag , Time &start_time)
 {

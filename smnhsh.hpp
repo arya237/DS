@@ -48,7 +48,8 @@ class smnhsh
     void show_cost(const vector <string> & line , const vector <string> & station, const vector <string> & vehicle , Time start_time);//printing name of stations for lowest cost 
     void calculate_each_line(unordered_map<string, unordered_set<string>> vechicles, string src, node array[], bool visible[], Time &start_time);
     void find_lowest_time(const int &start, const int &end, Time &start_time);
-    // void show_lowest_time( const vector<string> &line, const vector<string> &station, const vector<string> & vehicle, Time start_time);
+    void print_lowest_time(const node &path, Time start_time);
+
 };
 
 #endif
