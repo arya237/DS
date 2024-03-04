@@ -90,6 +90,7 @@ void smnhsh::read_distance_from_file()
 
     string start, destiny, distance, type;
 
+    //read first line of file 
     getline(file, type);
     int counter = 0;
     bool flag = 0;
@@ -104,13 +105,16 @@ void smnhsh::read_distance_from_file()
         while (!file.eof())
         {
             vehicle temp;
+            
             getline(file, start);
 
+            //if file finished
             if (start == "end*")
             {
                 break;
             }
 
+            //if line finished
             if (start == "end")
             {
                 getline(file, type);
@@ -482,7 +486,7 @@ void smnhsh::find_lowest_time(const int &start, const int &end, Time &start_time
     {
         int u = minDistance(shortest, sptSet);
 
-        calculate_each_line(station_vechicle[search_in_map(u)], search_in_map(u), shortest, sptSet , start_time);
+        calculate_time_each_line(station_vechicle[search_in_map(u)], search_in_map(u), shortest, sptSet , start_time);
 
         sptSet[u] = true;
     }
@@ -500,16 +504,17 @@ void smnhsh::print_lowest_time(const node &time, Time start_time)
     
     for(int i = 0 ; i < time.directions.size() -1 ; i++ )
     {
-        cout << time.directions[i]  << "(" << time.type_of_vehicle[i] << ")" <<" -> ";
+        cout << time.directions[i]  << " (" << time.type_of_vehicle[i] << ")" <<" -> ";
     }
-    cout << time.directions[time.directions.size()-1] << endl;
+
+    cout << time.directions[time.directions.size()-1]  <<endl;
     
     start_time.print();
 }
 
 //--------------------------------------------------------
 
-void smnhsh::calculate_each_line(unordered_map<string, unordered_set<string>> vechicles, string src, node array[], bool visible[],Time &start_time)
+void smnhsh::calculate_time_each_line(unordered_map<string, unordered_set<string>> vechicles, string src, node array[], bool visible[],Time &start_time)
 {
     for(auto line: vechicles)
     {

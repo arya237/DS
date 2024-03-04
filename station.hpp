@@ -18,10 +18,10 @@ class station
 
     public:
     void setinfo(vehicle value); // change to set distance
-    vehicle getdis();
-    vehicle getdis(const string & type_vehicle);
+    vehicle getdis(); // return vehicle that have minimum value
+    vehicle getdis(const string & type_vehicle); // overload getdis that return appropriate vehicle
     station(){};
-    int get_time(string vehicle, bool flag, Time &start_time);
+    int get_time(string vehicle, bool flag, Time &start_time); // return time of appropriate vehicle
 
 
 };

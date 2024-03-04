@@ -26,12 +26,12 @@ struct node
 class smnhsh
 {
     private:
-    station pathes [59][59] = {}; 
-    station costs  [59][59] = {};
-    map <string, int > names_of_station;         
+    station pathes [59][59] = {}; //this matrix store every information between each two node i and j like line, vehicle and distance
+    station costs  [59][59] = {}; // this matrix store cost between two node
+    unordered_map <string, int > names_of_station; // links name of every station to a index
     unordered_map <string, vector<string>> lines; //for linking each line to its stations
-    unordered_map <string, unordered_map<string, unordered_set<string>>> station_vechicle;
-
+    unordered_map <string, unordered_map<string, unordered_set<string>>> station_vechicle; // link name of every station to its lines
+                                                                                          // then link each line to its avalible vehicle  
 
     public:
     smnhsh(); //constructor
@@ -40,15 +40,15 @@ class smnhsh
     void get_input(); //get inputs from users
     void read_distance_from_file (); //reading information from file
     void complete_graph_for_cost();  //make a graph filled with costs
-    string search_in_map(int);  
-    int minDistance(const node dist[], const bool sptSet[]) const;
-    void find_short_path(const int & start, const int & end , Time & start_time); 
-    void find_lowest_cost(const int & start, const int & end, Time & start_time);
-    void show_shortest_path(const node & pathe, Time start_time); //printing name of stations for shortest path 
-    void show_cost(const vector <string> & line , const vector <string> & station, const vector <string> & vehicle , Time start_time);//printing name of stations for lowest cost 
-    void calculate_each_line(unordered_map<string, unordered_set<string>> vechicles, string src, node array[], bool visible[], Time &start_time);
+    string search_in_map(int);  // it used for find name of a station with a number with search in map 
+    int minDistance(const node dist[], const bool sptSet[]) const; // it used for dijkestra 
+    void find_short_path(const int & start, const int & end , Time & start_time); // its dijkestra
+    void find_lowest_cost(const int & start, const int & end, Time & start_time); // its dijkestra
+    void show_shortest_path(const node & pathe, Time start_time); //print direction for shortest path and calculate arriving time 
+    void show_cost(const vector <string> & , const vector <string> & , const vector <string> & , Time);//print directrion for lowest cost
+    void calculate_time_each_line(unordered_map<string, unordered_set<string>> , string , node array[], bool visible[], Time &start_time);
     void find_lowest_time(const int &start, const int &end, Time &start_time);
-    void print_lowest_time(const node &path, Time start_time);
+    void print_lowest_time(const node &path, Time start_time); // print direction for lowest time
 
 };
 

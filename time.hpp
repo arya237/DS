@@ -11,7 +11,7 @@ class Time
     
     public:
     Time(const std::string & start_time);
-    void operator+(int minute);
+    void operator+(int minute); // operator overloading
     void print();
     int get_hour(){return hour;}
     int get_minute(){return min;}
