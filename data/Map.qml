@@ -27,7 +27,6 @@ Item {
 
         color: "#FFF8E5"
 
-
         DelayButton {
 
             id: pathBtn
@@ -121,7 +120,7 @@ Item {
                 implicitWidth: 60
                 implicitHeight: 60
                 opacity: enabled ? 1 : 0.3
-                color: pathBtn.down ? "#a8dadc" : "#457b9d"
+                color: costBtn.down ? "#a8dadc" : "#457b9d"
                 radius: size / 2
 
                 readonly property real size: Math.min(costBtn.width,
@@ -172,7 +171,7 @@ Item {
             x: 50
             y: 700
             // checked: true
-            text: qsTr("lowest\ntime")
+            text: qsTr("best\ntime")
             delay: 600
             progress: 0.01
 
@@ -190,7 +189,7 @@ Item {
                 implicitWidth: 60
                 implicitHeight: 60
                 opacity: enabled ? 1 : 0.3
-                color: pathBtn.down ? "#a8dadc" : "#457b9d"
+                color: timeBtn.down ? "#a8dadc" : "#457b9d"
                 radius: size / 2
 
                 readonly property real size: Math.min(timeBtn.width,
@@ -236,17 +235,18 @@ Item {
         }
 
         RoundButton {
-           x : 150
-           y : 500
+            x: 150
+            y: 500
 
-           width : 60 ; height: 60
-           radius : 180
+            width: 60
+            height: 60
+            radius: 180
 
-           Image {
-               anchors.centerIn: parent
-               id: name1
-               source: "a.png"
-           }
+            Image {
+                anchors.centerIn: parent
+                id: name1
+                source: "a.png"
+            }
             onClicked: {
                 back.reset()
                 pathBtn.checked = false

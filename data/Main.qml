@@ -1,6 +1,5 @@
 import QtQuick
 import QtQuick.Controls
-import QtQuick.Window
 
 ApplicationWindow {
 
@@ -8,16 +7,37 @@ ApplicationWindow {
     width: 1920
     height: 1080
     visible: true
+
+    Image {
+        id: background
+        source: "back.png"
+    }
+
     title: qsTr("Hello World")
 
     Button {
         id: startBtn
-        width: 100
-        height: 50
+
+        // anchors.centerIn: parent
         visible: enabled
         enabled: true
-        x: 50
-        y: 10
+        width: 200
+        height: 50
+
+        Text {
+            text: qsTr("Start")
+            font.family: "Algerian"
+            font.pixelSize: 20
+            anchors.centerIn: parent
+        }
+
+        background: Rectangle {
+
+            color: "#4DB6AC"
+        }
+
+        x: 685
+        y: 710
         onClicked: {
 
             // var component = Qt.createComponent("Map.qml")
@@ -27,10 +47,16 @@ ApplicationWindow {
             map.enabled = true
         }
     }
+
     Image {
-        id:a
-        source: "a.png"
+
+        x: 125
+        width: 1300
+
+        id: logo
+        source: "logo.png"
     }
+
     Loader {
         id: map
         anchors.fill: parent
