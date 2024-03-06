@@ -331,7 +331,7 @@ void Smnsh::find_short_path(const int &start, const int &end, Timee &start_time)
 
         else if(shortest[end].line_of_vehicle[i - 1][0] == 'M')
         {
-            store_ui[shortest[end].directions[i]]->setProperty("color", "red");
+            store_ui[shortest[end].directions[i]]->setProperty("color", "#9e0059");
         }
     }
 

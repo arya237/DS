@@ -27,6 +27,10 @@ ApplicationWindow {
             map.enabled = true
         }
     }
+    Image {
+        id:a
+        source: "a.png"
+    }
     Loader {
         id: map
         anchors.fill: parent

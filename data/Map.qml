@@ -11,7 +11,11 @@ Item {
     Rectangle {
 
         Button {
-            icon.source: "c:\Users\arya\Desktop\a.png"
+
+            Image {
+                id: name
+                source: "a.png"
+            }
             width: 100
             height: 50
             x: 10
@@ -49,11 +53,12 @@ Item {
         //         }
         //     }
         // }
+
         DelayButton {
 
             id: pathBtn
             x: 50
-            y: 600
+            y: 500
             // checked: true
             text: qsTr("shortest\npath")
             delay: 600
@@ -70,10 +75,10 @@ Item {
             }
 
             background: Rectangle {
-                implicitWidth: 55
-                implicitHeight: 55
+                implicitWidth: 60
+                implicitHeight: 60
                 opacity: enabled ? 1 : 0.3
-                color: pathBtn.down ? "#1976D2" : "#2196F3"
+                color: pathBtn.down ? "#a8dadc" : "#457b9d"
                 radius: size / 2
 
                 readonly property real size: Math.min(pathBtn.width,
@@ -121,7 +126,7 @@ Item {
         DelayButton {
 
             id: costBtn
-            x: 100
+            x: 50
             y: 600
             // checked: true
             text: qsTr("lowest\ncost")
@@ -139,10 +144,10 @@ Item {
             }
 
             background: Rectangle {
-                implicitWidth: 55
-                implicitHeight: 55
+                implicitWidth: 60
+                implicitHeight: 60
                 opacity: enabled ? 1 : 0.3
-                color: costBtn.down ? "#1976D2" : "#2196F3"
+                color: pathBtn.down ? "#a8dadc" : "#457b9d"
                 radius: size / 2
 
                 readonly property real size: Math.min(costBtn.width,
@@ -190,8 +195,8 @@ Item {
         DelayButton {
 
             id: timeBtn
-            x: 150
-            y: 600
+            x: 50
+            y: 700
             // checked: true
             text: qsTr("lowest\ntime")
             delay: 600
@@ -208,10 +213,10 @@ Item {
             }
 
             background: Rectangle {
-                implicitWidth: 55
-                implicitHeight: 55
+                implicitWidth: 60
+                implicitHeight: 60
                 opacity: enabled ? 1 : 0.3
-                color: timeBtn.down ? "#1976D2" : "#2196F3"
+                color: pathBtn.down ? "#a8dadc" : "#457b9d"
                 radius: size / 2
 
                 readonly property real size: Math.min(timeBtn.width,
@@ -256,50 +261,18 @@ Item {
             }
         }
 
-        SwitchDelegate {
-            x: 100
-            y: 650
-            id: resetBtn
-            text: qsTr("Reset")
+        RoundButton {
+           x : 150
+           y : 500
 
-            // checked: true
-            contentItem: Text {
-                rightPadding: resetBtn.indicator.width + resetBtn.spacing
-                anchors.left: resetBtn.right
-                text: resetBtn.text
-                font: resetBtn.font
-                opacity: enabled ? 1.0 : 0.3
-                color: resetBtn.down ? "#17a81a" : "#21be2b"
-                elide: Text.ElideRight
-                verticalAlignment: Text.AlignVCenter
-            }
+           width : 60 ; height: 60
+           radius : 180
 
-            indicator: Rectangle {
-                implicitWidth: 46
-                implicitHeight: 25
-                x: resetBtn.width - width - resetBtn.rightPadding
-                y: parent.height / 2 - height / 2
-                radius: 13
-                color: resetBtn.checked ? "#17a81a" : "transparent"
-                border.color: resetBtn.checked ? "#17a81a" : "#cccccc"
-
-                Rectangle {
-                    x: resetBtn.checked ? parent.width - width : 0
-                    width: 26
-                    height: 26
-                    radius: 13
-                    color: resetBtn.down ? "#cccccc" : "#ffffff"
-                    border.color: resetBtn.checked ? (resetBtn.down ? "#17a81a" : "#21be2b") : "#999999"
-                }
-            }
-
-            background: Rectangle {
-                implicitWidth: 100
-                implicitHeight: 40
-                visible: resetBtn.down || resetBtn.highlighted
-                color: resetBtn.down ? "#bdbebf" : "#eeeeee"
-            }
-
+           Image {
+               anchors.centerIn: parent
+               id: name1
+               source: "a.png"
+           }
             onClicked: {
                 back.reset()
                 pathBtn.checked = false
@@ -326,7 +299,7 @@ Item {
                 topPadding: 9
                 leftPadding: 4
                 text: qsTr("Line_4")
-                color: "#FDD835"
+                color: "#fcbf49"
                 font.pixelSize: 10
             }
 
@@ -1258,7 +1231,7 @@ Item {
                 topPadding: 9
                 leftPadding: 4
                 text: qsTr("Line_4")
-                color: "#FDD835"
+                color: "#fcbf49"
                 font.pixelSize: 10
             }
 
@@ -1306,7 +1279,7 @@ Item {
                 topPadding: 9
                 leftPadding: 4
                 text: qsTr("Line_1")
-                color: "red"
+                color: "#c9184a"
                 font.pixelSize: 10
             }
 
@@ -1962,7 +1935,7 @@ Item {
                 topPadding: 9
                 leftPadding: 4
                 text: qsTr("Line_1")
-                color: "red"
+                color: "#c9184a"
                 font.pixelSize: 10
             }
 
@@ -2010,7 +1983,7 @@ Item {
                 topPadding: 9
                 leftPadding: 4
                 text: qsTr("Line_3")
-                color: "blue"
+                color: "#219ebc"
                 font.pixelSize: 10
             }
 
@@ -2702,7 +2675,7 @@ Item {
                 topPadding: 9
                 leftPadding: 4
                 text: qsTr("Line_3")
-                color: "blue"
+                color: "#219ebc"
                 font.pixelSize: 10
             }
 
@@ -2757,7 +2730,7 @@ Item {
                 topPadding: 9
                 leftPadding: 4
                 text: qsTr("Line_6")
-                color: "#FD3BFE"
+                color: "#FFA3B4"
                 font.pixelSize: 10
             }
 
@@ -3077,7 +3050,7 @@ Item {
                 topPadding: 9
                 leftPadding: 4
                 text: qsTr("Line_6")
-                color: "#FD3BFE"
+                color: "#FFA3B4"
                 font.pixelSize: 10
             }
 
