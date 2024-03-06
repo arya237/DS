@@ -27,32 +27,6 @@ Item {
 
         color: "#FFF8E5"
 
-        // TabBar {
-        //     id: changeThem
-        //     background: Rectangle {
-        //         color: "#353637"
-        //     }
-
-        //     TabButton {
-        //         Text {
-        //             text: "light them"
-        //             color: "red"
-        //         }
-
-        //         background: {
-
-        //             color: "black"
-        //         }
-        //     }
-
-        //     TabButton {
-
-        //         background: {
-
-        //             color: "black"
-        //         }
-        //     }
-        // }
 
         DelayButton {
 
