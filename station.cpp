@@ -46,10 +46,10 @@ vehicle station::getdis()
 
     vehicle min = this->metro;
     
-    if( (bus.get_distance() && bus.get_distance() < min.get_distance() ) || min.get_distance() == 0)
+    if( (bus.get_val() && bus.get_val() < min.get_val() ) || min.get_val() == 0)
     min = this->bus;
 
-    if( (taxi.get_distance() && taxi.get_distance() < min.get_distance()) || min.get_distance() == 0)
+    if( (taxi.get_val() && taxi.get_val() < min.get_val()) || min.get_val() == 0)
     min = this->taxi;
 
     return min;
@@ -65,27 +65,33 @@ vehicle station::getdis(const string & type_vehicle)
 
 //--------------------------------------------------------
 
-int station::get_time(string vehicle, bool flag , Time &start_time)
+int station::get_time(string vehicle, bool flag , Time start_time)
 {
     int b = start_time.get_hour() >= 6 && start_time.get_hour() <= 8 ? 2 : 1;
     int m = start_time.get_hour() >= 6 && start_time.get_hour() <= 8 ? 24 : 8;
     int t = start_time.get_hour() >= 18 && start_time.get_hour() <= 20 ? 2 : 1;
 
     if(vehicle == "metro" && flag)
-        return getdis(vehicle).get_distance() + m;
+        return getdis(vehicle).get_val() + m;
 
     else if(vehicle == "metro" && !flag) 
-        return getdis(vehicle).get_distance();
+        return getdis(vehicle).get_val();
 
     else if(vehicle == "bus" && flag)
-        return getdis(vehicle).get_distance() * (4*b) + (15*b);
+        return getdis(vehicle).get_val() * (4*b) + (15*b);
 
     else if(vehicle == "bus" && !flag) 
-        return getdis(vehicle).get_distance() * (4*b) ;
+        return getdis(vehicle).get_val() * (4*b) ;
 
     if(vehicle == "taxi" && flag)
-        return getdis(vehicle).get_distance() * (2*t) + (5*t);
+        return getdis(vehicle).get_val() * (2*t) + (5*t);
 
     else if(vehicle == "taxi" && !flag) 
-        return getdis(vehicle).get_distance() * (2*t);
+        return getdis(vehicle).get_val() * (2*t);
+}
+
+Time station::get_time(int time , Time start_time)
+{
+    start_time + time;
+    return start_time;
 }

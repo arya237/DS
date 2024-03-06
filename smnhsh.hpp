@@ -20,6 +20,7 @@ struct node
     vector <string> directions;      //name of station
     vector <string> type_of_vehicle; //name of vehicle (bus / taxi_metro)
     vector <string> line_of_vehicle;
+    
 
 };
 
@@ -41,13 +42,13 @@ class smnhsh
     void read_distance_from_file (); //reading information from file
     void complete_graph_for_cost();  //make a graph filled with costs
     string search_in_map(int);  // it used for find name of a station with a number with search in map 
-    int minDistance(const node dist[], const bool sptSet[]) const; // it used for dijkestra 
-    void find_short_path(const int & start, const int & end , Time & start_time); // its dijkestra
-    void find_lowest_cost(const int & start, const int & end, Time & start_time); // its dijkestra
+    int  minvalue(const node dist[], const bool sptSet[]) const; // it used for dijkestra 
+    void find_short_path(const int & start, const int & end , Time & start_time); // it is dijkestra
+    void find_lowest_cost(const int & start, const int & end, Time & start_time); // it is dijkestra
     void show_shortest_path(const node & pathe, Time start_time); //print direction for shortest path and calculate arriving time 
     void show_cost(const vector <string> & , const vector <string> & , const vector <string> & , Time);//print directrion for lowest cost
-    void calculate_time_each_line(unordered_map<string, unordered_set<string>> , string , node array[], bool visible[], Time &start_time);
-    void find_lowest_time(const int &start, const int &end, Time &start_time);
+    void calculate_time_each_line(unordered_map<string, unordered_set<string>> , string , node array[], bool visible[], Time start_time);
+    void find_lowest_time(const int &start, const int &end, Time start_time);
     void print_lowest_time(const node &path, Time start_time); // print direction for lowest time
 
 };

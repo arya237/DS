@@ -3,9 +3,9 @@
 
 using namespace std;
 
-void vehicle:: setdis(int dis)
+void vehicle:: setval(int value)
 {
-    this -> distance = dis;
+    this -> value = value;
 }
 
 //--------------------------------------------------------
