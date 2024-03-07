@@ -15,9 +15,9 @@ Item {
         Image {
             id: guide
             source: "guide.png"
-            y: 485
-            width: 125
-            height: 300
+            x : 1200
+            width: 300
+            height: 125
         }
 
         Text {
@@ -25,7 +25,7 @@ Item {
             font.family: "Berlin Sans FB"
             font.pixelSize: 18
             text: "arriving time:"
-            x: 210
+            x: 120
             y: 640
         }
 
@@ -33,7 +33,7 @@ Item {
             id: arriving
             font.family: "Berlin Sans FB"
             font.pixelSize: 18
-            x: 315
+            x: 225
             y: 640
         }
 
@@ -42,12 +42,12 @@ Item {
             id: value
             font.family: "Berlin Sans FB"
             font.pixelSize: 18
-            x: 265
+            x: 175
             y: 605
         }
 
         Text {
-            x: 210
+            x: 120
             y: 605
             id: type
             color: "green"
@@ -146,7 +146,7 @@ Item {
             width: 100
             height: 20
             placeholderText: "start time (00:00)"
-            x: 205
+            x: 115
             y: 725
 
             onTextChanged: {
@@ -157,7 +157,7 @@ Item {
         DelayButton {
 
             id: pathBtn
-            x: 130
+            x: 40
             y: 500
             // checked: true
             text: qsTr("shortest\npath")
@@ -234,7 +234,7 @@ Item {
         DelayButton {
 
             id: costBtn
-            x: 130
+            x: 40
             y: 600
             // checked: true
             text: qsTr("lowest\ncost")
@@ -311,7 +311,7 @@ Item {
         DelayButton {
 
             id: timeBtn
-            x: 130
+            x: 40
             y: 700
             // checked: true
             text: qsTr("best\ntime")
@@ -386,7 +386,7 @@ Item {
         }
 
         RoundButton {
-            x: 230
+            x: 140
             y: 500
 
             width: 60
