@@ -12,37 +12,60 @@ Item {
 
     Rectangle {
 
+        Image {
+            id: guide
+            source: "guide.png"
+            y: 485
+            width: 125
+            height: 300
+        }
+
+        Text {
+            id: arrive
+            font.family: "Berlin Sans FB"
+            font.pixelSize: 18
+            text: "arriving time:"
+            x: 210
+            y: 640
+        }
+
+        Text {
+            id: arriving
+            font.family: "Berlin Sans FB"
+            font.pixelSize: 18
+            x: 315
+            y: 640
+        }
+
         Text {
 
             id: value
             font.family: "Berlin Sans FB"
             font.pixelSize: 18
-            x: 175
-            y: 620
+            x: 265
+            y: 605
         }
 
         Text {
-            x: 130
-            y: 615
+            x: 210
+            y: 605
             id: type
-            // anchors.centerIn: parent
-            text: "Cost:"
             color: "green"
-            font.pixelSize: 20
+            font.pixelSize: 18
+            font.family: "Berlin Sans FB"
         }
 
-        Button {
+        // Button {
 
-            Image {
-                id: name
-                source: "a.png"
-            }
-            width: 100
-            height: 50
-            x: 10
-            y: 800
-        }
-
+        //     Image {
+        //         id: name
+        //         source: "a.png"
+        //     }
+        //     width: 100
+        //     height: 50
+        //     x: 10
+        //     y: 800
+        // }
         id: root
         anchors.fill: parent
 
@@ -50,7 +73,7 @@ Item {
 
         Timer {
             id: dialogTimer
-            interval: 2500 // 5 seconds
+            interval: 2500
             repeat: false
             onTriggered: {
                 error_time.close()
@@ -67,6 +90,14 @@ Item {
                 if (visible) {
                     dialogTimer.start()
                 }
+                pathBtn.checked = false
+                pathBtn.progress = 0.01
+
+                costBtn.checked = false
+                costBtn.progress = 0.01
+
+                timeBtn.checked = false
+                timeBtn.progress = 0.01
             }
         }
 
@@ -78,6 +109,14 @@ Item {
                 if (visible) {
                     dialogTimer.start()
                 }
+                pathBtn.checked = false
+                pathBtn.progress = 0.01
+
+                costBtn.checked = false
+                costBtn.progress = 0.01
+
+                timeBtn.checked = false
+                timeBtn.progress = 0.01
             }
         }
 
@@ -89,6 +128,14 @@ Item {
                 if (visible) {
                     dialogTimer.start()
                 }
+                pathBtn.checked = false
+                pathBtn.progress = 0.01
+
+                costBtn.checked = false
+                costBtn.progress = 0.01
+
+                timeBtn.checked = false
+                timeBtn.progress = 0.01
             }
         }
 
@@ -99,7 +146,7 @@ Item {
             width: 100
             height: 20
             placeholderText: "start time (00:00)"
-            x: 125
+            x: 205
             y: 725
 
             onTextChanged: {
@@ -110,7 +157,7 @@ Item {
         DelayButton {
 
             id: pathBtn
-            x: 50
+            x: 130
             y: 500
             // checked: true
             text: qsTr("shortest\npath")
@@ -177,7 +224,9 @@ Item {
                 else if (pathBtn.checked) {
                     console.log(src)
                     console.log(destiny)
-                    back.get_input_for_path(src, destiny, start_time, value)
+                    type.text = "distance:"
+                    back.get_input_for_path(src, destiny, start_time,
+                                            value, arriving)
                 }
             }
         }
@@ -185,7 +234,7 @@ Item {
         DelayButton {
 
             id: costBtn
-            x: 50
+            x: 130
             y: 600
             // checked: true
             text: qsTr("lowest\ncost")
@@ -252,7 +301,9 @@ Item {
                 else if (costBtn.checked) {
                     console.log(src)
                     console.log(destiny)
-                    back.get_input_for_cost(src, destiny, start_time, value)
+                    type.text = "cost:"
+                    back.get_input_for_cost(src, destiny, start_time,
+                                            value, arriving)
                 }
             }
         }
@@ -260,7 +311,7 @@ Item {
         DelayButton {
 
             id: timeBtn
-            x: 50
+            x: 130
             y: 700
             // checked: true
             text: qsTr("best\ntime")
@@ -327,13 +378,15 @@ Item {
                 else if (timeBtn.checked) {
                     console.log(src)
                     console.log(destiny)
-                    back.get_input_for_time(src, destiny, start_time, value)
+                    type.text = "time:"
+                    back.get_input_for_time(src, destiny, start_time,
+                                            value, arriving)
                 }
             }
         }
 
         RoundButton {
-            x: 150
+            x: 230
             y: 500
 
             width: 60
@@ -352,6 +405,9 @@ Item {
                 timeBtn.checked = false
                 src = "null"
                 destiny = "null"
+                type.text = ""
+                value.text = ""
+                value.x = 265
             }
         }
 

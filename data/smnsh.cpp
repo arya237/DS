@@ -281,7 +281,7 @@ int Smnsh::minDistance(const node dist[], const bool sptSet[]) const //change na
 
 //--------------------------------------------------------
 
-void Smnsh::find_short_path(const int &start, const int &end, Timee &start_time, QObject * value)
+void Smnsh::find_short_path(const int &start, const int &end, Timee &start_time, QObject * value, QObject * arriving)
 {
     node shortest[59];
     bool sptSet[59];
@@ -319,31 +319,33 @@ void Smnsh::find_short_path(const int &start, const int &end, Timee &start_time,
 
     int j = 0;
 
+    value->setProperty("x", 275);
     value->setProperty("text", shortest[end].value);
 
-    for(int i = 1; i < shortest[end].directions.size(); i++)
-    {
-        cout << shortest[end].line_of_vehicle[i - 1] << endl;
-        cout << shortest[end].directions[i]<<endl;
 
-        if(shortest[end].line_of_vehicle[i - 1][0] == 'B')
-        {
-            store_ui[shortest[end].directions[i]]->setProperty("color", "#005F73");
-        }
+    // for(int i = 1; i < shortest[end].directions.size(); i++)
+    // {
+    //     cout << shortest[end].line_of_vehicle[i - 1] << endl;
+    //     cout << shortest[end].directions[i]<<endl;
 
-        else if(shortest[end].line_of_vehicle[i - 1][0] == 'M')
-        {
-            store_ui[shortest[end].directions[i]]->setProperty("color", "#9e0059");
-        }
-    }
+    //     if(shortest[end].line_of_vehicle[i - 1][0] == 'B')
+    //     {
+    //         store_ui[shortest[end].directions[i]]->setProperty("color", "#005F73");
+    //     }
+
+    //     else if(shortest[end].line_of_vehicle[i - 1][0] == 'M')
+    //     {
+    //         store_ui[shortest[end].directions[i]]->setProperty("color", "#9e0059");
+    //     }
+    // }
 
     // cout << "Bimeh: " << store_ui["Bimeh"]->objectName().toStdString() << endl;
-    // show_shortest_path(shortest[end], start_time);
+    show_shortest_path(shortest[end], start_time, arriving);
 }
 
 //--------------------------------------------------------
 
-void Smnsh::find_lowest_cost(const int &start, const int &end, Timee &start_time, QObject * value)
+void Smnsh::find_lowest_cost(const int &start, const int &end, Timee &start_time, QObject * value, QObject * arriving)
 {
     node shortest[59];
     bool sptSet[59];
@@ -377,14 +379,15 @@ void Smnsh::find_lowest_cost(const int &start, const int &end, Timee &start_time
             }
         }
     }
+
     value->setProperty("text", shortest[end].value);
-    show_cost(shortest[end].line_of_vehicle, shortest[end].directions, shortest[end].type_of_vehicle ,start_time, value);
+    show_cost(shortest[end].line_of_vehicle, shortest[end].directions, shortest[end].type_of_vehicle ,start_time, arriving);
 
 }
 
 //--------------------------------------------------------
 
-void Smnsh::show_shortest_path(const node &path, Timee start_time)
+void Smnsh::show_shortest_path(const node &path, Timee start_time, QObject * arriving)
 {
 
     cout << path.value << '\n';
@@ -404,11 +407,13 @@ void Smnsh::show_shortest_path(const node &path, Timee start_time)
         {
             int trafic_time = start_time.get_hour() < 8 && start_time.get_hour() >= 6 ? 8 : 4;
             time += pathes[names_of_station[path.directions[j]]][names_of_station[path.directions[i]]].getdis().get_distance() * trafic_time;
+            store_ui[path.directions[i]]->setProperty("color", "#005F73");
         }
 
         else
         {
             time += pathes[names_of_station[path.directions[j]]][names_of_station[path.directions[i]]].getdis().get_distance();
+            store_ui[path.directions[i]]->setProperty("color", "#9e0059");
         }
 
         if (path.line_of_vehicle[j + 1] != path.line_of_vehicle[j])
@@ -431,12 +436,13 @@ void Smnsh::show_shortest_path(const node &path, Timee start_time)
         j++;
     }
 
-    start_time.print();
+    arriving->setProperty("text", QString::fromStdString(start_time.to_str()));
+    // start_time.print();
 }
 
 //--------------------------------------------------------
 
-void Smnsh::show_cost(const vector<string> &line, const vector<string> &station, const vector<string> & vehicle, Timee start_time, QObject * value)
+void Smnsh::show_cost(const vector<string> &line, const vector<string> &station, const vector<string> & vehicle, Timee start_time, QObject * arriving)
 {
     int j = 0;
 
@@ -498,9 +504,10 @@ void Smnsh::show_cost(const vector<string> &line, const vector<string> &station,
             time += trafic_time;
         }
 
-        cout << ": " << vehicle[j] << " with " << line[j] << endl;
 
         start_time + time;
+
+        arriving->setProperty("text", QString::fromStdString(start_time.to_str()));
 
         j++;
     }
@@ -510,7 +517,7 @@ void Smnsh::show_cost(const vector<string> &line, const vector<string> &station,
 
 //--------------------------------------------------------
 
-void Smnsh::find_lowest_time(const int &start, const int &end, Timee &start_time, QObject * value)
+void Smnsh::find_lowest_time(const int &start, const int &end, Timee &start_time, QObject * value, QObject * arriving)
 {
 
     node shortest[59];//shorthestu.save
@@ -521,26 +528,28 @@ void Smnsh::find_lowest_time(const int &start, const int &end, Timee &start_time
 
     shortest[start].value = 0;
     shortest[start].directions.push_back(search_in_map(start));
+    shortest[start].time = start_time;
 
     for (int count = 0; count < 59; count++)
     {
         int u = minDistance(shortest, sptSet);
 
-        calculate_time_each_line(station_vechicle[search_in_map(u)], search_in_map(u), shortest, sptSet , start_time);
+        calculate_time_each_line(station_vechicle[search_in_map(u)], search_in_map(u), shortest, sptSet , shortest[u].time);
 
         sptSet[u] = true;
     }
 
-    print_lowest_time(shortest[end], start_time, value);
+    print_lowest_time(shortest[end], start_time, value, arriving);
 
 }
 
 //--------------------------------------------------------
 
-void Smnsh::print_lowest_time(const node &time, Timee start_time, QObject * value)
+void Smnsh::print_lowest_time(const node &time, Timee start_time, QObject * value, QObject * arriving)
 {
     value->setProperty("text", time.value);
     start_time + time.value;
+    arriving->setProperty("text", QString::fromStdString(start_time.to_str()));
 
 
     if(time.type_of_vehicle[0] == "metro")
@@ -628,7 +637,10 @@ void Smnsh::calculate_time_each_line(unordered_map<string, unordered_set<string>
 
                 }
 
-                resault.value += pathes[names_of_station[*i]][names_of_station[*(i + 1)]].get_time(vehicle, flag, start_time);
+                Timee temp = resault.time;
+                temp + resault.value;
+                resault.value += pathes[names_of_station[*i]][names_of_station[*(i + 1)]].get_time(vehicle, flag, temp);
+                resault.time + resault.value;
                 resault.directions.push_back(*(i + 1));
                 resault.line_of_vehicle.push_back(line.first);
                 resault.type_of_vehicle.push_back(vehicle);
@@ -664,7 +676,10 @@ void Smnsh::calculate_time_each_line(unordered_map<string, unordered_set<string>
 
                     }
 
-                    resault.value += pathes[names_of_station[*i]][names_of_station[*(i - 1)]].get_time(vehicle, flag, start_time);
+                    Timee temp = resault.time;
+                    temp + resault.value;
+                    resault.value += pathes[names_of_station[*i]][names_of_station[*(i - 1)]].get_time(vehicle, flag, temp);
+                    resault.time + resault.value;
                     resault.directions.push_back(*(i - 1));
                     resault.line_of_vehicle.push_back(line.first);
                     resault.type_of_vehicle.push_back(vehicle);
@@ -688,22 +703,22 @@ void Smnsh::add_objects(QString name, QObject* mynode)
     // store_ui[name.toStdString()]->setProperty("color", "blue");
 }
 
-void Smnsh::get_input_for_path(QString src, QString dest, QString start_time, QObject * value)
+void Smnsh::get_input_for_path(QString src, QString dest, QString start_time, QObject * value, QObject * arriving)
 {
     Timee time(start_time.toStdString());
-    this->find_short_path(names_of_station[src.toStdString()], names_of_station[dest.toStdString()], time, value);
+    this->find_short_path(names_of_station[src.toStdString()], names_of_station[dest.toStdString()], time, value, arriving);
 }
 
-void Smnsh::get_input_for_cost(QString src, QString dest, QString start_time, QObject * value)
+void Smnsh::get_input_for_cost(QString src, QString dest, QString start_time, QObject * value, QObject * arriving)
 {
     Timee time(start_time.toStdString());
-    this->find_lowest_cost(names_of_station[src.toStdString()], names_of_station[dest.toStdString()], time, value);
+    this->find_lowest_cost(names_of_station[src.toStdString()], names_of_station[dest.toStdString()], time, value, arriving);
 }
 
-void Smnsh::get_input_for_time(QString src, QString dest, QString start_time, QObject * value)
+void Smnsh::get_input_for_time(QString src, QString dest, QString start_time, QObject * value, QObject * arriving)
 {
     Timee time(start_time.toStdString());
-    this->find_lowest_time(names_of_station[src.toStdString()], names_of_station[dest.toStdString()], time, value);
+    this->find_lowest_time(names_of_station[src.toStdString()], names_of_station[dest.toStdString()], time, value, arriving);
 }
 
 void Smnsh::reset()

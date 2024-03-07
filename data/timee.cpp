@@ -1,6 +1,7 @@
 #include "timee.h"
 
 #include <iostream>
+#include <sstream>
 
 using namespace std;
 
@@ -33,3 +34,16 @@ void Timee::print()
 {
     cout << hour << ":" << min << endl;
 }
+
+string Timee::to_str()
+{
+    stringstream s;
+    s << hour << ':' << min;
+
+    string t;
+    s >> t;
+
+    return t;
+}
+
+

@@ -22,6 +22,7 @@ struct node
     vector <string> directions;      //name of station
     vector <string> type_of_vehicle; //name of vehicle (bus / taxi_metro)
     vector <string> line_of_vehicle;
+    Timee time;
 
 };
 
@@ -39,9 +40,9 @@ private:
 
 public slots:
     void add_objects(QString name, QObject* mynode);
-    void get_input_for_path(QString src, QString dest, QString start_time, QObject * value);
-    void get_input_for_cost(QString src, QString dest, QString start_time, QObject * value);
-    void get_input_for_time(QString src, QString dest, QString start_time, QObject * value);
+    void get_input_for_path(QString src, QString dest, QString start_time, QObject * value, QObject * arriving);
+    void get_input_for_cost(QString src, QString dest, QString start_time, QObject * value, QObject * arriving);
+    void get_input_for_time(QString src, QString dest, QString start_time, QObject * value, QObject * arriving);
     void reset();
 
 public:
@@ -53,13 +54,13 @@ public:
     void complete_graph_for_cost();  //make a graph filled with costs
     string search_in_map(int);  // it used for find name of a station with a number with search in map
     int minDistance(const node dist[], const bool sptSet[]) const; // it used for dijkestra
-    void find_short_path(const int & start, const int & end , Timee & start_time, QObject * value); // its dijkestra
-    void find_lowest_cost(const int & start, const int & end, Timee & start_time, QObject * value); // its dijkestra
-    void show_shortest_path(const node & pathe, Timee start_time); //print direction for shortest path and calculate arriving time
-    void show_cost(const vector <string> & , const vector <string> & , const vector <string> & , Timee, QObject * value);//print directrion for lowest cost
+    void find_short_path(const int & start, const int & end , Timee & start_time, QObject * value, QObject * arriving); // its dijkestra
+    void find_lowest_cost(const int & start, const int & end, Timee & start_time, QObject * value, QObject * arriving); // its dijkestra
+    void show_shortest_path(const node & pathe, Timee start_time, QObject * arriving); //print direction for shortest path and calculate arriving time
+    void show_cost(const vector <string> & , const vector <string> & , const vector <string> & , Timee, QObject * arriving);//print directrion for lowest cost
     void calculate_time_each_line(unordered_map<string, unordered_set<string>> , string , node array[], bool visible[], Timee &start_time);
-    void find_lowest_time(const int &start, const int &end, Timee &start_time, QObject * value);
-    void print_lowest_time(const node &path, Timee start_time, QObject * value); // print direction for lowest time
+    void find_lowest_time(const int &start, const int &end, Timee &start_time, QObject * value, QObject * arriving);
+    void print_lowest_time(const node &path, Timee start_time, QObject * value, QObject * arriving); // print direction for lowest time
 
 signals:
 };

@@ -13,6 +13,8 @@ public:
     Timee(const std::string & start_time);
     void operator+(int minute); // operator overloading
     void print();
+    Timee(){}
+    std::string to_str();
     int get_hour(){return hour;}
     int get_minute(){return min;}
 };
