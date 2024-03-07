@@ -319,7 +319,7 @@ void Smnsh::find_short_path(const int &start, const int &end, Timee &start_time,
 
     int j = 0;
 
-    value->setProperty("x", 275);
+    value->setProperty("x", 205);
     value->setProperty("text", shortest[end].value);
 
 
@@ -390,19 +390,19 @@ void Smnsh::find_lowest_cost(const int &start, const int &end, Timee &start_time
 void Smnsh::show_shortest_path(const node &path, Timee start_time, QObject * arriving)
 {
 
-    cout << path.value << '\n';
+    // cout << path.value << '\n';
     int size = path.directions.size();
 
     int j = 0;
 
-    cout << " ** " << path.directions[0];
+    // cout << " ** " << path.directions[0];
 
     for (int i = 1; i < size; i++)
     {
 
         int time = 0;
 
-        cout << " -> " << path.directions[i];
+        // cout << " -> " << path.directions[i];
         if (path.line_of_vehicle[j][0] == 'B')
         {
             int trafic_time = start_time.get_hour() < 8 && start_time.get_hour() >= 6 ? 8 : 4;
@@ -429,7 +429,7 @@ void Smnsh::show_shortest_path(const node &path, Timee start_time, QObject * arr
                 time += trafic_time;
             }
 
-            cout << ": " << path.line_of_vehicle[j] << endl;
+            // cout << ": " << path.line_of_vehicle[j] << endl;
         }
 
         start_time + time;

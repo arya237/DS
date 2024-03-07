@@ -15,7 +15,7 @@ Item {
         Image {
             id: guide
             source: "guide.png"
-            x : 1200
+            x: 1200
             width: 300
             height: 125
         }
@@ -24,7 +24,7 @@ Item {
             id: arrive
             font.family: "Berlin Sans FB"
             font.pixelSize: 18
-            text: "arriving time:"
+            color: "#F9A825"
             x: 120
             y: 640
         }
@@ -42,7 +42,7 @@ Item {
             id: value
             font.family: "Berlin Sans FB"
             font.pixelSize: 18
-            x: 175
+            x: 160
             y: 605
         }
 
@@ -225,6 +225,7 @@ Item {
                     console.log(src)
                     console.log(destiny)
                     type.text = "distance:"
+                    arrive.text = "arriving time:"
                     back.get_input_for_path(src, destiny, start_time,
                                             value, arriving)
                 }
@@ -302,6 +303,7 @@ Item {
                     console.log(src)
                     console.log(destiny)
                     type.text = "cost:"
+                    arrive.text = "arriving time:"
                     back.get_input_for_cost(src, destiny, start_time,
                                             value, arriving)
                 }
@@ -379,6 +381,7 @@ Item {
                     console.log(src)
                     console.log(destiny)
                     type.text = "time:"
+                    arrive.text = "arriving time:"
                     back.get_input_for_time(src, destiny, start_time,
                                             value, arriving)
                 }
@@ -403,11 +406,16 @@ Item {
                 pathBtn.checked = false
                 costBtn.checked = false
                 timeBtn.checked = false
+                pathBtn.progress = 0.01
+                costBtn.progress = 0.01
+                timeBtn.progress = 0.01
                 src = "null"
                 destiny = "null"
                 type.text = ""
                 value.text = ""
-                value.x = 265
+                arrive.text = ""
+                arriving.text = ""
+                value.x = 165
             }
         }
 
