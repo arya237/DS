@@ -38,49 +38,49 @@ bool Smnsh::is_valid(const string &start, const string &end) const
 
 //--------------------------------------------------------
 
-void Smnsh::run()
-{
-    get_input();
-}
+// void Smnsh::run()
+// {
+//     get_input();
+// }
 
 //--------------------------------------------------------
 
-void Smnsh::get_input()
-{
+// void Smnsh::get_input()
+// {
 
-    int num_order;
-    cin >> num_order;
-    cin.ignore();
+//     int num_order;
+//     cin >> num_order;
+//     cin.ignore();
 
-    while (num_order--)
-    {
-        string start, end, time;
+//     while (num_order--)
+//     {
+//         string start, end, time;
 
-        getline(cin, time);
-        getline(cin, start);
-        getline(cin, end);
+//         getline(cin, time);
+//         getline(cin, start);
+//         getline(cin, end);
 
-        Timee start_time(time);
+//         Timee start_time(time);
 
-        while (!is_valid(start, end))
-        {
-            getline(cin, start);
-            getline(cin, end);
-        }
+//         while (!is_valid(start, end))
+//         {
+//             getline(cin, start);
+//             getline(cin, end);
+//         }
 
 
 
-        cout << "\n# Shortest Path #" << endl;
+//         cout << "\n# Shortest Path #" << endl;
 
-        find_short_path(names_of_station[start], names_of_station[end], start_time);
+//         find_short_path(names_of_station[start], names_of_station[end], start_time);
 
-        cout << "\n# Lowest Cost #" << endl;
-        find_lowest_cost(names_of_station[start], names_of_station[end], start_time);
+//         cout << "\n# Lowest Cost #" << endl;
+//         find_lowest_cost(names_of_station[start], names_of_station[end], start_time);
 
-        cout << "\n# Lowest Time #\n";
-        find_lowest_time(names_of_station[start], names_of_station[end], start_time);
-    }
-}
+//         cout << "\n# Lowest Time #\n";
+//         find_lowest_time(names_of_station[start], names_of_station[end], start_time);
+//     }
+// }
 
 //--------------------------------------------------------
 
@@ -281,7 +281,7 @@ int Smnsh::minDistance(const node dist[], const bool sptSet[]) const //change na
 
 //--------------------------------------------------------
 
-void Smnsh::find_short_path(const int &start, const int &end, Timee &start_time)
+void Smnsh::find_short_path(const int &start, const int &end, Timee &start_time, QObject * value)
 {
     node shortest[59];
     bool sptSet[59];
@@ -319,6 +319,8 @@ void Smnsh::find_short_path(const int &start, const int &end, Timee &start_time)
 
     int j = 0;
 
+    value->setProperty("text", shortest[end].value);
+
     for(int i = 1; i < shortest[end].directions.size(); i++)
     {
         cout << shortest[end].line_of_vehicle[i - 1] << endl;
@@ -341,7 +343,7 @@ void Smnsh::find_short_path(const int &start, const int &end, Timee &start_time)
 
 //--------------------------------------------------------
 
-void Smnsh::find_lowest_cost(const int &start, const int &end, Timee &start_time)
+void Smnsh::find_lowest_cost(const int &start, const int &end, Timee &start_time, QObject * value)
 {
     node shortest[59];
     bool sptSet[59];
@@ -375,8 +377,8 @@ void Smnsh::find_lowest_cost(const int &start, const int &end, Timee &start_time
             }
         }
     }
-    // cout << shortest[end].value << endl;
-    show_cost(shortest[end].line_of_vehicle, shortest[end].directions, shortest[end].type_of_vehicle ,start_time);
+    value->setProperty("text", shortest[end].value);
+    show_cost(shortest[end].line_of_vehicle, shortest[end].directions, shortest[end].type_of_vehicle ,start_time, value);
 
 }
 
@@ -434,7 +436,7 @@ void Smnsh::show_shortest_path(const node &path, Timee start_time)
 
 //--------------------------------------------------------
 
-void Smnsh::show_cost(const vector<string> &line, const vector<string> &station, const vector<string> & vehicle, Timee start_time)
+void Smnsh::show_cost(const vector<string> &line, const vector<string> &station, const vector<string> & vehicle, Timee start_time, QObject * value)
 {
     int j = 0;
 
@@ -508,7 +510,7 @@ void Smnsh::show_cost(const vector<string> &line, const vector<string> &station,
 
 //--------------------------------------------------------
 
-void Smnsh::find_lowest_time(const int &start, const int &end, Timee &start_time)
+void Smnsh::find_lowest_time(const int &start, const int &end, Timee &start_time, QObject * value)
 {
 
     node shortest[59];//shorthestu.save
@@ -529,17 +531,17 @@ void Smnsh::find_lowest_time(const int &start, const int &end, Timee &start_time
         sptSet[u] = true;
     }
 
-    print_lowest_time(shortest[end], start_time);
+    print_lowest_time(shortest[end], start_time, value);
 
 }
 
 //--------------------------------------------------------
 
-void Smnsh::print_lowest_time(const node &time, Timee start_time)
+void Smnsh::print_lowest_time(const node &time, Timee start_time, QObject * value)
 {
-    cout << time.value << endl;
+    value->setProperty("text", time.value);
     start_time + time.value;
-    cout << time.directions.size() << endl;
+
 
     if(time.type_of_vehicle[0] == "metro")
     {
@@ -686,22 +688,22 @@ void Smnsh::add_objects(QString name, QObject* mynode)
     // store_ui[name.toStdString()]->setProperty("color", "blue");
 }
 
-void Smnsh::get_input_for_path(QString src, QString dest)
+void Smnsh::get_input_for_path(QString src, QString dest, QString start_time, QObject * value)
 {
-    Timee time("10:00");
-    this->find_short_path(names_of_station[src.toStdString()], names_of_station[dest.toStdString()], time);
+    Timee time(start_time.toStdString());
+    this->find_short_path(names_of_station[src.toStdString()], names_of_station[dest.toStdString()], time, value);
 }
 
-void Smnsh::get_input_for_cost(QString src, QString dest)
+void Smnsh::get_input_for_cost(QString src, QString dest, QString start_time, QObject * value)
 {
-    Timee time("10:00");
-    this->find_lowest_cost(names_of_station[src.toStdString()], names_of_station[dest.toStdString()], time);
+    Timee time(start_time.toStdString());
+    this->find_lowest_cost(names_of_station[src.toStdString()], names_of_station[dest.toStdString()], time, value);
 }
 
-void Smnsh::get_input_for_time(QString src, QString dest)
+void Smnsh::get_input_for_time(QString src, QString dest, QString start_time, QObject * value)
 {
-    Timee time("10:00");
-    this->find_lowest_time(names_of_station[src.toStdString()], names_of_station[dest.toStdString()], time);
+    Timee time(start_time.toStdString());
+    this->find_lowest_time(names_of_station[src.toStdString()], names_of_station[dest.toStdString()], time, value);
 }
 
 void Smnsh::reset()

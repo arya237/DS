@@ -1,14 +1,35 @@
 import QtQuick
 import QtQuick.Controls
 import QtQuick.Shapes
+import QtQuick.Dialogs
 
 // import QtQuick.Controls.Material
 Item {
 
     property string src: "null"
     property string destiny: "null"
+    property string start_time: "null"
 
     Rectangle {
+
+        Text {
+
+            id: value
+            font.family: "Berlin Sans FB"
+            font.pixelSize: 18
+            x: 175
+            y: 620
+        }
+
+        Text {
+            x: 130
+            y: 615
+            id: type
+            // anchors.centerIn: parent
+            text: "Cost:"
+            color: "green"
+            font.pixelSize: 20
+        }
 
         Button {
 
@@ -26,6 +47,65 @@ Item {
         anchors.fill: parent
 
         color: "#FFF8E5"
+
+        Timer {
+            id: dialogTimer
+            interval: 2500 // 5 seconds
+            repeat: false
+            onTriggered: {
+                error_time.close()
+                error_src.close()
+                error_destination.close()
+            }
+        }
+
+        MessageDialog {
+            id: error_time
+            title: "start time error"
+            text: "please enter your start time"
+            onVisibleChanged: {
+                if (visible) {
+                    dialogTimer.start()
+                }
+            }
+        }
+
+        MessageDialog {
+            id: error_src
+            title: "choose location"
+            text: "please choose your source"
+            onVisibleChanged: {
+                if (visible) {
+                    dialogTimer.start()
+                }
+            }
+        }
+
+        MessageDialog {
+            id: error_destination
+            title: "choose location"
+            text: "please choose your destination"
+            onVisibleChanged: {
+                if (visible) {
+                    dialogTimer.start()
+                }
+            }
+        }
+
+        TextField {
+
+            id: time_input
+
+            width: 100
+            height: 20
+            placeholderText: "start time (00:00)"
+            x: 125
+            y: 725
+
+            onTextChanged: {
+                start_time = time_input.text
+            }
+        }
 
         DelayButton {
 
@@ -88,10 +168,16 @@ Item {
             }
 
             onClicked: {
-                if (pathBtn.checked) {
+                if (start_time === "null")
+                    error_time.open()
+                else if (src === "null")
+                    error_src.open()
+                else if (destiny === "null")
+                    error_destination.open()
+                else if (pathBtn.checked) {
                     console.log(src)
                     console.log(destiny)
-                    back.get_input_for_path(src, destiny)
+                    back.get_input_for_path(src, destiny, start_time, value)
                 }
             }
         }
@@ -157,10 +243,16 @@ Item {
             }
 
             onClicked: {
-                if (costBtn.checked) {
+                if (start_time === "null")
+                    error_time.open()
+                else if (src === "null")
+                    error_src.open()
+                else if (destiny === "null")
+                    error_destination.open()
+                else if (costBtn.checked) {
                     console.log(src)
                     console.log(destiny)
-                    back.get_input_for_cost(src, destiny)
+                    back.get_input_for_cost(src, destiny, start_time, value)
                 }
             }
         }
@@ -226,10 +318,16 @@ Item {
             }
 
             onClicked: {
-                if (timeBtn.checked) {
+                if (start_time === "null")
+                    error_time.open()
+                else if (src === "null")
+                    error_src.open()
+                else if (destiny === "null")
+                    error_destination.open()
+                else if (timeBtn.checked) {
                     console.log(src)
                     console.log(destiny)
-                    back.get_input_for_time(src, destiny)
+                    back.get_input_for_time(src, destiny, start_time, value)
                 }
             }
         }
