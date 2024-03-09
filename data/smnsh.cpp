@@ -323,23 +323,6 @@ void Smnsh::find_short_path(const int &start, const int &end, Timee &start_time,
     value->setProperty("text", shortest[end].value);
 
 
-    // for(int i = 1; i < shortest[end].directions.size(); i++)
-    // {
-    //     cout << shortest[end].line_of_vehicle[i - 1] << endl;
-    //     cout << shortest[end].directions[i]<<endl;
-
-    //     if(shortest[end].line_of_vehicle[i - 1][0] == 'B')
-    //     {
-    //         store_ui[shortest[end].directions[i]]->setProperty("color", "#005F73");
-    //     }
-
-    //     else if(shortest[end].line_of_vehicle[i - 1][0] == 'M')
-    //     {
-    //         store_ui[shortest[end].directions[i]]->setProperty("color", "#9e0059");
-    //     }
-    // }
-
-    // cout << "Bimeh: " << store_ui["Bimeh"]->objectName().toStdString() << endl;
     show_shortest_path(shortest[end], start_time, arriving);
 }
 
@@ -471,6 +454,8 @@ void Smnsh::show_cost(const vector<string> &line, const vector<string> &station,
                 }
             }
 
+            start_time + time;
+            time = 0;
 
                 if( vehicle[j] == "metro")
                 {
@@ -510,6 +495,7 @@ void Smnsh::show_cost(const vector<string> &line, const vector<string> &station,
         arriving->setProperty("text", QString::fromStdString(start_time.to_str()));
 
         j++;
+        time = 0;
     }
 
     start_time.print();
@@ -554,7 +540,7 @@ void Smnsh::print_lowest_time(const node &time, Timee start_time, QObject * valu
 
     if(time.type_of_vehicle[0] == "metro")
     {
-        cout << 1 << endl;
+        // cout << 1 << endl;
         // cout << time.directions[i] << endl;
         store_ui[time.directions[0]]->setProperty("color", "#bf0603");
         // cout << "1_1" << endl;
@@ -562,13 +548,13 @@ void Smnsh::print_lowest_time(const node &time, Timee start_time, QObject * valu
 
     else if(time.type_of_vehicle[0] == "bus")
     {
-        cout << 2 << endl;
+        // cout << 2 << endl;
         store_ui[time.directions[0]]->setProperty("color", "#005F73");
     }
 
     else if(time.type_of_vehicle[0] == "taxi")
     {
-        cout << 3 << endl;
+        // cout << 3 << endl;
         store_ui[time.directions[0]]->setProperty("color", "#FFB300");
     }
 
@@ -579,7 +565,7 @@ void Smnsh::print_lowest_time(const node &time, Timee start_time, QObject * valu
 
         if(time.type_of_vehicle[i - 1] == "metro")
         {
-            cout << 1 << endl;
+            // cout << 1 << endl;
             // cout << time.directions[i] << endl;
             store_ui[time.directions[i]]->setProperty("color", "#bf0603");
             // cout << "1_1" << endl;
@@ -587,17 +573,17 @@ void Smnsh::print_lowest_time(const node &time, Timee start_time, QObject * valu
 
         else if(time.type_of_vehicle[i - 1] == "bus")
         {
-            cout << 2 << endl;
+            // cout << 2 << endl;
             store_ui[time.directions[i]]->setProperty("color", "#0a9396");
         }
 
         else if(time.type_of_vehicle[i - 1] == "taxi")
         {
-            cout << 3 << endl;
+            // cout << 3 << endl;
             store_ui[time.directions[i]]->setProperty("color", "#FFB300");
         }
 
-        cout << "salam";
+        // cout << "salam";
 
     }
 
@@ -637,10 +623,10 @@ void Smnsh::calculate_time_each_line(unordered_map<string, unordered_set<string>
 
                 }
 
-                Timee temp = resault.time;
+                Timee temp = start_time;
                 temp + resault.value;
                 resault.value += pathes[names_of_station[*i]][names_of_station[*(i + 1)]].get_time(vehicle, flag, temp);
-                resault.time + resault.value;
+                // resault.time + resault.value;
                 resault.directions.push_back(*(i + 1));
                 resault.line_of_vehicle.push_back(line.first);
                 resault.type_of_vehicle.push_back(vehicle);
@@ -676,10 +662,10 @@ void Smnsh::calculate_time_each_line(unordered_map<string, unordered_set<string>
 
                     }
 
-                    Timee temp = resault.time;
+                    Timee temp = start_time;
                     temp + resault.value;
                     resault.value += pathes[names_of_station[*i]][names_of_station[*(i - 1)]].get_time(vehicle, flag, temp);
-                    resault.time + resault.value;
+                    // resault.time + resault.value;
                     resault.directions.push_back(*(i - 1));
                     resault.line_of_vehicle.push_back(line.first);
                     resault.type_of_vehicle.push_back(vehicle);

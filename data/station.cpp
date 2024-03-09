@@ -69,9 +69,9 @@ vehicle station::getdis(const string & type_vehicle)
 
 int station::get_time(string vehicle, bool flag , Timee &start_time)
 {
-    int b = start_time.get_hour() >= 6 && start_time.get_hour() <= 8 ? 2 : 1;
-    int m = start_time.get_hour() >= 6 && start_time.get_hour() <= 8 ? 24 : 8;
-    int t = start_time.get_hour() >= 18 && start_time.get_hour() <= 20 ? 2 : 1;
+    int b = start_time.get_hour() >= 6 && start_time.get_hour() < 8 ? 2 : 1;
+    int m = start_time.get_hour() >= 6 && start_time.get_hour() < 8 ? 24 : 8;
+    int t = start_time.get_hour() >= 18 && start_time.get_hour() < 20 ? 2 : 1;
 
     if(vehicle == "metro" && flag)
         return getdis(vehicle).get_distance() + m;

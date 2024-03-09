@@ -2520,7 +2520,7 @@ Item {
             Text {
                 anchors.right: merzayeshirazi.left
                 y: -5
-                text: qsTr("Meydan-e Jahad")
+                text: qsTr("Merza-ye Shirazi")
                 font.pixelSize: 10
             }
 
